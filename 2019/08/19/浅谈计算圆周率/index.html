@@ -299,6 +299,21 @@
     
     
     
+      <div>
+        
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Autor de la entrada:  </strong>Chen Qingyu</li>
+  <li class="post-copyright-link">
+    <strong>Enlace a la entrada: </strong>
+    <a href="https://chen-qingyu.github.io/2019/08/19/浅谈计算圆周率/" title="浅谈计算圆周率">https://chen-qingyu.github.io/2019/08/19/浅谈计算圆周率/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright:  </strong>Todos los artículos de este blog están licenciados bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> a no ser que se especifique una licencia adicional.</li>
+</ul>
+
+      </div>
 
     <footer class="post-footer">
     </footer>
@@ -313,6 +328,9 @@
 
           </div>
           
+    
+    <div class="comments" id="gitalk-container"></div>
+  
 
 
         </div>
@@ -356,6 +374,11 @@
       </div>
     
   </nav>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
 
@@ -395,9 +418,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Chen Qingyu</span>
 </div>
-  <div class="powered-by">Creado mediante <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Tema – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.3.0</div>
 
         
 
@@ -529,6 +549,26 @@
 
 
 
+
+    
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id: md5(location.pathname),
+      language: 'zh-CN',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
 
 
 </body>
