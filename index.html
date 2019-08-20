@@ -190,6 +190,253 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/21/浅谈计算自然常数/" class="post-title-link" itemprop="url">浅谈计算自然常数</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-21 09:00:00" itemprop="dateCreated datePublished" datetime="2019-02-21T09:00:00+08:00">2019-02-21</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 20:45:36" itemprop="dateModified" datetime="2019-08-20T20:45:36+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>利用程序计算自然常数有很多方法，这里我们举三个小例子。</p>
+<p>还是用之前计算圆周率的那个框架，Let’s go!</p>
+<hr>
+<h3 id="1-数学方法"><a href="#1-数学方法" class="headerlink" title="1. 数学方法"></a>1. 数学方法</h3><p>这里我们用 e 的定义直接算：</p>
+<script type="math/tex; mode=display">
+e=\lim_{i\rightarrow \infty }(1+\frac{1}{i})^i</script><p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, <span class="built_in">pow</span>(<span class="number">1</span> + <span class="number">1.0</span> / I, I));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果（I = 25）：</p>
+<p><img src="/2019/02/21/浅谈计算自然常数/1.png" alt="img"></p>
+<p>一行代码搞定(￣▽￣)”</p>
+<p>Oh……似乎精度不够？毕竟这只是定义式，我们接下来换个收敛较快的公式。</p>
+<hr>
+<h3 id="2-数学方法"><a href="#2-数学方法" class="headerlink" title="2. 数学方法"></a>2. 数学方法</h3><p>这是一个很优美的公式：</p>
+<script type="math/tex; mode=display">
+e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> e = <span class="number">1</span>, n = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; I; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        n *= <span class="number">1.0</span> / i;</span><br><span class="line">        e += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果（I = 25）：</p>
+<p><img src="/2019/02/21/浅谈计算自然常数/2.png" alt="img"></p>
+<p>可以看到，同样的迭代次数，精度明显提高了许多。</p>
+<hr>
+<h3 id="3-统计方法"><a href="#3-统计方法" class="headerlink" title="3. 统计方法"></a>3. 统计方法</h3><p>这种方法是 <a href="https://www.zhihu.com/people/miloyip/" target="_blank" rel="noopener">@Milo Yip</a> 在他的文章中写出来的，有点深奥。</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_3</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> i, j, k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt;= RAND_MAX; j += rand())</span><br><span class="line">            k++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, (<span class="keyword">double</span>)k / N);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果（N = 4000 * 4000）：</p>
+<p><img src="/2019/02/21/浅谈计算自然常数/3.png" alt="img"></p>
+<p>背后的数学原理请参考：</p>
+<p><a href="http://mathworld.wolfram.com/UniformSumDistribution.html" target="_blank" rel="noopener">Uniform Sum Distribution</a></p>
+<p><a href="https://www.randomservices.org/random/special/IrwinHall.html" target="_blank" rel="noopener">The Irwin-Hall Distribution</a></p>
+<hr>
+<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
+<p>以上。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/10/浅谈计算黄金分割率/" class="post-title-link" itemprop="url">浅谈计算黄金分割率</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-10 09:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T09:00:00+08:00">2019-02-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 20:54:31" itemprop="dateModified" datetime="2019-08-20T20:54:31+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>利用程序计算黄金分割率有很多方法，这里我们举两个小例子。</p>
+<p>还是用之前计算圆周率的那个框架，Let’s go!</p>
+<hr>
+<h3 id="1-数学方法"><a href="#1-数学方法" class="headerlink" title="1. 数学方法"></a>1. 数学方法</h3><p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t1 = <span class="number">1</span>, t2 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> next = t1 + t2;</span><br><span class="line">        t1 = t2;</span><br><span class="line">        t2 = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, (<span class="keyword">double</span>)t1 / t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果（I = 25）：</p>
+<p><img src="/2019/02/10/浅谈计算黄金分割率/1.png" alt="img"></p>
+<p>这里用的是斐波那契数列（Fibonacci sequence）来计算黄金分割率。</p>
+<script type="math/tex; mode=display">
+\begin{equation} \begin{array}{l}{t_{n}=1,1,2,3,5,8,13,21,34, \ldots} \\ {\frac{1}{1}=1.000, \frac{1}{2}=0.500, \frac{2}{3} \approx 0.667, \frac{3}{5}=0.600} \\ {\frac{5}{8}=0.625, \frac{8}{13} \approx 0.615, \frac{13}{21} \approx 0.619, \frac{21}{34} \approx 0.618}\end{array} \end{equation}</script><p>可以看到，随着项数增大，前一项与后一项的比值越来越接近黄金分割率，即 </p>
+<script type="math/tex; mode=display">
+\lim _{n \rightarrow \infty} \frac{t_{n-1}}{t_{n}}=\frac{\sqrt{5}-1}{2}</script><hr>
+<h3 id="2-数学方法"><a href="#2-数学方法" class="headerlink" title="2. 数学方法"></a>2. 数学方法</h3><p>这里要用到连分数（continued fraction）。</p>
+<p>第一次看到连分数时是阅读关于拉马努金（Srīṉivāsa Rāmāṉujan）的文章时看见的。此人天赋异禀，堪称鬼才，发现了许多画风奇特的数学公式，比如：</p>
+<script type="math/tex; mode=display">
+\sqrt{\frac{1+\sqrt{5}}{2}+2}-\frac{1+\sqrt{5}}{2}=\frac{\mathrm{e}^{-\frac{2 \pi}{5}}}{1+\frac{\mathrm{e}^{-2 \pi}}{1+\frac{\mathrm{e}^{-4 \pi}}{1+\frac{\mathrm{e}^{-6 \pi}}{1+\cdots}}}}</script><p>把黄金分割率 φ 、自然常数 e 和圆周率 π 联系在了一起。</p>
+<p>还有很多我就不一一展示了，总之那些公式看得我头皮发麻……</p>
+<p>连分数就像是一台数学显微镜，它能把放进去的数字的内部构造展现出来，让我们得以一窥精妙的造物之痕。现在，让我们把黄金分割率放进去…</p>
+<script type="math/tex; mode=display">
+\frac{\sqrt{5}-1}{2}=\frac{1}{1+\frac{1}{1+\frac{1}{1+...}}}</script><p>化为连分数后，整个式子只有数字1！</p>
+<p>All in one, beautiful !</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (I == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.618</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1.0</span> / (sub(I - <span class="number">1</span>) + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, sub(I));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果（I = 25）：</p>
+<p><img src="/2019/02/10/浅谈计算黄金分割率/2.png" alt="img"></p>
+<p>我用的递归来计算这个式子。</p>
+<p>值得一提的是，递归基例我不知道是多少，一开始设置成1，结果是0.618034，对的。我又试了试0.5，结果还是0.618034，我有点摸不着头脑了。我再试了一下0.0，结果还是一样！有点方，稳住。我把输出的位数调大，调到了14位，因为double有效位数至少15位，再把迭代次数调小，这样就能明显地比较每个基例的收敛速度，于是我发现似乎在0.6左右时收敛最快……0.618！它的基例，正是它自己本身！这和它的连分数似乎有某种内在的联系，都是“1”……</p>
+<p>Σ(っ °Д °;)っ</p>
+<hr>
+<p> 想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a> 以上。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/12/浅谈计算圆周率/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -349,7 +596,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -429,6 +676,10 @@
 
 
   
+    
+      
+    
+      
     
       
     
