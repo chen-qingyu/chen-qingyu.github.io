@@ -4,7 +4,7 @@
 
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="generator" content="Hexo 3.9.0">
@@ -26,11 +26,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Gemini',
     version: '7.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -167,8 +167,6 @@
 
   </li>
     </ul>
-    
-
 </nav>
 
 </div>
@@ -180,9 +178,152 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+            
+
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/19/十二个Python小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/19/十二个Python小技巧/" class="post-title-link" itemprop="url">十二个Python小技巧</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-19 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-19T09:00:00+08:00">2019-08-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 23:47:14" itemprop="dateModified" datetime="2019-08-20T23:47:14+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="1-进制格式化输出"><a href="#1-进制格式化输出" class="headerlink" title="1. 进制格式化输出"></a>1. 进制格式化输出</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"bin:&#123;:6b&#125;,&#123;:6b&#125;,&#123;:6b&#125;,&#123;:6b&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line">print(<span class="string">"oct:&#123;:6o&#125;,&#123;:6o&#125;,&#123;:6o&#125;,&#123;:6o&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line">print(<span class="string">"dec:&#123;:6d&#125;,&#123;:6d&#125;,&#123;:6d&#125;,&#123;:6d&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line">print(<span class="string">"hex:&#123;:6x&#125;,&#123;:6x&#125;,&#123;:6x&#125;,&#123;:6x&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin:    10,   100,  1000, 10000</span><br><span class="line">oct:     2,     4,    10,    20</span><br><span class="line">dec:     2,     4,     8,    16</span><br><span class="line">hex:     2,     4,     8,    10</span><br></pre></td></tr></table></figure>
+<h3 id="2-序列倒序"><a href="#2-序列倒序" class="headerlink" title="2. 序列倒序"></a>2. 序列倒序</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ch = <span class="string">"I LOVE YOU"</span></span><br><span class="line">ls = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">st = (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">print(ch[::<span class="number">-1</span>])</span><br><span class="line">print(ls[::<span class="number">-1</span>])</span><br><span class="line">print(st[::<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UOY EVOL I</span><br><span class="line">[3, 2, 1, 0]</span><br><span class="line">(3, 2, 1, 0)</span><br></pre></td></tr></table></figure>
+<h3 id="3-与-参数"><a href="#3-与-参数" class="headerlink" title="3. * 与 ** 参数"></a>3. * 与 ** 参数</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testTuple</span><span class="params">(*a)</span>:</span></span><br><span class="line">    <span class="comment"># *a 代表一个元组类型</span></span><br><span class="line">    result = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">        result += i</span><br><span class="line">    print(a)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testDict</span><span class="params">(**b)</span>:</span></span><br><span class="line">    <span class="comment"># **b 代表一个字典类型</span></span><br><span class="line">    result = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> b:</span><br><span class="line">        result += i</span><br><span class="line">    print(b)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">print(testTuple(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">print(testDict(m=<span class="number">1</span>, n=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1, 2, 3, 4)</span><br><span class="line">10</span><br><span class="line">&#123;&apos;m&apos;: 1, &apos;n&apos;: 2&#125;</span><br><span class="line">mn</span><br></pre></td></tr></table></figure>
+<h3 id="4-this库"><a href="#4-this库" class="headerlink" title="4. this库"></a>4. this库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&apos;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&apos;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&apos;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&apos;s do more of those!</span><br></pre></td></tr></table></figure>
+<h3 id="5-keyword库"><a href="#5-keyword库" class="headerlink" title="5. keyword库"></a>5. keyword库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line">print(keyword.kwlist)</span><br><span class="line">print(len(keyword.kwlist))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&apos;False&apos;, &apos;None&apos;, &apos;True&apos;, &apos;and&apos;, &apos;as&apos;, &apos;assert&apos;, &apos;async&apos;, &apos;await&apos;, &apos;break&apos;, &apos;class&apos;, &apos;continue&apos;, &apos;def&apos;, &apos;del&apos;, &apos;elif&apos;, &apos;else&apos;, &apos;except&apos;, &apos;finally&apos;, &apos;for&apos;, &apos;from&apos;, &apos;global&apos;, &apos;if&apos;, &apos;import&apos;, &apos;in&apos;, &apos;is&apos;, &apos;lambda&apos;, &apos;nonlocal&apos;, &apos;not&apos;, &apos;or&apos;, &apos;pass&apos;, &apos;raise&apos;, &apos;return&apos;, &apos;try&apos;, &apos;while&apos;, &apos;with&apos;, &apos;yield&apos;]</span><br><span class="line">35</span><br></pre></td></tr></table></figure>
+<h3 id="6-dis库"><a href="#6-dis库" class="headerlink" title="6. dis库"></a>6. dis库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dis</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">dis.dis(foo)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">55           0 LOAD_FAST                0 (a)</span><br><span class="line">             2 LOAD_FAST                1 (b)</span><br><span class="line">             4 BINARY_ADD</span><br><span class="line">             6 RETURN_VALUE</span><br></pre></td></tr></table></figure>
+<h3 id="7-os库"><a href="#7-os库" class="headerlink" title="7. os库"></a>7. os库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">print(os.getcwd())</span><br><span class="line">print(os.cpu_count())</span><br><span class="line">print(os.getlogin())</span><br><span class="line">print(os.urandom(<span class="number">10</span>))</span><br><span class="line">print(os.system(<span class="string">"echo Hello World!"</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">F:\Python</span><br><span class="line">8</span><br><span class="line">YU</span><br><span class="line">b&apos;\xd1c_?&#123;2\xf9\xb7\x12G&apos;</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+<h3 id="8-Unicode码"><a href="#8-Unicode码" class="headerlink" title="8. Unicode码"></a>8. Unicode码</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ch = <span class="string">"0123456789\x00abcd\x00编程喵\x00(●'◡'●)"</span></span><br><span class="line">print(list(map(ord, list(ch))))</span><br><span class="line"><span class="comment"># Python3中map()返回的不再是list而是iterators</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 0, 97, 98, 99, 100, 0, 32534, 31243, 21941, 0, 40, 9679, 39, 9697, 39, 9679, 41]</span><br></pre></td></tr></table></figure>
+<h3 id="9-皮卡丘"><a href="#9-皮卡丘" class="headerlink" title="9. 皮卡丘~"></a>9. 皮卡丘~</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"""</span></span><br><span class="line"><span class="string">　　 へ　　　　　／|</span></span><br><span class="line"><span class="string">　　/＼7　　　 ∠＿/</span></span><br><span class="line"><span class="string">　 /　│　　 ／　／</span></span><br><span class="line"><span class="string">　│　Z ＿,＜　／　　 /`ヽ</span></span><br><span class="line"><span class="string">　│　　　　　ヽ　　 /　　〉</span></span><br><span class="line"><span class="string">　 Y　　　　　`　 /　　/</span></span><br><span class="line"><span class="string">　ｲ●　､　●　　⊂⊃〈　　/</span></span><br><span class="line"><span class="string">　()　 へ　　　　|　＼〈</span></span><br><span class="line"><span class="string">　　&gt;ｰ ､_　 ィ　 │ ／／</span></span><br><span class="line"><span class="string">　 / へ　　 /　ﾉ＜| ＼＼</span></span><br><span class="line"><span class="string">　 ヽ_ﾉ　　(_／　 │／／</span></span><br><span class="line"><span class="string">　　7　　　　　　　|／</span></span><br><span class="line"><span class="string">　　＞―r￣￣`ｰ―＿　</span></span><br><span class="line"><span class="string">"""</span>)</span><br><span class="line"><span class="comment"># ' 或 " 不能包含换行符</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">　　 へ　　　　　／|</span><br><span class="line">　　/＼7　　　 ∠＿/</span><br><span class="line">　 /　│　　 ／　／</span><br><span class="line">　│　Z ＿,＜　／　　 /`ヽ</span><br><span class="line">　│　　　　　ヽ　　 /　　〉</span><br><span class="line">　 Y　　　　　`　 /　　/</span><br><span class="line">　ｲ●　､　●　　⊂⊃〈　　/</span><br><span class="line">　()　 へ　　　　|　＼〈</span><br><span class="line">　　&gt;ｰ ､_　 ィ　 │ ／／</span><br><span class="line">　 / へ　　 /　ﾉ＜| ＼＼</span><br><span class="line">　 ヽ_ﾉ　　(_／　 │／／</span><br><span class="line">　　7　　　　　　　|／</span><br><span class="line">　　＞―r￣￣`ｰ―＿</span><br></pre></td></tr></table></figure>
+<h3 id="10-列表生成式"><a href="#10-列表生成式" class="headerlink" title="10. 列表生成式"></a>10. 列表生成式</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print([x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span>])</span><br><span class="line">d = &#123;<span class="string">'Adam'</span>: <span class="number">95</span>, <span class="string">'Lisa'</span>: <span class="number">89</span>, <span class="string">'Bill'</span>: <span class="number">60</span>&#125;</span><br><span class="line">table = [<span class="string">"&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;"</span> % (name, score) <span class="keyword">for</span> name, score <span class="keyword">in</span> d.items()]</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"out.html"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> fo:</span><br><span class="line">    fo.write(<span class="string">'&lt;table border="1"&gt;&lt;tr&gt;&lt;th&gt;name&lt;/th&gt;&lt;th&gt;score&lt;/th&gt;&lt;/tr&gt;'</span> + <span class="string">"\n"</span>.join(table) + <span class="string">"&lt;/table&gt;"</span>)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 9, 25, 49, 81]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/19/十二个Python小技巧/1.png" alt="img"></p>
+<h3 id="11-switch"><a href="#11-switch" class="headerlink" title="11. switch"></a>11. switch</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">case = input(<span class="string">"Please input a case: "</span>)</span><br><span class="line">switch = &#123;<span class="string">'1'</span>: <span class="string">'case 1'</span>, <span class="string">'2'</span>: <span class="string">'case 2'</span>, <span class="string">'3'</span>: <span class="string">'case 3'</span>&#125;</span><br><span class="line">print(switch.get(case,<span class="string">'Invalid input'</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">1</span></span><br><span class="line">case <span class="number">1</span></span><br><span class="line">PS F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">2</span></span><br><span class="line">case <span class="number">2</span></span><br><span class="line">PS F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">3</span></span><br><span class="line">case <span class="number">3</span></span><br><span class="line">PS F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">4</span></span><br><span class="line">Invalid input</span><br></pre></td></tr></table></figure>
+<h3 id="12-提取每一位数字"><a href="#12-提取每一位数字" class="headerlink" title="12. 提取每一位数字"></a>12. 提取每一位数字</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(map(eval, list(str(<span class="number">2333</span>)))))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2, 3, 3, 3]</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
       
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -239,7 +380,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 23:17:05" itemprop="dateModified" datetime="2019-08-20T23:17:05+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 00:57:55" itemprop="dateModified" datetime="2019-08-21T00:57:55+08:00">2019-08-21</time>
               </span>
             
           
@@ -294,7 +435,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>等待安装完成后，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure>
-<p>这里的<em><folder></folder></em>是用户自己取的一个站点目录名字。</p>
+<p>这里的<em>\<folder\></folder\></em>是用户自己取的一个站点目录名字。</p>
 <p>然后进入站点目录并安装依赖：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>到这一步，本地博客算是搭建好了，测试一下：</p>
@@ -324,7 +465,7 @@
 <h2 id="6-优化网站"><a href="#6-优化网站" class="headerlink" title="6. 优化网站"></a>6. 优化网站</h2><p><strong>1. 更换主题</strong></p>
 <p>Hexo有许多好看的主题，这里以我用的NexT主题为例讲解怎样更换主题：</p>
 <ol>
-<li>下载主题：<a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener">iissnan/hexo-theme-next</a></li>
+<li>下载主题：<a href="https://github.com/theme-next/hexo-theme-next/releases" target="_blank" rel="noopener">theme-next/hexo-theme-next</a></li>
 <li>解压所下载的压缩包至站点的 themes 目录下， 并将解压后的文件夹名称（hexo-theme-next-x.x.x）更改为 next</li>
 <li>打开站点配置文件_config.yml，找到 theme 字段，并将其值更改为 next ；找到 language 字段，并将其值更改为 zh-CN（在themes\next\languages目录下可查看主题支持的语言）</li>
 <li>在切换主题之后， 我们最好使用 hexo clean 命令来清除 Hexo 的缓存</li>
@@ -936,7 +1077,7 @@ x^{x^{x^{x...}}}</script><p>知乎上有篇文章讲得比较好，可以先看�
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 22:24:21" itemprop="dateModified" datetime="2019-08-20T22:24:21+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-20 23:24:02" itemprop="dateModified" datetime="2019-08-20T23:24:02+08:00">2019-08-20</time>
               </span>
             
           
@@ -958,7 +1099,7 @@ x^{x^{x^{x...}}}</script><p>知乎上有篇文章讲得比较好，可以先看�
 <p>这段代码直接复制粘贴编译运行就输出了当前时间！</p>
 <p><img src="/2019/04/04/一段鬼畜的代码/1.png" alt="img"></p>
 <p>C语言果然是强大而灵活。QAQ</p>
-<p>注意到源码中有 __TIME__，这是预处理器定义的特殊宏，它能扩展为一个字符串，内容为预处理器运行的时间，格式为”HH:MM:SS”。</p>
+<p>注意到源码中有__TIME__，这是预处理器定义的特殊宏，它能扩展为一个字符串，内容为预处理器运行的时间，格式为”HH:MM:SS”。</p>
 <p>好奇心驱使着我想要一探究竟。</p>
 <hr>
 <p>首先，格式化代码并加入头文件及返回值：</p>
@@ -1547,150 +1688,6 @@ x^{x^{x^{x...}}}</script><p>知乎上有篇文章讲得比较好，可以先看�
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/22/第一个DLL程序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青羽的个人网站">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/22/第一个DLL程序/" class="post-title-link" itemprop="url">第一个DLL程序</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-22 09:00:00" itemprop="dateCreated datePublished" datetime="2019-02-22T09:00:00+08:00">2019-02-22</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-20 21:52:13" itemprop="dateModified" datetime="2019-08-20T21:52:13+08:00">2019-08-20</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h3 id="先简单讲一下DLL"><a href="#先简单讲一下DLL" class="headerlink" title="先简单讲一下DLL"></a>先简单讲一下DLL</h3><p>在Windows下，DLL（DLL，Dynamic Link Library，动态链接库）是一个被编译过的二进制程序，但与.exe文件不同，.dll文件不能独立运行，必须由其他程序调用。</p>
-<p>为什么有这东西呢？当然有其存在的好处啦：</p>
-<p>1.不限语言</p>
-<p>我们可以用自己熟悉的语言写DLL，然后由其他语言写的可执行程序来调用这些DLL。例如，可以用Python写程序的主界面，然后调用C写的实现一个具体功能的DLL模块。</p>
-<p>2.增强功能</p>
-<p>我们看到许多产品都提供了界面插件功能，允许用户动态地更换程序的界面，这就可以通过更换界面DLL来实现。 </p>
-<p>3.简化管理</p>
-<p>在一个大型项目开发中，通常都是由多个项目小组同时开发。我们可以将项目细分，将不同功能交由各项目小组以多个DLL的方式实现，这样，各个项目小组就可以同时进行开发了。</p>
-<p>4.节省空间</p>
-<p>如果多个应用程序需要同样的功能，那么可以将该功能以DLL的形式提供，这样在机器上只需要存在一份该DLL文件就可以了。另外，如果多个应用程序使用同一个DLL，该DLL只需要放入内存一次，所有的应用程序就都可以共享它了。</p>
-<p>在Linux环境下没有.dll文件，但也有类似的，对应的文件后缀名一般是.so（Share Object），可以看作同一个东西的不同称呼。</p>
-<hr>
-<h3 id="VC6导出DLL示例"><a href="#VC6导出DLL示例" class="headerlink" title="VC6导出DLL示例"></a>VC6导出DLL示例</h3><p>ps：纠结了一下还是用VC6吧，因为它在中国的用户群体较大，很多人入门C都是从这开始的。这是我第一次在专栏里提到VC6，应该也是最后一次了，它该被淘汰了。后面有gcc的示例。</p>
-<p>1.打开Visual C++ 6.0，先创建一个DLL项目，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/1.png" alt="img"></p>
-<p>注意红框标出的地方，下同</p>
-<p>2.新建一个源代码文件DLL_demo.c，并添加到Source Files里。用实现一个简单计算的功能作为例子，写好代码后，点击Build，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/2.png" alt="img"></p>
-<p>源码在最后</p>
-<p>3.这时，\DLL_demo\Debug里面应该就有这两个文件了：</p>
-<p><img src="/2019/02/22/第一个DLL程序/3.png" alt="img"></p>
-<p>函数主体在.dll文件里，函数接口在.lib（library，库）文件里</p>
-<p>4.关闭Workspace，到这步，DLL就算是创建好了，接下来我们试验一下能不能用。</p>
-<p>5.创建一个Win32控制台项目，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/4.png" alt="img"></p>
-<p>6.将之前那两个文件复制到\C_demo文件夹里，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/5.png" alt="img"></p>
-<p>7.新建一个源代码文件C_demo.c，并添加到Source Files里。写好代码后，点击Build，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/6.png" alt="img"></p>
-<p>源码在最后</p>
-<p>8.这时，\C_demo\Debug里面就有了我们要的可执行程序：</p>
-<p><img src="/2019/02/22/第一个DLL程序/7.png" alt="img"></p>
-<p>9.运行，发现错误提示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/8.png" alt="img"></p>
-<p>我们再把.dll移到.exe同目录下，再次运行就成功了： </p>
-<p><img src="/2019/02/22/第一个DLL程序/9.png" alt="img"></p>
-<hr>
-<h3 id="GCC导出DLL示例"><a href="#GCC导出DLL示例" class="headerlink" title="GCC导出DLL示例"></a>GCC导出DLL示例</h3><p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -o dll.dll dll.c</span><br><span class="line">gcc -o main.exe main.c dll.dll</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<p><img src="/2019/02/22/第一个DLL程序/10.png" alt="img"></p>
-<hr>
-<h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><p>C_demo.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(lib, <span class="meta-string">"DLL_demo.lib"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">div</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a, b;</span><br><span class="line">    <span class="keyword">char</span> op, c;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input a formula and get the result. (enter q to quit)\n"</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter: "</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">scanf</span>(<span class="string">"%lf %c %lf"</span>, &amp;a, &amp;op, &amp;b) == <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">switch</span> (op)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'+'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf + %.2lf = %.2lf\n"</span>, a, b, add(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'-'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf - %.2lf = %.2lf\n"</span>, a, b, sub(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'*'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf * %.2lf = %.2lf\n"</span>, a, b, mul(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'/'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf / %.2lf = %.2lf\n"</span>, a, b, div(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span> : <span class="built_in">printf</span>(<span class="string">"Enter error!\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((c = getchar()) == <span class="string">'q'</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"Enter error!"</span>);</span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Bye~"</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    getchar();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>DLL_demo.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">div</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a / b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>main.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">divi</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>; <span class="comment">//div会和库函数名冲突</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a, b;</span><br><span class="line">    <span class="keyword">char</span> op, c;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input a formula and get the result. (enter q to quit)\n"</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter: "</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">scanf</span>(<span class="string">"%lf %c %lf"</span>, &amp;a, &amp;op, &amp;b) == <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">switch</span> (op)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'+'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf + %.2lf = %.2lf\n"</span>, a, b, add(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'-'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf - %.2lf = %.2lf\n"</span>, a, b, sub(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'*'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf * %.2lf = %.2lf\n"</span>, a, b, mul(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'/'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf / %.2lf = %.2lf\n"</span>, a, b, divi(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span> : <span class="built_in">printf</span>(<span class="string">"Enter error!\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((c = getchar()) == <span class="string">'q'</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"Enter error!"</span>);</span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Bye~"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>dll.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">divi</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a / b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1728,12 +1725,36 @@ x^{x^{x^{x...}}}</script><p>知乎上有篇文章讲得比较好，可以先看�
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
     
   </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chen-qingyu" title="GitHub &rarr; https://github.com/chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://zhuanlan.zhihu.com/codecat" title="zhihu &rarr; https://zhuanlan.zhihu.com/codecat" rel="noopener" target="_blank"><i class="fa fa-fw fa-zhihu"></i>zhihu</a>
+      </span>
+    
+  </div>
 
 
 
@@ -1786,7 +1807,8 @@ x^{x^{x^{x...}}}</script><p>知乎上有篇文章讲得比较好，可以先看�
   <script src="/js/motion.js?v=7.3.0"></script>
 
   
-  <script src="/js/schemes/muse.js?v=7.3.0"></script>
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
 
 
 
