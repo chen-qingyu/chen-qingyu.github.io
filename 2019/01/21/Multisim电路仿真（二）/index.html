@@ -57,22 +57,23 @@
   };
 </script>
 
-  <meta name="description" content="利用程序计算自然常数有很多方法，这里我们举三个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法这里我们用 e 的定义直接算：  e=\lim_{i\rightarrow \infty }(1+\frac{1}{i})^i源代码： 1234void method_1(int I)&amp;#123;    printf(&quot;e: %lf\n&quot;, pow(1 + 1.0 / I,">
+  <meta name="description" content="今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈计算自然常数">
-<meta property="og:url" content="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/index.html">
+<meta property="og:title" content="Multisim电路仿真（二）">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/index.html">
 <meta property="og:site_name" content="青羽的个人网站">
-<meta property="og:description" content="利用程序计算自然常数有很多方法，这里我们举三个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法这里我们用 e 的定义直接算：  e=\lim_{i\rightarrow \infty }(1+\frac{1}{i})^i源代码： 1234void method_1(int I)&amp;#123;    printf(&quot;e: %lf\n&quot;, pow(1 + 1.0 / I,">
+<meta property="og:description" content="今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/1.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/2.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/3.png">
-<meta property="og:updated_time" content="2019-08-20T12:45:36.201Z">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/2.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/3.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/4.png">
+<meta property="og:updated_time" content="2019-08-20T13:29:56.016Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈计算自然常数">
-<meta name="twitter:description" content="利用程序计算自然常数有很多方法，这里我们举三个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法这里我们用 e 的定义直接算：  e=\lim_{i\rightarrow \infty }(1+\frac{1}{i})^i源代码： 1234void method_1(int I)&amp;#123;    printf(&quot;e: %lf\n&quot;, pow(1 + 1.0 / I,">
-<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/1.png">
-  <link rel="canonical" href="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/">
+<meta name="twitter:title" content="Multisim电路仿真（二）">
+<meta name="twitter:description" content="今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/1.png">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/">
 
 
 <script id="page.configurations">
@@ -81,7 +82,7 @@
   };
 </script>
 
-  <title>浅谈计算自然常数 | 青羽的个人网站</title>
+  <title>Multisim电路仿真（二） | 青羽的个人网站</title>
   
 
 
@@ -196,7 +197,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -210,7 +211,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">浅谈计算自然常数
+          <h1 class="post-title" itemprop="name headline">Multisim电路仿真（二）
 
               
             
@@ -230,7 +231,7 @@
                 
               
 
-              <time title="创建时间：2019-02-21 09:00:00" itemprop="dateCreated datePublished" datetime="2019-02-21T09:00:00+08:00">2019-02-21</time>
+              <time title="创建时间：2019-01-21 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-21T09:00:00+08:00">2019-01-21</time>
             </span>
           
             
@@ -243,7 +244,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 20:45:36" itemprop="dateModified" datetime="2019-08-20T20:45:36+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-20 21:29:56" itemprop="dateModified" datetime="2019-08-20T21:29:56+08:00">2019-08-20</time>
               </span>
             
           
@@ -259,36 +260,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>利用程序计算自然常数有很多方法，这里我们举三个小例子。</p>
-<p>还是用之前计算圆周率的那个框架，Let’s go!</p>
+        <p>今天来探索一下二极管和三极管的基本特性。</p>
 <hr>
-<h3 id="1-数学方法"><a href="#1-数学方法" class="headerlink" title="1. 数学方法"></a>1. 数学方法</h3><p>这里我们用 e 的定义直接算：</p>
-<script type="math/tex; mode=display">
-e=\lim_{i\rightarrow \infty }(1+\frac{1}{i})^i</script><p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, <span class="built_in">pow</span>(<span class="number">1</span> + <span class="number">1.0</span> / I, I));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/21/浅谈计算自然常数/1.png" alt="img"></p>
-<p>一行代码搞定(￣▽￣)”</p>
-<p>Oh……似乎精度不够？毕竟这只是定义式，我们接下来换个收敛较快的公式。</p>
+<p>众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。</p>
 <hr>
-<h3 id="2-数学方法"><a href="#2-数学方法" class="headerlink" title="2. 数学方法"></a>2. 数学方法</h3><p>这是一个很优美的公式：</p>
-<script type="math/tex; mode=display">
-e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> e = <span class="number">1</span>, n = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; I; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        n *= <span class="number">1.0</span> / i;</span><br><span class="line">        e += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/21/浅谈计算自然常数/2.png" alt="img"></p>
-<p>可以看到，同样的迭代次数，精度明显提高了许多。</p>
+<h3 id="1-二极管"><a href="#1-二极管" class="headerlink" title="1. 二极管"></a>1. 二极管</h3><p>搭建电路如图所示：</p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/1.png" alt="img"></p>
+<p>可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。</p>
 <hr>
-<h3 id="3-统计方法"><a href="#3-统计方法" class="headerlink" title="3. 统计方法"></a>3. 统计方法</h3><p>这种方法是 <a href="https://www.zhihu.com/people/miloyip/" target="_blank" rel="noopener">@Milo Yip</a> 在他的文章中写出来的，有点深奥。</p>
-<p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_3</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> i, j, k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt;= RAND_MAX; j += rand())</span><br><span class="line">            k++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, (<span class="keyword">double</span>)k / N);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（N = 4000 * 4000）：</p>
-<p><img src="/2019/02/21/浅谈计算自然常数/3.png" alt="img"></p>
-<p>背后的数学原理请参考：</p>
-<p><a href="http://mathworld.wolfram.com/UniformSumDistribution.html" target="_blank" rel="noopener">Uniform Sum Distribution</a></p>
-<p><a href="https://www.randomservices.org/random/special/IrwinHall.html" target="_blank" rel="noopener">The Irwin-Hall Distribution</a></p>
+<h3 id="2-稳压管"><a href="#2-稳压管" class="headerlink" title="2. 稳压管"></a>2. 稳压管</h3><p>由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $\Delta U$ 却很小。稳压管实质上是一种通常工作在反向击穿区的二极管。</p>
+<p>搭建电路如图所示：</p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/2.png" alt="img"></p>
+<p>当电源电压或负载电阻变化时，负载电压能基本稳定在稳压管的稳定电压左右，故称“稳压管”。</p>
 <hr>
-<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
+<h3 id="3-双极型三极管"><a href="#3-双极型三极管" class="headerlink" title="3. 双极型三极管"></a>3. 双极型三极管</h3><p>双极型三极管属于流控流器件（Current Controlled Current），通常用在模拟电路中。</p>
+<p>搭建电路如图所示：</p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/3.png" alt="img"></p>
+<p>当基极电流 $\Delta I<em>{b}$ 增加 0.05mA 时，集电极电流 $\Delta I</em>{c}$ 随之增加 5mA 。可以得出，这个三极管的电流放大系数 $\beta=100$ 。</p>
+<hr>
+<h3 id="4-场效应三极管"><a href="#4-场效应三极管" class="headerlink" title="4. 场效应三极管"></a>4. 场效应三极管</h3><p>场效应三极管属于压控流器件（Voltage Controlled Current），通常用在数字电路中。</p>
+<p>搭建电路如图所示：</p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/4.png" alt="img"></p>
+<p>场效应管有许多类型，其中绝缘栅型场效应管应用很广泛。它由金属、氧化物、半导体制成，所以又称MOSFET（Metal-Oxide-Semiconductor Field-Effect Transistor）。</p>
+<hr>
 <p>以上。</p>
 
     </div>
@@ -300,8 +294,8 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
     <footer class="post-footer">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/02/10/浅谈计算黄金分割率/" rel="next" title="浅谈计算黄金分割率">
-                <i class="fa fa-chevron-left"></i> 浅谈计算黄金分割率
+              <a href="/2019/01/19/Multisim电路仿真（一）/" rel="next" title="Multisim电路仿真（一）">
+                <i class="fa fa-chevron-left"></i> Multisim电路仿真（一）
               </a>
             
           </div>
@@ -309,8 +303,8 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/02/22/第一个DLL程序/" rel="prev" title="第一个DLL程序">
-                第一个DLL程序 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/22/MATLAB信号处理（一）/" rel="prev" title="MATLAB信号处理（一）">
+                MATLAB信号处理（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -385,7 +379,7 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数学方法"><span class="nav-text">1. 数学方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数学方法"><span class="nav-text">2. 数学方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-统计方法"><span class="nav-text">3. 统计方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-二极管"><span class="nav-text">1. 二极管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-稳压管"><span class="nav-text">2. 稳压管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-双极型三极管"><span class="nav-text">3. 双极型三极管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-场效应三极管"><span class="nav-text">4. 场效应三极管</span></a></li></ol></div>
             
 
           </div>
