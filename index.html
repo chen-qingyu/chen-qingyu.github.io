@@ -190,6 +190,963 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/18/从零开始搭建自己的个人网站/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/18/从零开始搭建自己的个人网站/" class="post-title-link" itemprop="url">从零开始搭建自己的个人网站</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-18 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-18T09:00:00+08:00">2019-08-18</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 23:17:05" itemprop="dateModified" datetime="2019-08-20T23:17:05+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>拥有自己的个人网站一直是我的一个目标。</p>
+<p>在网上看了很多方法之后我最终选择了GitHub Pages + Hexo这条技术路线，原因有两点：</p>
+<ul>
+<li>完全免费，学生党没有多少钱。</li>
+<li>比较方便，有现成的框架可用。</li>
+</ul>
+<p>整个搭建过程大概半小时就可以搞定。</p>
+<p>搭建完成后大概是这样子的：<a href="https://chen-qingyu.github.io/">青羽的个人网站</a></p>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><ol>
+<li>准备环境</li>
+<li>配置Git</li>
+<li>配置Hexo</li>
+<li>部署网站</li>
+<li>发布文章</li>
+<li>优化网站</li>
+</ol>
+<hr>
+<h2 id="1-准备环境"><a href="#1-准备环境" class="headerlink" title="1. 准备环境"></a>1. 准备环境</h2><p>准备一个GitHub账号：<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></p>
+<p>新建一个Repositories，Repository name填 <em>你的GitHub用户名.github.io</em></p>
+<p><img src="/2019/08/18/从零开始搭建自己的个人网站/1.png" alt="img"></p>
+<p>下载并安装NodeJS：<a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a></p>
+<p>下载并安装Git for Windows：<a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git for Windows</a></p>
+<h2 id="2-配置Git"><a href="#2-配置Git" class="headerlink" title="2. 配置Git"></a>2. 配置Git</h2><p>鼠标右键打开Git Bash：</p>
+<p><img src="/2019/08/18/从零开始搭建自己的个人网站/2.png" alt="img"></p>
+<p>输入命令配置用户名和邮箱信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的GitHub用户名"</span></span><br><span class="line">git config --global user.email <span class="string">"你的GitHub注册邮箱"</span></span><br></pre></td></tr></table></figure>
+<p>生成ssh密钥文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的GitHub注册邮箱"</span></span><br></pre></td></tr></table></figure>
+<p>默认不设置密码，直接回车就行。</p>
+<p><img src="/2019/08/18/从零开始搭建自己的个人网站/3.png" alt="img"></p>
+<p>用记事本打开生成的id_rsa.pub文件，<kbd>Crtl</kbd>+<kbd>A</kbd>，<kbd>Ctrl</kbd>+<kbd>C</kbd>复制全部内容。</p>
+<p>打开GitHub的SSH设置页面：<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a></p>
+<p>New SSH key，Title任取，Key粘贴刚刚复制的字符串，Add SHH key</p>
+<h2 id="3-配置Hexo"><a href="#3-配置Hexo" class="headerlink" title="3. 配置Hexo"></a>3. 配置Hexo</h2><p>Hexo是一个博客框架。接下来，开始安装Hexo。</p>
+<p>先新建一个空文件夹，名字最好不要带中文。打开控制台，cd到新建的空文件夹下，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>等待安装完成后，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的<em><folder></folder></em>是用户自己取的一个站点目录名字。</p>
+<p>然后进入站点目录并安装依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>到这一步，本地博客算是搭建好了，测试一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>s是server的缩写，表示启动本地服务器。默认情况下，访问网址是：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<p>如果成功的话可以看见官方的默认页面：</p>
+<p><img src="/2019/08/18/从零开始搭建自己的个人网站/4.png" alt="img"></p>
+<h2 id="4-部署网站"><a href="#4-部署网站" class="headerlink" title="4. 部署网站"></a>4. 部署网站</h2><p>在站点目录下可以看到有如下文件：</p>
+<p><img src="/2019/08/18/从零开始搭建自己的个人网站/5.png" alt="img"></p>
+<p>其中_config.yml为站点配置文件，打开，找到 url 字段，修改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="attr">https://你的GitHub用户名.github.io/</span></span><br></pre></td></tr></table></figure>
+<p>再翻到最后找到 deploy 字段，修改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/你的GitHub用户名/你的GitHub用户名.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>上面的repo字段的值可以直接从GitHub仓库复制：</p>
+<p><img src="/2019/08/18/从零开始搭建自己的个人网站/6.png" alt="img"></p>
+<p>部署之前要先安装Git部署插件，输入命令（注意：之后的命令均在站点目录下执行）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>最后，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<p>g是generate的缩写，表示生成静态文件；d是deploy的缩写，表示部署到网站上。</p>
+<p>打开浏览器，输入你的网站地址：<a href="https://你的GitHub用户名.github.io/，就可以看到你的网站已经上线了，大功告成！" target="_blank" rel="noopener">https://你的GitHub用户名.github.io/，就可以看到你的网站已经上线了，大功告成！</a></p>
+<h2 id="5-发布文章"><a href="#5-发布文章" class="headerlink" title="5. 发布文章"></a>5. 发布文章</h2><p>在命令行中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"HelloWorld"</span></span><br></pre></td></tr></table></figure>
+<p>就可以看到在source/_posts目录下多了一个HelloWorld.md文件，这就是一篇文章的源文件了。写完之后生成、部署即可。</p>
+<p>文章使用Markdown写成，关于Markdown可参考：<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">Markdown 教程 | 菜鸟教程</a></p>
+<p>要删除文章的话，直接把源文件删除即可（确保至少有一篇文章存在，否则可能出错）。</p>
+<h2 id="6-优化网站"><a href="#6-优化网站" class="headerlink" title="6. 优化网站"></a>6. 优化网站</h2><p><strong>1. 更换主题</strong></p>
+<p>Hexo有许多好看的主题，这里以我用的NexT主题为例讲解怎样更换主题：</p>
+<ol>
+<li>下载主题：<a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener">iissnan/hexo-theme-next</a></li>
+<li>解压所下载的压缩包至站点的 themes 目录下， 并将解压后的文件夹名称（hexo-theme-next-x.x.x）更改为 next</li>
+<li>打开站点配置文件_config.yml，找到 theme 字段，并将其值更改为 next ；找到 language 字段，并将其值更改为 zh-CN（在themes\next\languages目录下可查看主题支持的语言）</li>
+<li>在切换主题之后， 我们最好使用 hexo clean 命令来清除 Hexo 的缓存</li>
+</ol>
+<p>在更换了主题之后界面美观了许多，终于可以舒舒服服地写文章啦~</p>
+<p>但是很不好意思，倘若你的文章里有LaTeX公式或者图片，你会发现显示不正常……</p>
+<p>作为一名技术宅，文章里怎么可能不用公式不用图片嘛，这两个坑必须解决了！</p>
+<p><strong>2. 插入LaTeX公式</strong></p>
+<p>更换支持LaTeX公式的Markdown渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p>打开主题配置文件（themes\next_config.yml），找到 math 字段，修改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  per_page:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>至此，LaTeX公式插入问题解决！</p>
+<p><strong>3. 插入图片</strong></p>
+<p>首先打开站点配置文件_config.yml，找到 post_asset_folder 字段，并将其值更改为 true ，这样新建文章的同时Hexo会自动在同目录下新建一个以文章名命名的空文件夹以方便存放该文章要用到的资源。</p>
+<p>安装一个能上传本地图片的插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>假设在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+---HelloWorld</span><br><span class="line">|   +-- 1.jpg</span><br><span class="line">|   +-- 2.jpg</span><br><span class="line">|   +-- 3.jpg</span><br><span class="line">+---HelloWorld.md</span><br></pre></td></tr></table></figure>
+<p>这样的目录结构（目录名和文章名一致）中，在文章源代码里只要使用 ![img](HelloWorld/1.jpg) 就可以插入图片了~</p>
+<p><strong>4. 更多</strong></p>
+<p>关于Hexo框架的更多信息请参考：<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></p>
+<p>关于NexT主题的更多信息请参考：<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT 使用文档</a></p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/08/NetLogo建模之美/" class="post-title-link" itemprop="url">NetLogo建模之美</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-08 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-08T09:00:00+08:00">2019-08-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 23:05:52" itemprop="dateModified" datetime="2019-08-20T23:05:52+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="NetLogo是什么？"><a href="#NetLogo是什么？" class="headerlink" title="NetLogo是什么？"></a>NetLogo是什么？</h3><p>NetLogo是一个可以模拟自然现象和社会现象的建模环境。</p>
+<p>NetLogo特别适合对复杂系统进行建模。</p>
+<p>NetLogo编程语法非常简单，功能却非常强大。</p>
+<p>NetLogo有丰富的文档、教程以及模型库。</p>
+<p><a href="http://ccl.northwestern.edu/netlogo/" target="_blank" rel="noopener">NetLogo主页</a></p>
+<hr>
+<h3 id="1-渗流模型（seepage-model）"><a href="#1-渗流模型（seepage-model）" class="headerlink" title="1. 渗流模型（seepage model）"></a>1. 渗流模型（seepage model）</h3><p>假如有一片原始森林，某日突然着火了，火势将会如何蔓延？忽略动物、风向等因素，只考虑树木密度，那么火势的蔓延程度与树木的密度有什么关系？不妨建个模型试试看~</p>
+<p>如下图：这是这个模型的界面部分。</p>
+<ul>
+<li>density表示树木密度，是一个可以由用户拖动的滑块，默认值是50%。</li>
+<li>setup是初始化函数按钮，代码后面会说。点一下就初始化了。</li>
+<li>go是循环执行的函数按钮，点一下就开始执行。（右下角的标志表示循环执行）</li>
+<li>右边黑漆漆的是观察窗口，由100x100个patch组成。</li>
+</ul>
+<p><img src="/2019/08/08/NetLogo建模之美/1-1.png" alt="img"></p>
+<p>这是这个模型的代码部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches with [(random 100) &lt; density] [</span><br><span class="line">    set pcolor green</span><br><span class="line">  ]</span><br><span class="line">  ask patches with [pxcor = min-pxcor] [</span><br><span class="line">    set pcolor red</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask patches with [pcolor = green] [</span><br><span class="line">    if (count neighbors4 with [pcolor = red] &gt; 0) [</span><br><span class="line">      set pcolor red</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>代码很简单就不细说了，相信有编程基础的人都能看懂。</p>
+<p>代码分为两部分：setup和go，正好对应界面部分的setup和go按钮。setup部分主要就是根据密度设置树木（黑色代表空地，绿色代表树木，红色代表着火的树木），并且把最左边一列变成着火的树木。go部分是一个执行周期，就是遍历每个树木，如果上下左右四个领域中存在着火的树木那么它自己也着火。规则很简单，但是结果却不简单。</p>
+<p><img src="/2019/08/08/NetLogo建模之美/1-2.png" alt="img"></p>
+<p><img src="/2019/08/08/NetLogo建模之美/1-3.png" alt="img"></p>
+<p>这里我选取了两个平均后的结果：density = 50% 和 density = 60%。</p>
+<p>可以看到，当density = 50%的时候火势并没有蔓延到最右边，而当density = 60%的时候火势就蔓延到了最右边。</p>
+<p>经过多次实验，可以发现60%是一个临界值，火势蔓延程度在density约等于60%的时候发生了突变。如果把density作为横坐标，树木被烧的比例为纵坐标，画出来大概就类似生物数量增长的S型曲线。</p>
+<p>模型库里面也有这个模型：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/1-4.png" alt="img"></p>
+<p>程序几乎是一样的，只是界面不同。我们来看看当density分别等于57%、60%、63%的时候的情况：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/1-5.png" alt="img"></p>
+<p><img src="/2019/08/08/NetLogo建模之美/1-6.png" alt="img"></p>
+<p><img src="/2019/08/08/NetLogo建模之美/1-7.png" alt="img"></p>
+<p>当density = 57%的时候大约有9%的树木被烧了，而当density = 63%的时候大约有90%的树木被烧。再次印证了临界值存在并且约等于0.6。</p>
+<p>这个模型还可以解释很多现象。比如我们知道在空气比较潮湿的情况下不要靠近暴露的电线，原理就可以用这个模型来解释：把水分子看作树木，导电的水分子看作着火的树木，干燥的空气看作空地，那么就很容易理解了。而且这个水分子密度大约在60%的时候，导电半径会急剧扩大。</p>
+<h3 id="2-沙堆模型（sandpile-model）"><a href="#2-沙堆模型（sandpile-model）" class="headerlink" title="2. 沙堆模型（sandpile model）"></a>2. 沙堆模型（sandpile model）</h3><p>沙堆模型也很简单，但是背后蕴含的秘密可不简单。</p>
+<p>沙堆模型具体我就不细说了，网上可查。直接上结果：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/2-1.gif" alt="img"></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">patches-own [value]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches [</span><br><span class="line">    set value 0</span><br><span class="line">    color-it</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask one-of patches [</span><br><span class="line">    set value (value + 1)</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    judge-cascading</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    color-it</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to color-it</span><br><span class="line">  if (value = 0) [</span><br><span class="line">    set pcolor black</span><br><span class="line">  ]</span><br><span class="line">  if (value = 1) [</span><br><span class="line">    set pcolor green</span><br><span class="line">  ]</span><br><span class="line">  if (value = 2) [</span><br><span class="line">    set pcolor yellow</span><br><span class="line">  ]</span><br><span class="line">  if (value = 3) [</span><br><span class="line">    set pcolor orange</span><br><span class="line">  ]</span><br><span class="line">  if (value = 4) [</span><br><span class="line">    set pcolor red</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to judge-cascading</span><br><span class="line">  if (value &gt; 4) [</span><br><span class="line">    set value (value - 4)</span><br><span class="line">    ask neighbors4 [</span><br><span class="line">      set value (value + 1)</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>可以看到，后期一粒沙子可以导致大范围的改变，就像雪崩一样。因此形象地把这种现象称之为“雪崩”。如果把“雪崩”次数当作横坐标，每次“雪崩”的尺度当作纵坐标，再把坐标轴取双对数，可以发现曲线趋近一条直线，说明这符合幂律分布。</p>
+<p>模型库里面也有这个模型。打开运行一段时间之后：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/2-2.png" alt="img"></p>
+<p>可以看到，在简单的规则之下，系统可以自发地达到临界状态。并且“雪崩”的尺度与次数符合幂律分布；每次“雪崩”的时间长度与次数也符合幂律分布。</p>
+<p>地震，暴动等等皆可用这个模型来解释，因为本质都是能量的积累与释放。</p>
+<h3 id="3-生态模型（ecological-model）"><a href="#3-生态模型（ecological-model）" class="headerlink" title="3. 生态模型（ecological model）"></a>3. 生态模型（ecological model）</h3><p>说白了就是羊吃草。很简单的一个模型，直接上结果：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/3-1.png" alt="img"></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">turtles-own [energy]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse ((random-float 1) &lt; 0.2) [</span><br><span class="line">      set pcolor green</span><br><span class="line">    ] [</span><br><span class="line">      set pcolor black</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  create-turtles 1 [</span><br><span class="line">    setxy random-xcor random-ycor</span><br><span class="line">    set heading (random 360)</span><br><span class="line">    set energy 100</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  addfood</span><br><span class="line">  ask turtles [</span><br><span class="line">    turtle-move</span><br><span class="line">    turtle-breed</span><br><span class="line">    turtle-die</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to addfood</span><br><span class="line">  let i 0</span><br><span class="line">  while [i &lt; 10] [</span><br><span class="line">    let grass-x random-pxcor</span><br><span class="line">    let grass-y random-pycor</span><br><span class="line">    ask patches with [pxcor = grass-x and pycor = grass-y] [</span><br><span class="line">      set pcolor green</span><br><span class="line">    ]</span><br><span class="line">    set i (i + 1)</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-move</span><br><span class="line">  if (pcolor = green) [</span><br><span class="line">    set pcolor black</span><br><span class="line">    set energy (energy + 10)</span><br><span class="line">  ]</span><br><span class="line">  forward 1</span><br><span class="line">  if ((random-float 1) &lt; 0.1) [</span><br><span class="line">    set heading (random 360)</span><br><span class="line">  ]</span><br><span class="line">  set energy (energy - 1)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-breed</span><br><span class="line">  if (energy &gt; 500) [</span><br><span class="line">    set energy (energy / 2)</span><br><span class="line">    hatch 1 [</span><br><span class="line">      forward 1</span><br><span class="line">      set energy 100</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-die</span><br><span class="line">  if (energy &lt;= 0) [</span><br><span class="line">    die</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>重点是右边的population统计图表，绿色的曲线代表草的数量，黑色的曲线代表羊的数量。我设定的一开始只有一只羊，以0.2的概率随机分布草。其他参数都在代码里了我懒得说了:-P，然后结果就是草和羊的数量保持一种动态平衡。</p>
+<p>如果改变一些参数比如羊吃到草增加的能量或者草每个周期再生的数量等等，那么平衡曲线也会发生改变，甚至失衡。如果再加入一种动物比如狼，那么结果就会有趣得多，不过模型库里面已经有这个模型了：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/3-2.png" alt="img"></p>
+<p>用默认参数运行一段时间之后：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/3-3.png" alt="img"></p>
+<p>看左下角的图，为什么是这样的呢？因为羊少草就多狼就少（狼饿死了），狼少羊就多，羊多草就少且狼就多，草少且狼多羊就少，一直循环，生态稳定。</p>
+<p>如果改变一些参数，比如让狼吃到羊增加的能量变多和狼产崽变多，其他不变，那么……</p>
+<p><img src="/2019/08/08/NetLogo建模之美/3-4.png" alt="img"></p>
+<p>狼灭绝了，羊和草愉快地保持着动态平衡……</p>
+<p>为什么会这样？看time大约等于400的那段时间，羊几乎快灭绝了，狼就饿死得差不多了，可有一小部分羊在狼没找到的地方幸存了下来直到狼饿死光光……</p>
+<h3 id="4-生命游戏（-Game-of-Life-）"><a href="#4-生命游戏（-Game-of-Life-）" class="headerlink" title="4. 生命游戏（ Game of Life ）"></a>4. 生命游戏（ Game of Life ）</h3><p>大名鼎鼎的生命游戏，不多说，上结果：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/4-1.gif" alt="img"></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">patches-own [living]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse ((random-float 1) &lt; 0.2) [</span><br><span class="line">      set pcolor black</span><br><span class="line">    ] [</span><br><span class="line">      set pcolor white</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask patches [</span><br><span class="line">    set living count neighbors with [pcolor = black]</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse (pcolor = black) [</span><br><span class="line">      if (living &gt; 3 or living &lt; 2) [</span><br><span class="line">        set pcolor white</span><br><span class="line">      ]</span><br><span class="line">    ] [</span><br><span class="line">      if (living = 3) [</span><br><span class="line">        set pcolor black</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>生命游戏我用C语言写过，用Python写过，用MATLAB写过，现在看来，用NetLogo写这种是最简单的~</p>
+<h3 id="5-兰顿蚂蚁（-Langton’s-ant-）"><a href="#5-兰顿蚂蚁（-Langton’s-ant-）" class="headerlink" title="5. 兰顿蚂蚁（ Langton’s ant ）"></a>5. 兰顿蚂蚁（ Langton’s ant ）</h3><p>不那么大名鼎鼎的兰顿蚂蚁，也不多说，上结果：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/5-1.gif" alt="img"></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  create-turtles 1 [</span><br><span class="line">    set heading ((random 4) * 90)</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask turtles [</span><br><span class="line">    let degree 0</span><br><span class="line">    ifelse (pcolor = black) [</span><br><span class="line">      set degree (-90)</span><br><span class="line">      set pcolor white</span><br><span class="line">    ] [</span><br><span class="line">      set degree 90</span><br><span class="line">      set pcolor black</span><br><span class="line">    ]</span><br><span class="line">    right degree</span><br><span class="line">    forward 1</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上五个模型都很简单也很有趣，可作为入门练习，写完成就感满满~</p>
+<p>生命游戏和兰顿蚂蚁都属于很经典的元胞自动机，说到元胞自动机就不得不提到golly这个软件和Stephen Wolfram这个天才（虽然这两者没什么直接联系）。前者是专门运行元胞自动机的软件，很有趣；后者在国内比较出名可能是因为Wolfram是Mathematica这个软件的作者。Mathematica我在上两篇文章中写过，是一个神奇的软件。</p>
+<p>值得一提的是，NetLogo官方支持和Mathematica互联：</p>
+<p><img src="/2019/08/08/NetLogo建模之美/MathematicaLink.png" alt="img"></p>
+<p>话说复杂系统这个学科在国内太冷了，据我所知只有北师大的张江教授开设这个课程。</p>
+<ul>
+<li>生命游戏（Game of Life）</li>
+<li>golly</li>
+<li>兰顿蚂蚁（Langton’s ant）</li>
+<li>元胞自动机（cellular automata）</li>
+<li>Stephen Wolfram</li>
+<li>Mathematica</li>
+<li>复杂系统（complex system）</li>
+<li>复杂性（complexity）</li>
+<li>张江</li>
+<li>计算机模拟（computer simulation）</li>
+<li>分形（fractal）</li>
+<li>临界值（critical value）</li>
+<li>自组织（self-organization）</li>
+<li>NetLogo</li>
+<li>幂律分布（power-law distribution）</li>
+</ul>
+<p>似乎可以织成一张复杂的网……</p>
+<p>以前我很讨厌“复杂”这个词，喜欢“简单”。但现在，“复杂”于我而言有了一层新的含义：“复杂”不是冗杂，也不是繁杂，而是原理精简却现象复杂。复杂性思维，就是通过复杂的现象发现精简的内在规律，并为我所用，造福生命。而且只有足够“复杂”，才能产生恢弘和瑰丽。</p>
+<hr>
+<p>以上。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/05/16/Mathematica绘制函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/16/Mathematica绘制函数/" class="post-title-link" itemprop="url">Mathematica绘制函数</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-16 09:00:00" itemprop="dateCreated datePublished" datetime="2019-05-16T09:00:00+08:00">2019-05-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 22:56:51" itemprop="dateModified" datetime="2019-08-20T22:56:51+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>请欣赏一下Mathematica绘制的漂亮的函数图~ヾ(^▽^)</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Plot</span>[&#123;(<span class="number">1</span> + <span class="number">1</span>/n)^n, <span class="keyword">Evaluate</span>[<span class="keyword">Limit</span>[(<span class="number">1</span> + <span class="number">1</span>/n)^n, n -&gt; <span class="keyword">Infinity</span>]]&#125;, &#123;n, <span class="number">0</span>, <span class="number">100</span>&#125;, <span class="keyword">PlotLegends</span> -&gt; <span class="string">"Expressions"</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/1.png" alt="img"></p>
+<p>形象地展示了 $\lim\limits_{n \rightarrow \infty}{(1+\frac{1}{n})^n}=e$ 的过程。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Plot</span>[&#123;n^(<span class="number">1</span>/n), <span class="keyword">Evaluate</span>[<span class="keyword">Limit</span>[n^(<span class="number">1</span>/n), n -&gt; <span class="keyword">Infinity</span>]]&#125;, &#123;n, <span class="number">0</span>, <span class="number">1000</span>&#125;, <span class="keyword">PlotLegends</span> -&gt; <span class="string">"Expressions"</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/2.png" alt="img"></p>
+<p>形象地展示了 $\lim\limits_{n \rightarrow \infty}{n^{\frac{1}{n}}}=1$ 的过程。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Plot</span>[&#123;<span class="keyword">Sin</span>[x]/x, <span class="keyword">Evaluate</span>[<span class="keyword">Limit</span>[<span class="keyword">Sin</span>[x]/x, x -&gt; <span class="number">0</span>]]&#125;, &#123;x, <span class="number">-4</span>*<span class="keyword">Pi</span>, <span class="number">4</span>*<span class="keyword">Pi</span>&#125;, <span class="keyword">PlotLegends</span> -&gt; <span class="string">"Expressions"</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/3.png" alt="img"></p>
+<p>形象地展示了 $\lim\limits_{x \rightarrow 0}{\frac{sin(x)}{x}}=1$ 的过程。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Plot</span>[&#123;x*<span class="keyword">Sin</span>[<span class="number">1</span>/x], x, -x&#125;, &#123;x, <span class="number">-0.1</span>, <span class="number">0.1</span>&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="number">0.1</span>, <span class="keyword">AspectRatio</span> -&gt; <span class="number">1</span>, <span class="keyword">Filling</span> -&gt; Axis]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/4.png" alt="img"></p>
+<p>形象地展示了 $\lim\limits_{x \rightarrow 0}{x\ sin(\frac{1}{x})}=0$ 的过程。(⊙o⊙)</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="keyword">Table</span>[<span class="keyword">Plot</span>[f[x], &#123;x, <span class="number">-2</span>*<span class="keyword">Pi</span>, <span class="number">2</span>*<span class="keyword">Pi</span>&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="number">2</span>*<span class="keyword">Pi</span>, <span class="keyword">AspectRatio</span> -&gt; <span class="number">1</span>, <span class="keyword">ExclusionsStyle</span> -&gt; <span class="keyword">Dashed</span>, <span class="keyword">PlotLabel</span> -&gt; f], &#123;f, &#123;<span class="keyword">Sin</span>, <span class="keyword">Cos</span>, <span class="keyword">Tan</span>, <span class="keyword">Cot</span>, <span class="keyword">Sec</span>, <span class="keyword">Csc</span>&#125;&#125;]; </span><br><span class="line"><span class="keyword">GraphicsGrid</span>[&#123;t[[&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>&#125;]], t[[&#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>&#125;]]&#125;, <span class="keyword">ImageSize</span> -&gt; <span class="keyword">Large</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/5.png" alt="img"></p>
+<p>上篇文章中的例子，加了渐近线和标签，坐标轴等比例化，再将列表组合成一张图，好看一些。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ParametricPlot</span>[&#123;u*<span class="keyword">Sin</span>[u], u*<span class="keyword">Cos</span>[u]&#125;, &#123;u, <span class="number">0</span>, <span class="number">100</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/6.png" alt="img"></p>
+<p>添加一点选项：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ParametricPlot</span>[&#123;u*<span class="keyword">Sin</span>[u], u*<span class="keyword">Cos</span>[u]&#125;, &#123;u, <span class="number">0</span>, <span class="number">100</span>&#125;, <span class="keyword">PlotPoints</span> -&gt; <span class="number">125</span>, <span class="keyword">Axes</span> -&gt; <span class="keyword">False</span>, <span class="keyword">MaxRecursion</span> -&gt; <span class="number">0</span>, <span class="keyword">ColorFunction</span> -&gt; <span class="string">"Rainbow"</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/7.png" alt="img"></p>
+<p>像一朵花。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Plot3D</span>[x^<span class="number">2</span> - y^<span class="number">2</span>, &#123;x, <span class="number">-1</span>, <span class="number">1</span>&#125;, &#123;y, <span class="number">-1</span>, <span class="number">1</span>&#125;, <span class="keyword">BoxRatios</span> -&gt; &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/8.png" alt="img"></p>
+<p>画一个马鞍面。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ParametricPlot3D</span>[&#123;<span class="keyword">Sin</span>[t], <span class="keyword">Cos</span>[t], t&#125;, &#123;t, <span class="number">0</span>, <span class="number">100</span>&#125;, <span class="keyword">BoxRatios</span> -&gt; &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;, <span class="keyword">ColorFunction</span> -&gt; <span class="string">"Rainbow"</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/9.png" alt="img"></p>
+<p>画一个彩色弹簧。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PolarPlot</span>[<span class="keyword">Sin</span>[<span class="number">6</span>*t] + <span class="number">0.1</span>*<span class="keyword">RandomReal</span>[], &#123;t, <span class="number">0</span>, <span class="number">2</span>*<span class="keyword">Pi</span>&#125;, <span class="keyword">ColorFunction</span> -&gt; <span class="keyword">Hue</span>, <span class="keyword">Axes</span> -&gt; <span class="keyword">False</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/10.png" alt="img"></p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="keyword">Sin</span>[<span class="keyword">Range</span>[<span class="number">0</span>, <span class="number">12</span>*<span class="keyword">Pi</span>, <span class="number">0.1</span>]]; </span><br><span class="line"><span class="keyword">ListPolarPlot</span>[&#123;f, <span class="number">0.8</span>*f, <span class="number">0.6</span>*f, <span class="number">0.4</span>*f&#125;, <span class="keyword">Joined</span> -&gt; <span class="keyword">True</span>, <span class="keyword">Axes</span> -&gt; <span class="keyword">False</span>, <span class="keyword">PlotStyle</span> -&gt; &#123;<span class="keyword">Purple</span>, <span class="keyword">Red</span>, <span class="keyword">Orange</span>, Yellow&#125;]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/11.png" alt="img"></p>
+<p>漂亮的花。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ListPointPlot3D</span>[<span class="keyword">Table</span>[&#123;r*<span class="keyword">Cos</span>[t], r*<span class="keyword">Sin</span>[t], <span class="keyword">Sinc</span>[r]&#125;, &#123;r, <span class="number">0</span>, <span class="number">3</span>*<span class="keyword">Pi</span>, <span class="number">0.1</span>&#125;, &#123;t, <span class="number">0</span>, <span class="number">2</span>*<span class="keyword">Pi</span>, <span class="number">0.1</span>&#125;], <span class="keyword">Boxed</span> -&gt; <span class="keyword">False</span>, <span class="keyword">Axes</span> -&gt; <span class="keyword">False</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/12.png" alt="img"></p>
+<p>草帽~</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Graphics</span>[<span class="keyword">Table</span>[&#123;<span class="keyword">Hue</span>[t/<span class="number">25</span>], <span class="keyword">Circle</span>[&#123;<span class="keyword">Cos</span>[(<span class="number">2</span>*<span class="keyword">Pi</span>*t)/<span class="number">25</span>], <span class="keyword">Sin</span>[(<span class="number">2</span>*<span class="keyword">Pi</span>*t)/<span class="number">25</span>]&#125;]&#125;, &#123;t, <span class="number">25</span>&#125;]]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/13.png" alt="img"></p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Graphics3D</span>[&#123;<span class="keyword">Red</span>, <span class="keyword">Ball</span>[&#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>&#125;], <span class="keyword">Blue</span>, <span class="keyword">Cuboid</span>[&#123;<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;]&#125;, <span class="keyword">Boxed</span> -&gt; <span class="keyword">False</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/14.png" alt="img"></p>
+<p>还可以练素描。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RegionPlot3D</span>[x^<span class="number">2</span> + z^<span class="number">2</span> &lt;= <span class="number">1</span> &amp;&amp; y^<span class="number">2</span> + z^<span class="number">2</span> &lt;= <span class="number">1</span>, &#123;x, <span class="number">-1</span>, <span class="number">1</span>&#125;, &#123;y, <span class="number">-1</span>, <span class="number">1</span>&#125;, &#123;z, <span class="number">-1</span>, <span class="number">1</span>&#125;, <span class="keyword">PlotPoints</span> -&gt; <span class="number">40</span>, <span class="keyword">Mesh</span> -&gt; <span class="keyword">None</span>, <span class="keyword">Boxed</span> -&gt; <span class="keyword">False</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/15.png" alt="img"></p>
+<p>牟合方盖。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Animate</span>[<span class="keyword">Plot</span>[<span class="keyword">Evaluate</span>[&#123;<span class="keyword">Sin</span>[x], <span class="keyword">Normal</span>[<span class="keyword">Series</span>[<span class="keyword">Sin</span>[x], &#123;x, <span class="number">0</span>, n&#125;]]&#125;], &#123;x, <span class="number">-5</span>, <span class="number">5</span>&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="number">5</span>, <span class="keyword">AspectRatio</span> -&gt; <span class="number">1</span>, <span class="keyword">PlotLegends</span> -&gt; <span class="string">"Expressions"</span>], &#123;n, <span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/16.gif" alt="img"></p>
+<p>泰勒级数的可视化。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Animate</span>[<span class="keyword">Plot</span>[(x^n &amp; )[x, n], &#123;x, <span class="number">-10</span>, <span class="number">10</span>&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="number">10</span>, <span class="keyword">AspectRatio</span> -&gt; <span class="number">1</span>], &#123;n, <span class="number">-5</span>, <span class="number">5</span>, <span class="number">0.1</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/17.gif" alt="img"></p>
+<p>幂函数的可视化。</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Animate</span>[<span class="keyword">Plot3D</span>[<span class="keyword">Sin</span>[<span class="keyword">Sqrt</span>[x^<span class="number">2</span> + y^<span class="number">2</span>] + <span class="number">2</span>*<span class="keyword">Pi</span>*t], &#123;x, <span class="number">-8</span>*<span class="keyword">Pi</span>, <span class="number">8</span>*<span class="keyword">Pi</span>&#125;, &#123;y, <span class="number">-8</span>*<span class="keyword">Pi</span>, <span class="number">8</span>*<span class="keyword">Pi</span>&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="number">10</span>, <span class="keyword">PlotPoints</span> -&gt; <span class="number">50</span>, <span class="keyword">AspectRatio</span> -&gt; <span class="number">1</span>, <span class="keyword">Boxed</span> -&gt; <span class="keyword">False</span>, <span class="keyword">Mesh</span> -&gt; <span class="keyword">None</span>, <span class="keyword">Axes</span> -&gt; <span class="keyword">False</span>], &#123;t, <span class="number">0</span>, <span class="number">2</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/18.gif" alt="img"></p>
+<p>水面波纹效果~</p>
+<hr>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MandelbrotSetPlot</span>[]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/16/Mathematica绘制函数/19.png" alt="img"></p>
+<p>Mathematica内置了许多函数图，曼德勃罗集合图是其中之一。这被称为“上帝的指纹”。</p>
+<hr>
+<p>以上。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/05/08/Mathematica——万物皆理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/08/Mathematica——万物皆理/" class="post-title-link" itemprop="url">Mathematica——万物皆理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-08 09:00:00" itemprop="dateCreated datePublished" datetime="2019-05-08T09:00:00+08:00">2019-05-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 22:38:42" itemprop="dateModified" datetime="2019-08-20T22:38:42+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>我怀着激动的心情写下这篇文章，行文风格可能比较飘 ~(￣▽￣)~*</p>
+<p>事实上，这几天我一直都怀着激动的心情，因为我体会到了Mathematica强大的符号计算能力。Mathematica是一款科学计算软件，用的是一种基于规则的函数式编程语言——Wolfram Language。好吧，我知道你们可能都没听说过这个语言，很正常，这不是唯一的名称，因为Stephen Wolfram花了三十多年开发它，花了二十多年给它取名……</p>
+<p><img src="/2019/05/08/Mathematica——万物皆理/1.png" alt="img"></p>
+<p><a href="https://blog.stephenwolfram.com/2013/02/what-should-we-call-the-language-of-mathematica/" target="_blank" rel="noopener">What Should We Call the Language of Mathematica?</a></p>
+<p>话说回来，Wolfram语言当然也是和C、Python等语言一样是图灵完备的。说到图灵完备啊，印象中有好多计算机领域的名词都是以图灵为名，比如图灵机、图灵测试、图灵奖等等，就像有好多数学领域的名词都是以高斯为名。有一种说法说甚至苹果的Logo——那一口就是图灵咬的，是为了纪念图灵，但实际上这是误传。具体可看《史蒂夫·乔布斯传》第六章。然而我觉得某种程度上这个误传美好胜过事实。</p>
+<p>这不是一篇Mathematica的教程，因为Mathematica自带的参考资料就是最好的教程。我只是想让更多人认识Mathematica这个神器。</p>
+<p>Talk is cheap, Show the code!</p>
+<hr>
+<p>先来看看最简单的求导：</p>
+<script type="math/tex; mode=display">
+\partial_x(3x^2)</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D[<span class="number">3</span>*x^<span class="number">2</span>, x]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/2.png" alt="img"></p>
+<p>Good，算出来了，不过重点不是这个。注意到输入的表达式很易于阅读，是的，输入代码后快捷键格式化一下（格式化是为了好看，不管格式化与否都能运行，都是代码）就自动转为这种Mathematica里面的标准格式了，可以复制、粘贴、修改、运行等等，有点像LaTex。</p>
+<p>再来一个积分：</p>
+<script type="math/tex; mode=display">
+\int 3x^2 dx</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Integrate</span>[<span class="number">3</span>*x^<span class="number">2</span>, x]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/3.png" alt="img"></p>
+<p>接下来看看自然常数的定义式：</p>
+<script type="math/tex; mode=display">
+\lim_{n \rightarrow \infty}{(1+\frac{1}{n})^n}=e</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Limit</span>[(<span class="number">1</span> + <span class="number">1</span>/n)^n, n -&gt; <span class="keyword">Infinity</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/4.png" alt="img"></p>
+<p>再来一个很常见的极限：</p>
+<script type="math/tex; mode=display">
+\lim_{x \rightarrow 0}{\frac{sin(x)}{x}}=1</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Limit</span>[<span class="keyword">Sin</span>[x]/x, x -&gt; <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/5.png" alt="img"></p>
+<p>不用函数，直接计算一个欧拉公式：</p>
+<script type="math/tex; mode=display">
+e^{i \pi}+1=0</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E^(I*<span class="keyword">Pi</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/6.png" alt="img"></p>
+<p>不搞计算了，看看作图怎么样？</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Table</span>[<span class="keyword">Plot</span>[f[x], &#123;x, -<span class="keyword">Pi</span>, <span class="keyword">Pi</span>&#125;], &#123;f, &#123;<span class="keyword">Sin</span>, <span class="keyword">Cos</span>, <span class="keyword">Tan</span>, <span class="keyword">Cot</span>, <span class="keyword">Sec</span>, <span class="keyword">Csc</span>&#125;&#125;]</span><br></pre></td></tr></table></figure>
+<p>这句意思是说生成一个表，表的内容是画的图，图的内容是f[x]，其中f是后面的表。</p>
+<p><img src="/2019/05/08/Mathematica——万物皆理/7.png" alt="img"></p>
+<p>嗯……Nice！值得注意的是，在Mathematica里面，图片和代码是等价的，一样可以被粘贴、复制、修改或运行。</p>
+<p>有个东西叫做Tetration，简单来说就是继加，乘，幂之后的第四种运算，大概长这样：</p>
+<script type="math/tex; mode=display">
+x^{x^{x^{x...}}}</script><p>知乎上有篇文章讲得比较好，可以先看一下那篇文章：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/25150820" target="_blank" rel="noopener">由根号2的根号2的根号2…次方次方引发的讨论</a></p>
+<p>当 $x$ 等于 $\sqrt2$ 的时候，它是收敛于2的吗？来用程序验证一下：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N[<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]^<span class="keyword">Sqrt</span>[<span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/8.png" alt="img"></p>
+<p>不太令人满意，幂塔写多了又难看，来定义一个函数吧：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tetration[<span class="number">1</span>] = <span class="keyword">Sqrt</span>[<span class="number">2</span>]; </span><br><span class="line">tetration[n_] := <span class="keyword">Sqrt</span>[<span class="number">2</span>]^tetration[n - <span class="number">1</span>]; </span><br><span class="line">N[tetration[<span class="number">100</span>]]</span><br></pre></td></tr></table></figure>
+<p>这样我们就能算任意幂塔的具体数值了。N[expr]是求expr的数值解，否则算出来的是解析解。</p>
+<p><img src="/2019/05/08/Mathematica——万物皆理/9.png" alt="img"></p>
+<p>嗯……是2，不过总觉得少了点什么……少了点什么呢？对！少了画图！</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ListPlot</span>[<span class="keyword">Table</span>[tetration[n], &#123;n, <span class="number">100</span>&#125;], <span class="keyword">PlotRange</span> -&gt; <span class="keyword">All</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/10.png" alt="img"></p>
+<p>Perfect！</p>
+<p>好了，最后再看一个例子。Mathematica的符号计算能力体现在哪里呢？</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Solve</span>[a*x^<span class="number">2</span> + b*x + c == <span class="number">0</span>, x]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/08/Mathematica——万物皆理/11.png" alt="img"></p>
+<p>大概就体现在这里。</p>
+<p>“一切都是符号”，这和Lisp在某种层面有类似的神韵。</p>
+<hr>
+<p>这仅仅是五千多个内置“函数”（在函数式编程语言中，函数这个概念与C这种过程式语言和Java这种面向对象的语言不太一样，但意思懂了就好）的冰山一角。Mathematica的所有内置函数都是以完整的首字母大写的单词作为函数名，主要是统一格式，看起来很规范，顺便避免了虚数单位被自定义的循环变量覆盖掉。（想起了MATLAB某些不查文档根本看不懂的函数名和写循环时一不小心就把虚数单位覆盖了……）啊，我没有说MATLAB不好的意思，各有所长，而且MATLAB很多拿来即用的工具箱也是很不错的。</p>
+<p>Mathematica的能力对我来说可以用震撼来形容。我是学EE（Electronic Engineering）而不是CS（Computer Science）的，所以平时主要写写C语言，搞搞单片机，再底层一点还要搞组合逻辑电路，基本就是看着以字节为单位的数据流控制一些芯片实现很简单的功能。所以你能想象这种震撼吗？</p>
+<p>虽然再大的震撼，都会随着时间以 $Ae^{-\alpha t}$ 的形式被抚平。但人生的意义，不就是由时域中一个个的冲激串构造出来的吗？（突然跑偏）</p>
+<hr>
+<p>和Mathematica有关的，还有Wolfram | Alpha、元胞自动机、《A New Kind of Science》等等……</p>
+<p>这些都和一个人有关：Stephen Wolfram</p>
+<p>可以看看他在TED的演讲：<a href="https://www.bilibili.com/video/av1019197" target="_blank" rel="noopener">【TED 演讲】Stephen Wolfram：计算万物的理论</a></p>
+<p>对了，想下载Mathematica吗？请去官网或者贴吧下载~</p>
+<hr>
+<p>以上。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/04/04/一段鬼畜的代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/04/一段鬼畜的代码/" class="post-title-link" itemprop="url">一段鬼畜的代码</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-04 09:00:00" itemprop="dateCreated datePublished" datetime="2019-04-04T09:00:00+08:00">2019-04-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 22:24:21" itemprop="dateModified" datetime="2019-08-20T22:24:21+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>有个“国际C语言混乱代码大赛”，简称IOCCC，画风简直鬼畜。其中有个获奖代码是这样的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">main(_)&#123;_^<span class="number">448</span>&amp;&amp;main(-~_);<span class="built_in">putchar</span>(--_%<span class="number">64</span>?<span class="number">32</span>|-~<span class="number">7</span>[__TIME__-_/<span class="number">8</span>%<span class="number">8</span>][<span class="string">"&gt;'txiZ^(~z?"</span><span class="number">-48</span>]&gt;&gt;<span class="string">";;;====~$::199"</span>[_*<span class="number">2</span>&amp;<span class="number">8</span>|_/<span class="number">64</span>]/(_&amp;<span class="number">2</span>?<span class="number">1</span>:<span class="number">8</span>)%<span class="number">8</span>&amp;<span class="number">1</span>:<span class="number">10</span>);&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码直接复制粘贴编译运行就输出了当前时间！</p>
+<p><img src="/2019/04/04/一段鬼畜的代码/1.png" alt="img"></p>
+<p>C语言果然是强大而灵活。QAQ</p>
+<p>注意到源码中有 __TIME__，这是预处理器定义的特殊宏，它能扩展为一个字符串，内容为预处理器运行的时间，格式为”HH:MM:SS”。</p>
+<p>好奇心驱使着我想要一探究竟。</p>
+<hr>
+<p>首先，格式化代码并加入头文件及返回值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(_)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    _ ^ <span class="number">448</span> &amp;&amp; main(-~_);</span><br><span class="line">    <span class="built_in">putchar</span>(--_ % <span class="number">64</span> ? <span class="number">32</span> | -~<span class="number">7</span>[__TIME__ - _ / <span class="number">8</span> % <span class="number">8</span>][<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>] &gt;&gt; <span class="string">";;;====~$::199"</span>[_ * <span class="number">2</span> &amp; <span class="number">8</span> | _ / <span class="number">64</span>] / (_ &amp; <span class="number">2</span> ? <span class="number">1</span> : <span class="number">8</span>) % <span class="number">8</span> &amp; <span class="number">1</span> : <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>展开逻辑与的短路特性，引入变量并化简：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i ^ <span class="number">448</span>)</span><br><span class="line">        main(-~i);</span><br><span class="line">    <span class="keyword">if</span> (--i % <span class="number">64</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> a = -~<span class="number">7</span>[__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>][<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>];</span><br><span class="line">        <span class="keyword">char</span> b = <span class="string">";;;====~$::199"</span>[i * <span class="number">2</span> &amp; <span class="number">8</span> | i / <span class="number">64</span>] / (i &amp; <span class="number">2</span> ? <span class="number">1</span> : <span class="number">8</span>) % <span class="number">8</span>;</span><br><span class="line">        <span class="keyword">char</span> c = a &gt;&gt; b;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">32</span> | (c &amp; <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来展开各种位运算并用字符’\n’代替其ASCII码值10：</p>
+<ul>
+<li>if (i ^ 448) 等价于 if (i != 448)</li>
+<li>-~i 等价于 i + 1</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i != <span class="number">448</span>)</span><br><span class="line">        main(i + <span class="number">1</span>);</span><br><span class="line">    i--;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">64</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> a = <span class="number">1</span> + <span class="number">7</span>[__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>][<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>];</span><br><span class="line">        <span class="keyword">char</span> b = <span class="string">";;;====~$::199"</span>[i * <span class="number">2</span> &amp; <span class="number">8</span> | i / <span class="number">64</span>] / (i &amp; <span class="number">2</span> ? <span class="number">1</span> : <span class="number">8</span>) % <span class="number">8</span>;</span><br><span class="line">        <span class="keyword">char</span> c = a &gt;&gt; b;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">32</span> | (c &amp; <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>递归化为循环，这个有点烧脑：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">447</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">64</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> a = <span class="number">1</span> + <span class="number">7</span>[__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>][<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>];</span><br><span class="line">            <span class="keyword">char</span> b = <span class="string">";;;====~$::199"</span>[i * <span class="number">2</span> &amp; <span class="number">8</span> | i / <span class="number">64</span>] / (i &amp; <span class="number">2</span> ? <span class="number">1</span> : <span class="number">8</span>) % <span class="number">8</span>;</span><br><span class="line">            <span class="keyword">char</span> c = a &gt;&gt; b;</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="number">32</span> | (c &amp; <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意到 putchar(32 | (c &amp; 1)) 取决于 c 的奇偶性，32的二进制表示为 ‭0010 0000‬ ，若 c 为奇数则putchar(33)否则putchar(32)。再分别用字符替换其ASCII码值，得到：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">447</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">64</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> a = <span class="number">1</span> + <span class="number">7</span>[__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>][<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>];</span><br><span class="line">            <span class="keyword">char</span> b = <span class="string">";;;====~$::199"</span>[i * <span class="number">2</span> &amp; <span class="number">8</span> | i / <span class="number">64</span>] / (i &amp; <span class="number">2</span> ? <span class="number">1</span> : <span class="number">8</span>) % <span class="number">8</span>;</span><br><span class="line">            <span class="keyword">char</span> c = a &gt;&gt; b;</span><br><span class="line">            <span class="keyword">if</span> (c % <span class="number">2</span>)</span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">'!'</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来，开始分析最长的那两行！</p>
+<p>C语言中 a[b] 等价于 b[a] ，这是C语言指针的基础知识，于是有：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a = <span class="number">1</span> + (__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>)[<span class="number">7</span>][<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>]; <span class="comment">// 第一次嵌套</span></span><br><span class="line"><span class="keyword">char</span> a = <span class="number">1</span> + (<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>)[(__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>)[<span class="number">7</span>]]; <span class="comment">// 第二次嵌套</span></span><br></pre></td></tr></table></figure>
+<p>得到：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">447</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">64</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> a = (<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>)[(__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>)[<span class="number">7</span>]] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">char</span> b = <span class="string">";;;====~$::199"</span>[i * <span class="number">2</span> &amp; <span class="number">8</span> | i / <span class="number">64</span>] / (i &amp; <span class="number">2</span> ? <span class="number">1</span> : <span class="number">8</span>) % <span class="number">8</span>;</span><br><span class="line">            <span class="keyword">char</span> c = a &gt;&gt; b;</span><br><span class="line">            <span class="keyword">if</span> (c % <span class="number">2</span>)</span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">'!'</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意到 (i &amp; 2 ? 1 : 8) 取决于 i &amp; 2 的值，展开得到：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">447</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">64</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> a = (<span class="string">"&gt;'txiZ^(~z?"</span> - <span class="number">48</span>)[(__TIME__ - i / <span class="number">8</span> % <span class="number">8</span>)[<span class="number">7</span>]] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">char</span> b = <span class="string">";;;====~$::199"</span>[i * <span class="number">2</span> &amp; <span class="number">8</span> | i / <span class="number">64</span>];</span><br><span class="line">            <span class="keyword">if</span> ((i &amp; <span class="number">2</span>) == <span class="number">0</span>)  <span class="comment">//i &amp; 2 一定要加括号</span></span><br><span class="line">                b /= <span class="number">8</span>;</span><br><span class="line">            b %= <span class="number">8</span>;</span><br><span class="line">            <span class="keyword">char</span> c = a &gt;&gt; b;</span><br><span class="line">            <span class="keyword">if</span> (c % <span class="number">2</span>)</span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">'!'</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里 char a 这一行很奇怪，字符串减去一个整数再取下标？！先写两个demo看看是什么情况（当前时间 18:47）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = (__TIME__ - <span class="number">7</span>)[<span class="number">7</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>, a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译通过！运行发现：</p>
+<p><img src="/2019/04/04/一段鬼畜的代码/2.png" alt="img"></p>
+<p>__TIME__的第一位字符？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = (__TIME__ - <span class="number">6</span>)[<span class="number">7</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>, a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/04/一段鬼畜的代码/3.png" alt="img"></p>
+<p>__TIME__的第二位字符？</p>
+<p>所以，(__TIME__ - i)[7] 等价于 (__TIME__)[7 - i] ？</p>
+<p>事实上，这里不能把源代码中的字符串看成数组而应该看成指针。</p>
+<p>下标操作默认是 a[i] = *(a + i) 实现的，当然也就有 (a + n)[i] 等价于 a[i + n]。</p>
+<p>至此，程序分析到这一步：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">447</span>; i &gt;= <span class="number">0</span>; i--) <span class="comment">// 一共7行，每行64个字符，一共循环7x64=448次</span></span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">64</span>) <span class="comment">// 每输出64个字符就换行</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> a = <span class="string">"&gt;'txiZ^(~z?"</span>[__TIME__[<span class="number">7</span> - i / <span class="number">8</span> % <span class="number">8</span>] - <span class="number">48</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">char</span> b = <span class="string">";;;====~$::199"</span>[i * <span class="number">2</span> &amp; <span class="number">8</span> | i / <span class="number">64</span>];</span><br><span class="line">            <span class="keyword">if</span> ((i &amp; <span class="number">2</span>) == <span class="number">0</span>)</span><br><span class="line">                b /= <span class="number">8</span>;</span><br><span class="line">            b %= <span class="number">8</span>;</span><br><span class="line">            <span class="keyword">char</span> c = a &gt;&gt; b;</span><br><span class="line">            <span class="keyword">if</span> (c % <span class="number">2</span>)</span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">'!'</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析不下去了。</p>
+<hr>
+<p>上网找吧，找到了一篇分析得比较好的文章：<a href="https://stackoverflow.com/questions/15393441/obfuscated-c-code-contest-2006-please-explain-sykes2-c" target="_blank" rel="noopener">StackOverflow</a></p>
+<p>以上。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/03/27/一个白日梦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的个人网站">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/27/一个白日梦/" class="post-title-link" itemprop="url">一个白日梦</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-27 09:00:00" itemprop="dateCreated datePublished" datetime="2019-03-27T09:00:00+08:00">2019-03-27</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-20 22:16:49" itemprop="dateModified" datetime="2019-08-20T22:16:49+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>这个白日梦主要分为两部分：字符集和键盘布局。</p>
+<hr>
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><p>希望联合国协同各国政府精简优化Unicode。</p>
+<p>把前127个字符重新设计一下，比如：</p>
+<ul>
+<li>将 $ （U+0024，Dec:36）移到第127之后，和各国货币符号放一起，别搞特殊化。</li>
+<li>把乘除运算符（是真正的点乘和叉乘，不是 * ，是 ÷ 而不是 / ）、积分微分运算符移到前127个里面（微分运算符最好用一个特殊符号表示而不是英文字母 d ，避免和变量 $d$ 混淆），因为数学是永恒的。</li>
+<li>把希腊字母移到前127个里面（26 x 2 + 24 x 2 = 100 &lt; 127）</li>
+</ul>
+<p>去掉Unicode中的幽灵字符</p>
+<blockquote>
+<p>1978年，日本行政机关发布了一套编码系统，即后来的 JIS X 0208。这份编码系统对日本后来的所有编码系统都影响深远。但是就在这份编码系统发布后，大家发现其中的几个字符很奇特——没人知道它们从何而来、什么意思、怎么发音。这就是所谓的幽灵字符。 很长一段时间，这些幽灵文字虽然奇特，但是无人解释，也被大多数人遗忘。但在1997年，日本人终于坐不住了，发起一个大型的调查来研究这些文字的来龙去脉。 一般来说，收录到 JIS 标准的字符都有具体来源记录。即使来源不甚清楚，也会说明在哪些文档。所以，你可能认为会很容易追溯到这些字符的根源，但是我们可能得谈谈“文档”的定义——这些幽灵字符的一个常见来源是《国土行政区划总览》，包含了所有的日本地名。你可能和我一样，认为这仅仅是普通的地图册，一本几百页的大书。但事实是，那是一套七卷本，每本大概都九百页。想象一下在这里面一个一个地查找字符，而且还不知道在哪一页！ 尽管如此，日本人还是做到了：他们发现了这些幽灵字符的来源——至少是最可能的来源。通过询问那些参加标准制定的索引员们，调查员们发现一些幽灵字符其实是在索引过程中错误地制造出来的。例如，“妛”这个字本来是用来表示“上山下女”的另外一个字，一个在日本非常著名地点用到的字(因此值得收入到 JIS 标准)。在当时，因为没有这字，所以没有办法打印这个字，所以索引员单独打印了“山”和“女”，然后剪切粘贴在一张纸上，最后扫描复制。但是后来的索引员读到这个复印件，把两个字中间粘缝产生的横线认为是一划，于是错误地造了这个字。讽刺的是，本来想表示的那个字直到最近才加入到 JIS 和后来的 Unicode 文档，导致很多网站都无法显示这个字(冤……)。 调查之后，所有的幽灵字符中只有一个字符没明确来源：“彁”。最有可能的解释是：这是另一个字符“彊”的错写，但没在其他文档发现这种错法。 由于 JIS 标准的广泛接受，在 CJK 合并过程的时候，这些幽灵字符也被 Unicode 收录。 所以，1978年的一系列错误无中生有地制造了幽灵字符。当我们发现这个错误的时候，为时已晚，幽灵已经嵌入整个系统。现在这些字符——至少有可能——成为全世界所有电脑的一部分，徘徊在字符表的黑暗角落。 照此下去，它们将与人类共存亡，永远。</p>
+</blockquote>
+<p><img src="/2019/03/27/一个白日梦/1.png" alt="img"></p>
+<p>幽灵字符：妛挧暃椦槞蟐袮閠駲墸壥彁</p>
+<p>编码方案用UTF-8或UTF-32，前者利于传输，后者解析方便。</p>
+<p>各国统一默认使用这个优化之后的Unicode（别把它叫做Unicode 2，Unicode就是Unicode），别再各自搞那些字符集啦。当然特殊场合可以用特定的编码方案和字符集。</p>
+<hr>
+<h3 id="键盘布局"><a href="#键盘布局" class="headerlink" title="键盘布局"></a>键盘布局</h3><p>把键盘上的字母按顺序重新安排一下，英文字母的排列别再沿用这个不合适的设计了。</p>
+<blockquote>
+<p>为什么要将键盘规范成现在这样的“QWERTY”键盘按键布局呢？ 这是因为最初，打字机的键盘是按照字母顺序排列的，而打字机是全机械结构的打字工具，因此如果打字速度过快，相邻键的组合很容易出现卡键问题，于是Christopher Sholes发明了QWERTY键盘布局。他将最常用的几个字母安置在相反方向。众所周知，这种键盘主要的设计目的是使击键的速度不至太快而导致卡住。不过在很多文章中的说法有一个小小的错误，就是这种键盘的键位设计并不是要“使击键的速度不至太快而导致卡住”，而是“在不至卡住的前提下尽量提高打字速度”。 Christopher Sholes在1868年申请专利，1873年使用此布局的第一台商用打字机成功投放市场。正如很多事情一样，习惯的力量是难以抵挡的，这就是为什么有今天键盘的排列方式。这不得不说是一个历史遗留问题。</p>
+</blockquote>
+<p>可以考虑把加减乘除模幂等单独拿出来放一起，每次输入乘法运算符还要Shift真的不方便。</p>
+<p>右Shift或其他更合理的按键可以切换英文字母和希腊字母（英文字母比希腊字母多出来的那两个键位可再具体安排），Caps仍然切换大小写。这样一来，28个键位（26个字母键位+2个切换键位）就可以方便地打出大小写的英文字母和大小写的希腊字母。</p>
+<hr>
+<p>技术上真的不难，主要是人们不愿意去改变旧有的习惯。</p>
+<p>如果真要在统一字符集和编码上下功夫，可能会让现在的软件行业停滞好几年，完成之后各种兼容性问题会层出不穷，但越往后，改变的成本越大。</p>
+<p>啊，不知道有生之年能不能看到。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/03/12/流水账日记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -734,801 +1691,12 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/21/浅谈计算自然常数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青羽的个人网站">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/21/浅谈计算自然常数/" class="post-title-link" itemprop="url">浅谈计算自然常数</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-21 09:00:00" itemprop="dateCreated datePublished" datetime="2019-02-21T09:00:00+08:00">2019-02-21</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-20 20:45:36" itemprop="dateModified" datetime="2019-08-20T20:45:36+08:00">2019-08-20</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>利用程序计算自然常数有很多方法，这里我们举三个小例子。</p>
-<p>还是用之前计算圆周率的那个框架，Let’s go!</p>
-<hr>
-<h3 id="1-数学方法"><a href="#1-数学方法" class="headerlink" title="1. 数学方法"></a>1. 数学方法</h3><p>这里我们用 e 的定义直接算：</p>
-<script type="math/tex; mode=display">
-e=\lim_{i\rightarrow \infty }(1+\frac{1}{i})^i</script><p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, <span class="built_in">pow</span>(<span class="number">1</span> + <span class="number">1.0</span> / I, I));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/21/浅谈计算自然常数/1.png" alt="img"></p>
-<p>一行代码搞定(￣▽￣)”</p>
-<p>Oh……似乎精度不够？毕竟这只是定义式，我们接下来换个收敛较快的公式。</p>
-<hr>
-<h3 id="2-数学方法"><a href="#2-数学方法" class="headerlink" title="2. 数学方法"></a>2. 数学方法</h3><p>这是一个很优美的公式：</p>
-<script type="math/tex; mode=display">
-e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> e = <span class="number">1</span>, n = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; I; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        n *= <span class="number">1.0</span> / i;</span><br><span class="line">        e += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/21/浅谈计算自然常数/2.png" alt="img"></p>
-<p>可以看到，同样的迭代次数，精度明显提高了许多。</p>
-<hr>
-<h3 id="3-统计方法"><a href="#3-统计方法" class="headerlink" title="3. 统计方法"></a>3. 统计方法</h3><p>这种方法是 <a href="https://www.zhihu.com/people/miloyip/" target="_blank" rel="noopener">@Milo Yip</a> 在他的文章中写出来的，有点深奥。</p>
-<p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_3</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> i, j, k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt;= RAND_MAX; j += rand())</span><br><span class="line">            k++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"e: %lf\n"</span>, (<span class="keyword">double</span>)k / N);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（N = 4000 * 4000）：</p>
-<p><img src="/2019/02/21/浅谈计算自然常数/3.png" alt="img"></p>
-<p>背后的数学原理请参考：</p>
-<p><a href="http://mathworld.wolfram.com/UniformSumDistribution.html" target="_blank" rel="noopener">Uniform Sum Distribution</a></p>
-<p><a href="https://www.randomservices.org/random/special/IrwinHall.html" target="_blank" rel="noopener">The Irwin-Hall Distribution</a></p>
-<hr>
-<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
-<p>以上。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青羽的个人网站">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/10/浅谈计算黄金分割率/" class="post-title-link" itemprop="url">浅谈计算黄金分割率</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-10 09:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T09:00:00+08:00">2019-02-10</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-20 20:54:31" itemprop="dateModified" datetime="2019-08-20T20:54:31+08:00">2019-08-20</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>利用程序计算黄金分割率有很多方法，这里我们举两个小例子。</p>
-<p>还是用之前计算圆周率的那个框架，Let’s go!</p>
-<hr>
-<h3 id="1-数学方法"><a href="#1-数学方法" class="headerlink" title="1. 数学方法"></a>1. 数学方法</h3><p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t1 = <span class="number">1</span>, t2 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> next = t1 + t2;</span><br><span class="line">        t1 = t2;</span><br><span class="line">        t2 = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, (<span class="keyword">double</span>)t1 / t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/10/浅谈计算黄金分割率/1.png" alt="img"></p>
-<p>这里用的是斐波那契数列（Fibonacci sequence）来计算黄金分割率。</p>
-<script type="math/tex; mode=display">
-\begin{equation} \begin{array}{l}{t_{n}=1,1,2,3,5,8,13,21,34, \ldots} \\ {\frac{1}{1}=1.000, \frac{1}{2}=0.500, \frac{2}{3} \approx 0.667, \frac{3}{5}=0.600} \\ {\frac{5}{8}=0.625, \frac{8}{13} \approx 0.615, \frac{13}{21} \approx 0.619, \frac{21}{34} \approx 0.618}\end{array} \end{equation}</script><p>可以看到，随着项数增大，前一项与后一项的比值越来越接近黄金分割率，即 </p>
-<script type="math/tex; mode=display">
-\lim _{n \rightarrow \infty} \frac{t_{n-1}}{t_{n}}=\frac{\sqrt{5}-1}{2}</script><hr>
-<h3 id="2-数学方法"><a href="#2-数学方法" class="headerlink" title="2. 数学方法"></a>2. 数学方法</h3><p>这里要用到连分数（continued fraction）。</p>
-<p>第一次看到连分数时是阅读关于拉马努金（Srīṉivāsa Rāmāṉujan）的文章时看见的。此人天赋异禀，堪称鬼才，发现了许多画风奇特的数学公式，比如：</p>
-<script type="math/tex; mode=display">
-\sqrt{\frac{1+\sqrt{5}}{2}+2}-\frac{1+\sqrt{5}}{2}=\frac{\mathrm{e}^{-\frac{2 \pi}{5}}}{1+\frac{\mathrm{e}^{-2 \pi}}{1+\frac{\mathrm{e}^{-4 \pi}}{1+\frac{\mathrm{e}^{-6 \pi}}{1+\cdots}}}}</script><p>把黄金分割率 φ 、自然常数 e 和圆周率 π 联系在了一起。</p>
-<p>还有很多我就不一一展示了，总之那些公式看得我头皮发麻……</p>
-<p>连分数就像是一台数学显微镜，它能把放进去的数字的内部构造展现出来，让我们得以一窥精妙的造物之痕。现在，让我们把黄金分割率放进去…</p>
-<script type="math/tex; mode=display">
-\frac{\sqrt{5}-1}{2}=\frac{1}{1+\frac{1}{1+\frac{1}{1+...}}}</script><p>化为连分数后，整个式子只有数字1！</p>
-<p>All in one, beautiful !</p>
-<p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (I == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.618</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1.0</span> / (sub(I - <span class="number">1</span>) + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, sub(I));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/10/浅谈计算黄金分割率/2.png" alt="img"></p>
-<p>我用的递归来计算这个式子。</p>
-<p>值得一提的是，递归基例我不知道是多少，一开始设置成1，结果是0.618034，对的。我又试了试0.5，结果还是0.618034，我有点摸不着头脑了。我再试了一下0.0，结果还是一样！有点方，稳住。我把输出的位数调大，调到了14位，因为double有效位数至少15位，再把迭代次数调小，这样就能明显地比较每个基例的收敛速度，于是我发现似乎在0.6左右时收敛最快……0.618！它的基例，正是它自己本身！这和它的连分数似乎有某种内在的联系，都是“1”……</p>
-<p>Σ(っ °Д °;)っ</p>
-<hr>
-<p> 想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a> 以上。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青羽的个人网站">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/22/MATLAB信号处理（一）/" class="post-title-link" itemprop="url">MATLAB信号处理（一）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-22 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-22T09:00:00+08:00">2019-01-22</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-20 21:44:43" itemprop="dateModified" datetime="2019-08-20T21:44:43+08:00">2019-08-20</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>再开一个系列，这个系列主要展示一下MATLAB画信号。</p>
-<hr>
-<p>众所周知，MATLAB是一款功能强大的科学计算软件。</p>
-<p>我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。</p>
-<hr>
-<p>安装包网上有很多，当然你不想去找的话可以用我的 R2018B 版本的：</p>
-<p>链接：<a href="https://pan.baidu.com/s/1Pkhyq0kg2iseSOqGGKigCw" target="_blank" rel="noopener">百度网盘链接</a> 提取码：o3xp  该资源仅供学习之用。</p>
-<hr>
-<h3 id="1-单位冲激信号"><a href="#1-单位冲激信号" class="headerlink" title="1. 单位冲激信号"></a>1. 单位冲激信号</h3><p>单位冲激信号（unit impulse signal）是最基本的信号，定义如下：</p>
-<script type="math/tex; mode=display">
-\begin {cases} \delta(t) = 0, t \ne 0 \\ \int_{-\infty}^{\infty}\delta(t)dt = 1\end{cases}
-\\
-\delta[k] = \begin {cases} 1 & \text{k = 0} \\ 0 & \text k \ne 0 \end{cases}</script><p>代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = (k == <span class="number">0</span>);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'k'</span>);</span><br><span class="line">ylabel(<span class="string">'f[k]'</span>);</span><br><span class="line">title(<span class="string">'unit impulse signal'</span>);</span><br></pre></td></tr></table></figure>
-<p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/1.png" alt="img"></p>
-<p>stem()函数是用来画离散信号图的，第一个参数表示横轴刻度， 第二个参数表示幅度。与之对应的plot()函数是用来画连续信号图的，马上就会看到。</p>
-<hr>
-<h3 id="2-单位阶跃信号"><a href="#2-单位阶跃信号" class="headerlink" title="2. 单位阶跃信号"></a>2. 单位阶跃信号</h3><p>单位阶跃信号（unit step signal）也是一个很重要的信号，定义如下：</p>
-<script type="math/tex; mode=display">
-\varepsilon(t) = \begin {cases} 1 & \text t \gt 0 \\ 0 & \text t \lt 0 \end{cases}
-\\
-\varepsilon[k] = \begin {cases} 1 & \text k \ge 0 \\ 0 & \text k \lt 0 \end{cases}</script><p>代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = stepfun(t, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = stepfun(k, <span class="number">0</span>);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'unit step signal'</span>);</span><br></pre></td></tr></table></figure>
-<p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/2.png" alt="img"></p>
-<p>这里我把两张图画在一起了，蓝色的代表连续信号，橙色的代表离散信号。代码中 t 表示连续时间，k 表示离散取样，下同。</p>
-<hr>
-<h3 id="3-正弦信号"><a href="#3-正弦信号" class="headerlink" title="3. 正弦信号"></a>3. 正弦信号</h3><p>正弦或余弦类信号这里统称为正弦信号（sinusoidal signal），因为他们只是相位差 $\pi/2$ 的关系。定义如下：</p>
-<script type="math/tex; mode=display">
-f(t) = Asin(\omega t +\varphi)
-\\
-f[k] = Asin(\omega k +\varphi)</script><p>代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = <span class="built_in">sin</span>(t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = <span class="built_in">sin</span>(k);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'sinusoidal signal'</span>);</span><br></pre></td></tr></table></figure>
-<p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/3.png" alt="img"></p>
-<p>这里提一下，蓝色的连续信号其实并不“连续”，因为plot()函数其实只是把那些点连成了一条曲线而已。MATLAB无法画出真正的连续信号图，本质是因为冯·诺依曼结构的计算机是一个离散的系统。</p>
-<hr>
-<h3 id="4-指数信号"><a href="#4-指数信号" class="headerlink" title="4. 指数信号"></a>4. 指数信号</h3><p>指数信号（exponential signal）几乎是最常用的信号了，各种变换中随处可见。定义如下：</p>
-<script type="math/tex; mode=display">
-f(t) = Ae^{\alpha t}
-\\
-f[k] = A\alpha^k</script><p>代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">-0.5</span>;</span><br><span class="line"></span><br><span class="line">t = <span class="number">0</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = <span class="built_in">exp</span>(a * t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">0</span> : <span class="number">10</span>;</span><br><span class="line">yd = a .^ k;</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'exponential signal'</span>);</span><br></pre></td></tr></table></figure>
-<p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/4.png" alt="img"></p>
-<p>可以看到，他们并没有重合，看代码就知道，因为指数信号在连续系统和离散系统中定义不一样。</p>
-<hr>
-<h3 id="5-矩形信号"><a href="#5-矩形信号" class="headerlink" title="5. 矩形信号"></a>5. 矩形信号</h3><p>矩形信号（rectangular signal）也是一个基本信号，定义如下：</p>
-<script type="math/tex; mode=display">
-g_{\tau}(t) = \begin {cases} 1,& \text  |t| \lt \frac{\tau}{2} \\ 0 & \text |t| \gt \frac{\tau}{2} \end{cases}
-\\
-g_{\tau}[k] = \begin {cases} 1,& \text  |k| \lt \frac{\tau}{2} \\ 0 & \text |k| \gt \frac{\tau}{2} \end{cases}</script><p>代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-1</span> : <span class="number">0.01</span> : <span class="number">1</span>;</span><br><span class="line">ya = rectpuls(t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">yd = rectpuls(k);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'rectangular signal'</span>);</span><br></pre></td></tr></table></figure>
-<p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/5.png" alt="img"></p>
-<p>当宽度为 1 的单位矩形信号进行 T = 1 的抽样时得到的离散信号是单位冲激信号……</p>
-<hr>
-<h3 id="6-方波信号"><a href="#6-方波信号" class="headerlink" title="6. 方波信号"></a>6. 方波信号</h3><p>方波信号（square wave signal）可看作是周期性的矩形信号。</p>
-<p>代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">w = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = square(w * t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = square(w * k);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'square wave signal'</span>);</span><br></pre></td></tr></table></figure>
-<p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/6.png" alt="img"></p>
-<hr>
-<h3 id="7-抽样信号"><a href="#7-抽样信号" class="headerlink" title="7. 抽样信号"></a>7. 抽样信号</h3><p>抽样信号（sampling signal）定义如下：</p>
-<script type="math/tex; mode=display">
-Sa(t) = \frac{sin(t)}{t}
-\\
-Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = sinc(t / <span class="built_in">pi</span>);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = sinc(k / <span class="built_in">pi</span>);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'sampling signal'</span>);</span><br></pre></td></tr></table></figure>
-<p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/7.png" alt="img"></p>
-<p> 在MATLAB中抽样信号是sinc()函数，定义为：$sinc(t) = \frac{sin(\pi t)}{\pi t}$，故系数要除以一个$\pi$。</p>
-<hr>
-<p> 以上。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青羽的个人网站">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/21/Multisim电路仿真（二）/" class="post-title-link" itemprop="url">Multisim电路仿真（二）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-21 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-21T09:00:00+08:00">2019-01-21</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-20 21:29:56" itemprop="dateModified" datetime="2019-08-20T21:29:56+08:00">2019-08-20</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>今天来探索一下二极管和三极管的基本特性。</p>
-<hr>
-<p>众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。</p>
-<hr>
-<h3 id="1-二极管"><a href="#1-二极管" class="headerlink" title="1. 二极管"></a>1. 二极管</h3><p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/1.png" alt="img"></p>
-<p>可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。</p>
-<hr>
-<h3 id="2-稳压管"><a href="#2-稳压管" class="headerlink" title="2. 稳压管"></a>2. 稳压管</h3><p>由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $\Delta U$ 却很小。稳压管实质上是一种通常工作在反向击穿区的二极管。</p>
-<p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/2.png" alt="img"></p>
-<p>当电源电压或负载电阻变化时，负载电压能基本稳定在稳压管的稳定电压左右，故称“稳压管”。</p>
-<hr>
-<h3 id="3-双极型三极管"><a href="#3-双极型三极管" class="headerlink" title="3. 双极型三极管"></a>3. 双极型三极管</h3><p>双极型三极管属于流控流器件（Current Controlled Current），通常用在模拟电路中。</p>
-<p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/3.png" alt="img"></p>
-<p>当基极电流 $\Delta I<em>{b}$ 增加 0.05mA 时，集电极电流 $\Delta I</em>{c}$ 随之增加 5mA 。可以得出，这个三极管的电流放大系数 $\beta=100$ 。</p>
-<hr>
-<h3 id="4-场效应三极管"><a href="#4-场效应三极管" class="headerlink" title="4. 场效应三极管"></a>4. 场效应三极管</h3><p>场效应三极管属于压控流器件（Voltage Controlled Current），通常用在数字电路中。</p>
-<p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/4.png" alt="img"></p>
-<p>场效应管有许多类型，其中绝缘栅型场效应管应用很广泛。它由金属、氧化物、半导体制成，所以又称MOSFET（Metal-Oxide-Semiconductor Field-Effect Transistor）。</p>
-<hr>
-<p>以上。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/19/Multisim电路仿真（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青羽的个人网站">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/19/Multisim电路仿真（一）/" class="post-title-link" itemprop="url">Multisim电路仿真（一）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-19 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T09:00:00+08:00">2019-01-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-20 21:30:39" itemprop="dateModified" datetime="2019-08-20T21:30:39+08:00">2019-08-20</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>开一个系列，这个系列主要讲用Multisim进行电路仿真实验。</p>
-<hr>
-<p>首先，我简单介绍一下Multisim。</p>
-<p>Multisim是一款功能强大的电路仿真软件。</p>
-<p>介绍完毕。(￣▽￣)”</p>
-<hr>
-<p>安装包建议去NI官网下载。</p>
-<p><a href="https://pan.baidu.com/s/1_YuUe5tEpzFiAYDfyFZaKg" target="_blank" rel="noopener">NI License Activator 1.2</a> 提取码:5244</p>
-<hr>
-<p>那么，我们开始吧！</p>
-<p>这一长串是万用表、示波器以及电源、地线等等：</p>
-<p><img src="/2019/01/19/Multisim电路仿真（一）/1.png" alt="img"></p>
-<p>如果你没有看到这个的话，在View里把它点上就行了。</p>
-<p>这里就只介绍待会儿要用的。第一个是万用表，第四个是双踪示波器，下面蓝色部分的第一个是交流电源，第二个是直流电源，第四个是地线。其他的就不再介绍了，毕竟搜索引擎是个好东西。</p>
-<p>Ctrl+W或者右键菜单放置元件就会弹出元件数据库：</p>
-<p><img src="/2019/01/19/Multisim电路仿真（一）/2.png" alt="img"></p>
-<p>这里元件真的挺多的……</p>
-<p>好了，下面我们做三个基本电路来熟悉一下Multisim。</p>
-<hr>
-<h3 id="1-电阻串联电路"><a href="#1-电阻串联电路" class="headerlink" title="1. 电阻串联电路"></a>1. 电阻串联电路</h3><p>我们验证一个很简单的现象：串联分压。</p>
-<p>两个万用表，两个理想电阻器，一个直流电源，一个地，搭建电路如图所示：</p>
-<p><img src="/2019/01/19/Multisim电路仿真（一）/3.png" alt="img"></p>
-<p>可以看到，串联的两个电阻之比为1：2的电阻器分得的电压之比也为1：2。</p>
-<hr>
-<h3 id="2-电阻并联电路"><a href="#2-电阻并联电路" class="headerlink" title="2. 电阻并联电路"></a>2. 电阻并联电路</h3><p>我们再验证一个很简单的现象：并联分流。</p>
-<p>两个万用表，两个理想电阻器，一个直流电源，一个地，搭建电路如图所示：</p>
-<p><img src="/2019/01/19/Multisim电路仿真（一）/4.png" alt="img"></p>
-<p>可以看到，并联的两个电阻之比为1：2的电阻器分得的电流之比为2：1。</p>
-<hr>
-<h3 id="3-电阻电容串联电路"><a href="#3-电阻电容串联电路" class="headerlink" title="3. 电阻电容串联电路"></a>3. 电阻电容串联电路</h3><p>这里我们看一看电容对电压相位的影响，这就要用到示波器了。</p>
-<p>一个双踪示波器，一个理想电阻器，一个理想电容器，一个交流电源，一个地，搭建电路如图所示：</p>
-<p><img src="/2019/01/19/Multisim电路仿真（一）/5.png" alt="img"></p>
-<p>改变导线颜色即改变对应波形颜色。可以看到，电容这一条支路相对于电阻确实相移了 -π/2 。</p>
-<hr>
-<p>以上。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/12/浅谈计算圆周率/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青羽的个人网站">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/12/浅谈计算圆周率/" class="post-title-link" itemprop="url">浅谈计算圆周率</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-12 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-12T09:00:00+08:00">2019-01-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-20 00:57:27" itemprop="dateModified" datetime="2019-08-20T00:57:27+08:00">2019-08-20</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>利用程序计算圆周率有很多方法，这里我们举四个小例子。</p>
-<hr>
-<h3 id="1-统计方法"><a href="#1-统计方法" class="headerlink" title="1. 统计方法"></a>1. 统计方法</h3><p>本质是随机撒点，也叫蒙特·卡罗法（Monte Carlo method）。</p>
-<p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x, y, hits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        x = (<span class="keyword">double</span>)rand() / RAND_MAX;</span><br><span class="line">        y = (<span class="keyword">double</span>)rand() / RAND_MAX;</span><br><span class="line">        <span class="keyword">if</span> (x * x + y * y &lt; <span class="number">1.0</span>)</span><br><span class="line">            hits++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pi: %lf\n"</span>, (hits / N) * <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（N = 4000 * 4000）：</p>
-<p><img src="/2019/01/12/浅谈计算圆周率/1.png" alt="img"></p>
-<p>这里的 time 是在main()函数中调用的计时功能，后面会介绍。</p>
-<p>N取这么小是因为这里只是一个demo，真正要计算圆周率的话不可能这么小的。</p>
-<hr>
-<h3 id="2-统计方法"><a href="#2-统计方法" class="headerlink" title="2. 统计方法"></a>2. 统计方法</h3><p>如果说蒙特卡罗法本质是随机撒点，那么这个本质就是均匀撒点。</p>
-<p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x, y, hits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; <span class="built_in">sqrt</span>(N); x++)</span><br><span class="line">        <span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; <span class="built_in">sqrt</span>(N); y++)</span><br><span class="line">            <span class="keyword">if</span> (x * x + y * y &lt; N)</span><br><span class="line">                hits++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pi: %lf\n"</span>, (hits / N) * <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（N = 4000 * 4000）：</p>
-<p><img src="/2019/01/12/浅谈计算圆周率/2.png" alt="img"></p>
-<p>虽然结果精确度和蒙特卡罗法差不多，但快了许多，因为蒙特卡罗法每次循环都要调用rand()函数来产生伪随机数（不引入特殊设备的话，计算机是无法产生真正的随机数的）。</p>
-<hr>
-<h3 id="3-数学方法"><a href="#3-数学方法" class="headerlink" title="3. 数学方法"></a>3. 数学方法</h3><p>数学是一个强有力的工具，利用级数展开的公式可以快速估算圆周率。</p>
-<script type="math/tex; mode=display">
-\frac{\pi}{4}=\sum_{i=0}^{\infty}\frac{(-1)^i}{2i+1}</script><p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_3</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> pi = <span class="number">0</span>, k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I; i++, k = -k)</span><br><span class="line">        pi += k / (<span class="number">2</span> * i + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pi: %lf\n"</span>, pi * <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）:</p>
-<p><img src="/2019/01/12/浅谈计算圆周率/3.png" alt="img"></p>
-<p>因为数学方法和统计方法本质不一样，所以这里不再是循环次数 N 而是迭代次数 I （iteration）。</p>
-<hr>
-<h3 id="4-数学方法"><a href="#4-数学方法" class="headerlink" title="4. 数学方法"></a>4. 数学方法</h3><p>上面那个公式效果似乎不尽人意。当然我们可以增加迭代次数，但是否有收敛更快的公式呢？看看下面这个怎么样：</p>
-<script type="math/tex; mode=display">
-\frac{\pi}{2}=\sum_{i=0}^{\infty}\frac{i!}{(2i+1)!!}</script><p>源代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_4</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> pi = <span class="number">1</span>, n = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; I; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        n *= (<span class="keyword">double</span>)i / (<span class="number">2</span> * i + <span class="number">1</span>);</span><br><span class="line">        pi += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pi: %lf\n"</span>, pi * <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果（I = 25）:</p>
-<p><img src="/2019/01/12/浅谈计算圆周率/4.png" alt="img"></p>
-<p>Nice！</p>
-<p>可以看到，仅仅25次迭代，就有如此高的精度，且耗费时间小于0.01秒，很不错呢。</p>
-<hr>
-<p>对了，关于计时，其实很简单：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clock_t</span> start, end;</span><br><span class="line"></span><br><span class="line">start = clock();</span><br><span class="line"><span class="comment">// method_1(N);</span></span><br><span class="line"><span class="comment">// method_2(N);</span></span><br><span class="line"><span class="comment">// method_3(I);</span></span><br><span class="line">method_4(I);</span><br><span class="line">end = clock();</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"time: %.2lf s\n"</span>, (<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br></pre></td></tr></table></figure>
-<p>clock_t 类型和 clock() 函数在 time.h 头文件中，clock() 调用一次即记录此时的程序已运行时间，两次调用做差，即得中间过程的运行耗时。</p>
-<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
-<p>以上。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
           </div>
@@ -1560,7 +1728,7 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
