@@ -57,21 +57,21 @@
   };
 </script>
 
-  <meta name="description" content="[TOC]  今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，">
+  <meta name="description" content="今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Multisim电路仿真（二）">
 <meta property="og:url" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/index.html">
 <meta property="og:site_name" content="青羽的个人网站">
-<meta property="og:description" content="[TOC]  今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，">
+<meta property="og:description" content="今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/1.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/2.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/3.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/4.png">
-<meta property="og:updated_time" content="2019-08-21T10:16:00.749Z">
+<meta property="og:updated_time" content="2019-08-21T10:28:25.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multisim电路仿真（二）">
-<meta name="twitter:description" content="[TOC]  今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，">
+<meta name="twitter:description" content="今天来探索一下二极管和三极管的基本特性。  众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。  1. 二极管搭建电路如图所示：  可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。  2. 稳压管由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $">
 <meta name="twitter:image" content="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/1.png">
   <link rel="canonical" href="https://chen-qingyu.github.io/2019/01/21/Multisim电路仿真（二）/">
 
@@ -244,7 +244,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 18:16:00" itemprop="dateModified" datetime="2019-08-21T18:16:00+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-21 18:28:25" itemprop="dateModified" datetime="2019-08-21T18:28:25+08:00">2019-08-21</time>
               </span>
             
           
@@ -260,29 +260,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>[TOC]</p>
-<hr>
-<p>今天来探索一下二极管和三极管的基本特性。</p>
+        <p>今天来探索一下二极管和三极管的基本特性。</p>
 <hr>
 <p>众所周知，二极管和三极管是现代整个工业体系的基础，作为工科学生，认识一下它们也是有必要的。</p>
 <hr>
 <h3 id="1-二极管"><a href="#1-二极管" class="headerlink" title="1. 二极管"></a>1. 二极管</h3><p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/1.png" alt="img"></p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/1.png" alt></p>
 <p>可以看到，二极管具有单向导电性。注意到仍然有大约 0.7V 的压降，可以推测这是一只硅二极管。</p>
 <hr>
 <h3 id="2-稳压管"><a href="#2-稳压管" class="headerlink" title="2. 稳压管"></a>2. 稳压管</h3><p>由二极管的伏安特性可以知道，当二极管工作在反向击穿区的时候，即使电流 $\Delta I$ 变化量较大，电压变化量 $\Delta U$ 却很小。稳压管实质上是一种通常工作在反向击穿区的二极管。</p>
 <p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/2.png" alt="img"></p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/2.png" alt></p>
 <p>当电源电压或负载电阻变化时，负载电压能基本稳定在稳压管的稳定电压左右，故称“稳压管”。</p>
 <hr>
 <h3 id="3-双极型三极管"><a href="#3-双极型三极管" class="headerlink" title="3. 双极型三极管"></a>3. 双极型三极管</h3><p>双极型三极管属于流控流器件（Current Controlled Current），通常用在模拟电路中。</p>
 <p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/3.png" alt="img"></p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/3.png" alt></p>
 <p>当基极电流 $\Delta I<em>{b}$ 增加 0.05mA 时，集电极电流 $\Delta I</em>{c}$ 随之增加 5mA 。可以得出，这个三极管的电流放大系数 $\beta=100$ 。</p>
 <hr>
 <h3 id="4-场效应三极管"><a href="#4-场效应三极管" class="headerlink" title="4. 场效应三极管"></a>4. 场效应三极管</h3><p>场效应三极管属于压控流器件（Voltage Controlled Current），通常用在数字电路中。</p>
 <p>搭建电路如图所示：</p>
-<p><img src="/2019/01/21/Multisim电路仿真（二）/4.png" alt="img"></p>
+<p><img src="/2019/01/21/Multisim电路仿真（二）/4.png" alt></p>
 <p>场效应管有许多类型，其中绝缘栅型场效应管应用很广泛。它由金属、氧化物、半导体制成，所以又称MOSFET（Metal-Oxide-Semiconductor Field-Effect Transistor）。</p>
 <hr>
 

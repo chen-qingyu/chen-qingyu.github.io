@@ -57,12 +57,12 @@
   };
 </script>
 
-  <meta name="description" content="[TOC]  再开一个系列，这个系列主要展示一下MATLAB画信号。  众所周知，MATLAB是一款功能强大的科学计算软件。 我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。  安装包网上有很多，当然你不想去找的话可以用我的 R2018B 版本的： 链接：百度网盘链接 提取码：o3xp  该资源仅供学习之用。  1. 单位冲激信号单位冲激信号（unit impulse signal）是最基">
+  <meta name="description" content="再开一个系列，这个系列主要展示一下MATLAB画信号。  众所周知，MATLAB是一款功能强大的科学计算软件。 我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。  安装包网上有很多，当然你不想去找的话可以用我的 R2018B 版本的： 链接：百度网盘链接 提取码：o3xp  该资源仅供学习之用。  1. 单位冲激信号单位冲激信号（unit impulse signal）是最基本的信号，定义">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MATLAB信号处理（一）">
 <meta property="og:url" content="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/index.html">
 <meta property="og:site_name" content="青羽的个人网站">
-<meta property="og:description" content="[TOC]  再开一个系列，这个系列主要展示一下MATLAB画信号。  众所周知，MATLAB是一款功能强大的科学计算软件。 我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。  安装包网上有很多，当然你不想去找的话可以用我的 R2018B 版本的： 链接：百度网盘链接 提取码：o3xp  该资源仅供学习之用。  1. 单位冲激信号单位冲激信号（unit impulse signal）是最基">
+<meta property="og:description" content="再开一个系列，这个系列主要展示一下MATLAB画信号。  众所周知，MATLAB是一款功能强大的科学计算软件。 我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。  安装包网上有很多，当然你不想去找的话可以用我的 R2018B 版本的： 链接：百度网盘链接 提取码：o3xp  该资源仅供学习之用。  1. 单位冲激信号单位冲激信号（unit impulse signal）是最基本的信号，定义">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/1.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/2.png">
@@ -71,10 +71,10 @@
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/5.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/6.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/7.png">
-<meta property="og:updated_time" content="2019-08-21T10:17:12.130Z">
+<meta property="og:updated_time" content="2019-08-21T10:28:18.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MATLAB信号处理（一）">
-<meta name="twitter:description" content="[TOC]  再开一个系列，这个系列主要展示一下MATLAB画信号。  众所周知，MATLAB是一款功能强大的科学计算软件。 我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。  安装包网上有很多，当然你不想去找的话可以用我的 R2018B 版本的： 链接：百度网盘链接 提取码：o3xp  该资源仅供学习之用。  1. 单位冲激信号单位冲激信号（unit impulse signal）是最基">
+<meta name="twitter:description" content="再开一个系列，这个系列主要展示一下MATLAB画信号。  众所周知，MATLAB是一款功能强大的科学计算软件。 我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。  安装包网上有很多，当然你不想去找的话可以用我的 R2018B 版本的： 链接：百度网盘链接 提取码：o3xp  该资源仅供学习之用。  1. 单位冲激信号单位冲激信号（unit impulse signal）是最基本的信号，定义">
 <meta name="twitter:image" content="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/1.png">
   <link rel="canonical" href="https://chen-qingyu.github.io/2019/01/22/MATLAB信号处理（一）/">
 
@@ -247,7 +247,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 18:17:12" itemprop="dateModified" datetime="2019-08-21T18:17:12+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-21 18:28:18" itemprop="dateModified" datetime="2019-08-21T18:28:18+08:00">2019-08-21</time>
               </span>
             
           
@@ -263,9 +263,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>[TOC]</p>
-<hr>
-<p>再开一个系列，这个系列主要展示一下MATLAB画信号。</p>
+        <p>再开一个系列，这个系列主要展示一下MATLAB画信号。</p>
 <hr>
 <p>众所周知，MATLAB是一款功能强大的科学计算软件。</p>
 <p>我就不做具体介绍了，基本操作也略过，这些网上一搜一大把。</p>
@@ -280,7 +278,7 @@
 \delta[k] = \begin {cases} 1 & \text{k = 0} \\ 0 & \text k \ne 0 \end{cases}</script><p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = (k == <span class="number">0</span>);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'k'</span>);</span><br><span class="line">ylabel(<span class="string">'f[k]'</span>);</span><br><span class="line">title(<span class="string">'unit impulse signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/1.png" alt="img"></p>
+<p><img src="/2019/01/22/MATLAB信号处理（一）/1.png" alt></p>
 <p>stem()函数是用来画离散信号图的，第一个参数表示横轴刻度， 第二个参数表示幅度。与之对应的plot()函数是用来画连续信号图的，马上就会看到。</p>
 <hr>
 <h3 id="2-单位阶跃信号"><a href="#2-单位阶跃信号" class="headerlink" title="2. 单位阶跃信号"></a>2. 单位阶跃信号</h3><p>单位阶跃信号（unit step signal）也是一个很重要的信号，定义如下：</p>
@@ -290,7 +288,7 @@
 \varepsilon[k] = \begin {cases} 1 & \text k \ge 0 \\ 0 & \text k \lt 0 \end{cases}</script><p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = stepfun(t, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = stepfun(k, <span class="number">0</span>);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'unit step signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/2.png" alt="img"></p>
+<p><img src="/2019/01/22/MATLAB信号处理（一）/2.png" alt></p>
 <p>这里我把两张图画在一起了，蓝色的代表连续信号，橙色的代表离散信号。代码中 t 表示连续时间，k 表示离散取样，下同。</p>
 <hr>
 <h3 id="3-正弦信号"><a href="#3-正弦信号" class="headerlink" title="3. 正弦信号"></a>3. 正弦信号</h3><p>正弦或余弦类信号这里统称为正弦信号（sinusoidal signal），因为他们只是相位差 $\pi/2$ 的关系。定义如下：</p>
@@ -300,7 +298,7 @@ f(t) = Asin(\omega t +\varphi)
 f[k] = Asin(\omega k +\varphi)</script><p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = <span class="built_in">sin</span>(t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = <span class="built_in">sin</span>(k);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'sinusoidal signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/3.png" alt="img"></p>
+<p><img src="/2019/01/22/MATLAB信号处理（一）/3.png" alt></p>
 <p>这里提一下，蓝色的连续信号其实并不“连续”，因为plot()函数其实只是把那些点连成了一条曲线而已。MATLAB无法画出真正的连续信号图，本质是因为冯·诺依曼结构的计算机是一个离散的系统。</p>
 <hr>
 <h3 id="4-指数信号"><a href="#4-指数信号" class="headerlink" title="4. 指数信号"></a>4. 指数信号</h3><p>指数信号（exponential signal）几乎是最常用的信号了，各种变换中随处可见。定义如下：</p>
@@ -310,7 +308,7 @@ f(t) = Ae^{\alpha t}
 f[k] = A\alpha^k</script><p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">-0.5</span>;</span><br><span class="line"></span><br><span class="line">t = <span class="number">0</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = <span class="built_in">exp</span>(a * t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">0</span> : <span class="number">10</span>;</span><br><span class="line">yd = a .^ k;</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'exponential signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/4.png" alt="img"></p>
+<p><img src="/2019/01/22/MATLAB信号处理（一）/4.png" alt></p>
 <p>可以看到，他们并没有重合，看代码就知道，因为指数信号在连续系统和离散系统中定义不一样。</p>
 <hr>
 <h3 id="5-矩形信号"><a href="#5-矩形信号" class="headerlink" title="5. 矩形信号"></a>5. 矩形信号</h3><p>矩形信号（rectangular signal）也是一个基本信号，定义如下：</p>
@@ -320,14 +318,14 @@ g_{\tau}(t) = \begin {cases} 1,& \text  |t| \lt \frac{\tau}{2} \\ 0 & \text |t| 
 g_{\tau}[k] = \begin {cases} 1,& \text  |k| \lt \frac{\tau}{2} \\ 0 & \text |k| \gt \frac{\tau}{2} \end{cases}</script><p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-1</span> : <span class="number">0.01</span> : <span class="number">1</span>;</span><br><span class="line">ya = rectpuls(t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">yd = rectpuls(k);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'rectangular signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/5.png" alt="img"></p>
+<p><img src="/2019/01/22/MATLAB信号处理（一）/5.png" alt></p>
 <p>当宽度为 1 的单位矩形信号进行 T = 1 的抽样时得到的离散信号是单位冲激信号……</p>
 <hr>
 <h3 id="6-方波信号"><a href="#6-方波信号" class="headerlink" title="6. 方波信号"></a>6. 方波信号</h3><p>方波信号（square wave signal）可看作是周期性的矩形信号。</p>
 <p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">w = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = square(w * t);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = square(w * k);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'square wave signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/6.png" alt="img"></p>
+<p><img src="/2019/01/22/MATLAB信号处理（一）/6.png" alt></p>
 <hr>
 <h3 id="7-抽样信号"><a href="#7-抽样信号" class="headerlink" title="7. 抽样信号"></a>7. 抽样信号</h3><p>抽样信号（sampling signal）定义如下：</p>
 <script type="math/tex; mode=display">
@@ -336,7 +334,7 @@ Sa(t) = \frac{sin(t)}{t}
 Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = sinc(t / <span class="built_in">pi</span>);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = sinc(k / <span class="built_in">pi</span>);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'sampling signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
-<p><img src="/2019/01/22/MATLAB信号处理（一）/7.png" alt="img"></p>
+<p><img src="/2019/01/22/MATLAB信号处理（一）/7.png" alt></p>
 <p>在MATLAB中抽样信号是sinc()函数，定义为：$sinc(t) = \frac{sin(\pi t)}{\pi t}$，故系数要除以一个$\pi$。</p>
 <hr>
 

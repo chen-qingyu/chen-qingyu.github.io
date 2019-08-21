@@ -67,7 +67,7 @@
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/04/04/一段鬼畜的代码/1.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/04/04/一段鬼畜的代码/2.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/04/04/一段鬼畜的代码/3.png">
-<meta property="og:updated_time" content="2019-08-21T09:35:02.775Z">
+<meta property="og:updated_time" content="2019-08-21T10:29:58.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一段鬼畜的代码">
 <meta name="twitter:description" content="有个“国际C语言混乱代码大赛”，简称IOCCC，画风简直鬼畜。其中有个获奖代码是这样的： 1main(_)&amp;#123;_^448&amp;amp;&amp;amp;main(-~_);putchar(--_%64?32|-~7[__TIME__-_/8%8][&quot;&amp;gt;&apos;txiZ^(~z?&quot;-48]&amp;gt;&amp;gt;&quot;;;;====~$::199&quot;[_*2&amp;amp;8|_/64]/(_&amp;amp;2?1:8)%8&amp;a">
@@ -243,7 +243,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 17:35:02" itemprop="dateModified" datetime="2019-08-21T17:35:02+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-21 18:29:58" itemprop="dateModified" datetime="2019-08-21T18:29:58+08:00">2019-08-21</time>
               </span>
             
           
@@ -262,7 +262,7 @@
         <p>有个“国际C语言混乱代码大赛”，简称IOCCC，画风简直鬼畜。其中有个获奖代码是这样的：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">main(_)&#123;_^<span class="number">448</span>&amp;&amp;main(-~_);<span class="built_in">putchar</span>(--_%<span class="number">64</span>?<span class="number">32</span>|-~<span class="number">7</span>[__TIME__-_/<span class="number">8</span>%<span class="number">8</span>][<span class="string">"&gt;'txiZ^(~z?"</span><span class="number">-48</span>]&gt;&gt;<span class="string">";;;====~$::199"</span>[_*<span class="number">2</span>&amp;<span class="number">8</span>|_/<span class="number">64</span>]/(_&amp;<span class="number">2</span>?<span class="number">1</span>:<span class="number">8</span>)%<span class="number">8</span>&amp;<span class="number">1</span>:<span class="number">10</span>);&#125;</span><br></pre></td></tr></table></figure>
 <p>这段代码直接复制粘贴编译运行就输出了当前时间！</p>
-<p><img src="/2019/04/04/一段鬼畜的代码/1.png" alt="img"></p>
+<p><img src="/2019/04/04/一段鬼畜的代码/1.png" alt></p>
 <p>C语言果然是强大而灵活。QAQ</p>
 <p>注意到源码中有__TIME__，这是预处理器定义的特殊宏，它能扩展为一个字符串，内容为预处理器运行的时间，格式为”HH:MM:SS”。</p>
 <p>好奇心驱使着我想要一探究竟。</p>
@@ -291,10 +291,10 @@
 <p>这里 char a 这一行很奇怪，字符串减去一个整数再取下标？！先写两个demo看看是什么情况（当前时间 18:47）：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = (__TIME__ - <span class="number">7</span>)[<span class="number">7</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>, a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>编译通过！运行发现：</p>
-<p><img src="/2019/04/04/一段鬼畜的代码/2.png" alt="img"></p>
+<p><img src="/2019/04/04/一段鬼畜的代码/2.png" alt></p>
 <p>__TIME__的第一位字符？</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = (__TIME__ - <span class="number">6</span>)[<span class="number">7</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>, a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/04/一段鬼畜的代码/3.png" alt="img"></p>
+<p><img src="/2019/04/04/一段鬼畜的代码/3.png" alt></p>
 <p>__TIME__的第二位字符？</p>
 <p>所以，(__TIME__ - i)[7] 等价于 (__TIME__)[7 - i] ？</p>
 <p>事实上，这里不能把源代码中的字符串看成数组而应该看成指针。</p>
