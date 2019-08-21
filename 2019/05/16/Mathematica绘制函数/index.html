@@ -29,7 +29,7 @@
     scheme: 'Gemini',
     version: '7.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":"flat"},
     fancybox: false,
     mediumzoom: false,
@@ -83,7 +83,7 @@
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/05/16/Mathematica绘制函数/17.gif">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/05/16/Mathematica绘制函数/18.gif">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/05/16/Mathematica绘制函数/19.png">
-<meta property="og:updated_time" content="2019-08-21T10:14:13.750Z">
+<meta property="og:updated_time" content="2019-08-21T14:49:12.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mathematica绘制函数">
 <meta name="twitter:description" content="请欣赏一下Mathematica绘制的漂亮的函数图~ヾ(^▽^)  1Plot[&amp;#123;(1 + 1/n)^n, Evaluate[Limit[(1 + 1/n)^n, n -&amp;gt; Infinity]]&amp;#125;, &amp;#123;n, 0, 100&amp;#125;, PlotLegends -&amp;gt; &quot;Expressions&quot;]  形象地展示了 $\lim\limits_{n \righta">
@@ -259,7 +259,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 18:14:13" itemprop="dateModified" datetime="2019-08-21T18:14:13+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-21 22:49:12" itemprop="dateModified" datetime="2019-08-21T22:49:12+08:00">2019-08-21</time>
               </span>
             
           
@@ -291,7 +291,7 @@
 <hr>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Plot</span>[&#123;x*<span class="keyword">Sin</span>[<span class="number">1</span>/x], x, -x&#125;, &#123;x, <span class="number">-0.1</span>, <span class="number">0.1</span>&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="number">0.1</span>, <span class="keyword">AspectRatio</span> -&gt; <span class="number">1</span>, <span class="keyword">Filling</span> -&gt; Axis]</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/05/16/Mathematica绘制函数/4.png" alt></p>
-<p>形象地展示了 $\lim\limits_{x \rightarrow 0}{x\ sin(\frac{1}{x})}=0$ 的过程。(⊙o⊙)</p>
+<p>形象地展示了 $\lim\limits_{x \rightarrow 0}{(x\ sin(\frac{1}{x}))}=0$ 的过程。(⊙o⊙)</p>
 <hr>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="keyword">Table</span>[<span class="keyword">Plot</span>[f[x], &#123;x, <span class="number">-2</span>*<span class="keyword">Pi</span>, <span class="number">2</span>*<span class="keyword">Pi</span>&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="number">2</span>*<span class="keyword">Pi</span>, <span class="keyword">AspectRatio</span> -&gt; <span class="number">1</span>, <span class="keyword">ExclusionsStyle</span> -&gt; <span class="keyword">Dashed</span>, <span class="keyword">PlotLabel</span> -&gt; f], &#123;f, &#123;<span class="keyword">Sin</span>, <span class="keyword">Cos</span>, <span class="keyword">Tan</span>, <span class="keyword">Cot</span>, <span class="keyword">Sec</span>, <span class="keyword">Csc</span>&#125;&#125;]; </span><br><span class="line"><span class="keyword">GraphicsGrid</span>[&#123;t[[&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>&#125;]], t[[&#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>&#125;]]&#125;, <span class="keyword">ImageSize</span> -&gt; <span class="keyword">Large</span>]</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/05/16/Mathematica绘制函数/5.png" alt></p>
@@ -478,6 +478,8 @@
     </footer>
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
 
     

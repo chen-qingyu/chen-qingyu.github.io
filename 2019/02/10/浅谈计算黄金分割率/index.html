@@ -29,7 +29,7 @@
     scheme: 'Gemini',
     version: '7.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":"flat"},
     fancybox: false,
     mediumzoom: false,
@@ -66,7 +66,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/1.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/2.png">
-<meta property="og:updated_time" content="2019-08-21T10:29:25.367Z">
+<meta property="og:updated_time" content="2019-08-21T14:20:22.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈计算黄金分割率">
 <meta name="twitter:description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 = 1, t2 = 1;    for (int i = 0; i &amp;lt; I; ++i)    &amp;#123;        int next = t1 + t2">
@@ -242,7 +242,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 18:29:25" itemprop="dateModified" datetime="2019-08-21T18:29:25+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-21 22:20:22" itemprop="dateModified" datetime="2019-08-21T22:20:22+08:00">2019-08-21</time>
               </span>
             
           
@@ -269,7 +269,7 @@
 <script type="math/tex; mode=display">
 \begin{equation} \begin{array}{l}{t_{n}=1,1,2,3,5,8,13,21,34, \ldots} \\ {\frac{1}{1}=1.000, \frac{1}{2}=0.500, \frac{2}{3} \approx 0.667, \frac{3}{5}=0.600} \\ {\frac{5}{8}=0.625, \frac{8}{13} \approx 0.615, \frac{13}{21} \approx 0.619, \frac{21}{34} \approx 0.618}\end{array} \end{equation}</script><p>可以看到，随着项数增大，前一项与后一项的比值越来越接近黄金分割率，即 </p>
 <script type="math/tex; mode=display">
-\lim _{n \rightarrow \infty} \frac{t_{n-1}}{t_{n}}=\frac{\sqrt{5}-1}{2}</script><hr>
+\lim_{n \rightarrow \infty} \frac{t_{n-1}}{t_{n}}=\frac{\sqrt{5}-1}{2}</script><hr>
 <h3 id="2-数学方法"><a href="#2-数学方法" class="headerlink" title="2. 数学方法"></a>2. 数学方法</h3><p>这里要用到连分数（continued fraction）。</p>
 <p>第一次看到连分数时是阅读关于拉马努金（Srīṉivāsa Rāmāṉujan）的文章时看见的。此人天赋异禀，堪称鬼才，发现了许多画风奇特的数学公式，比如：</p>
 <script type="math/tex; mode=display">
@@ -443,6 +443,8 @@
     </footer>
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
 
     
