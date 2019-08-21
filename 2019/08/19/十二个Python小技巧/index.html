@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;&quot;.format(2,">
+  <meta name="description" content="[TOC]  1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;&quot;.for">
 <meta property="og:type" content="article">
 <meta property="og:title" content="十二个Python小技巧">
 <meta property="og:url" content="https://chen-qingyu.github.io/2019/08/19/十二个Python小技巧/index.html">
 <meta property="og:site_name" content="青羽的个人网站">
-<meta property="og:description" content="1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;&quot;.format(2,">
+<meta property="og:description" content="[TOC]  1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;&quot;.for">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/08/19/十二个Python小技巧/1.png">
-<meta property="og:updated_time" content="2019-08-21T09:34:21.347Z">
+<meta property="og:updated_time" content="2019-08-21T10:12:02.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="十二个Python小技巧">
-<meta name="twitter:description" content="1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;&quot;.format(2,">
+<meta name="twitter:description" content="[TOC]  1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;&quot;.for">
 <meta name="twitter:image" content="https://chen-qingyu.github.io/2019/08/19/十二个Python小技巧/1.png">
   <link rel="canonical" href="https://chen-qingyu.github.io/2019/08/19/十二个Python小技巧/">
 
@@ -241,7 +241,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 17:34:21" itemprop="dateModified" datetime="2019-08-21T17:34:21+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-21 18:12:02" itemprop="dateModified" datetime="2019-08-21T18:12:02+08:00">2019-08-21</time>
               </span>
             
           
@@ -257,7 +257,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="1-进制格式化输出"><a href="#1-进制格式化输出" class="headerlink" title="1. 进制格式化输出"></a>1. 进制格式化输出</h3><p>代码：</p>
+        <p>[TOC]</p>
+<hr>
+<h3 id="1-进制格式化输出"><a href="#1-进制格式化输出" class="headerlink" title="1. 进制格式化输出"></a>1. 进制格式化输出</h3><p>代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"bin:&#123;:6b&#125;,&#123;:6b&#125;,&#123;:6b&#125;,&#123;:6b&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line">print(<span class="string">"oct:&#123;:6o&#125;,&#123;:6o&#125;,&#123;:6o&#125;,&#123;:6o&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line">print(<span class="string">"dec:&#123;:6d&#125;,&#123;:6d&#125;,&#123;:6d&#125;,&#123;:6d&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line">print(<span class="string">"hex:&#123;:6x&#125;,&#123;:6x&#125;,&#123;:6x&#125;,&#123;:6x&#125;"</span>.format(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin:    10,   100,  1000, 10000</span><br><span class="line">oct:     2,     4,    10,    20</span><br><span class="line">dec:     2,     4,     8,    16</span><br><span class="line">hex:     2,     4,     8,    10</span><br></pre></td></tr></table></figure>
