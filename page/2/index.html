@@ -239,7 +239,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 21:52:13" itemprop="dateModified" datetime="2019-08-20T21:52:13+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 17:28:29" itemprop="dateModified" datetime="2019-08-21T17:28:29+08:00">2019-08-21</time>
               </span>
             
           
@@ -258,55 +258,31 @@
           
             <h3 id="先简单讲一下DLL"><a href="#先简单讲一下DLL" class="headerlink" title="先简单讲一下DLL"></a>先简单讲一下DLL</h3><p>在Windows下，DLL（DLL，Dynamic Link Library，动态链接库）是一个被编译过的二进制程序，但与.exe文件不同，.dll文件不能独立运行，必须由其他程序调用。</p>
 <p>为什么有这东西呢？当然有其存在的好处啦：</p>
-<p>1.不限语言</p>
+<ol>
+<li><p>不限语言</p>
 <p>我们可以用自己熟悉的语言写DLL，然后由其他语言写的可执行程序来调用这些DLL。例如，可以用Python写程序的主界面，然后调用C写的实现一个具体功能的DLL模块。</p>
-<p>2.增强功能</p>
+</li>
+<li><p>增强功能</p>
 <p>我们看到许多产品都提供了界面插件功能，允许用户动态地更换程序的界面，这就可以通过更换界面DLL来实现。 </p>
-<p>3.简化管理</p>
+</li>
+<li><p>简化管理</p>
 <p>在一个大型项目开发中，通常都是由多个项目小组同时开发。我们可以将项目细分，将不同功能交由各项目小组以多个DLL的方式实现，这样，各个项目小组就可以同时进行开发了。</p>
-<p>4.节省空间</p>
+</li>
+<li><p>节省空间</p>
 <p>如果多个应用程序需要同样的功能，那么可以将该功能以DLL的形式提供，这样在机器上只需要存在一份该DLL文件就可以了。另外，如果多个应用程序使用同一个DLL，该DLL只需要放入内存一次，所有的应用程序就都可以共享它了。</p>
+</li>
+</ol>
+<p>至于坏处嘛，就是写起来稍微麻烦一点。</p>
 <p>在Linux环境下没有.dll文件，但也有类似的，对应的文件后缀名一般是.so（Share Object），可以看作同一个东西的不同称呼。</p>
 <hr>
-<h3 id="VC6导出DLL示例"><a href="#VC6导出DLL示例" class="headerlink" title="VC6导出DLL示例"></a>VC6导出DLL示例</h3><p>ps：纠结了一下还是用VC6吧，因为它在中国的用户群体较大，很多人入门C都是从这开始的。这是我第一次在专栏里提到VC6，应该也是最后一次了，它该被淘汰了。后面有gcc的示例。</p>
-<p>1.打开Visual C++ 6.0，先创建一个DLL项目，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/1.png" alt="img"></p>
-<p>注意红框标出的地方，下同</p>
-<p>2.新建一个源代码文件DLL_demo.c，并添加到Source Files里。用实现一个简单计算的功能作为例子，写好代码后，点击Build，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/2.png" alt="img"></p>
-<p>源码在最后</p>
-<p>3.这时，\DLL_demo\Debug里面应该就有这两个文件了：</p>
-<p><img src="/2019/02/22/第一个DLL程序/3.png" alt="img"></p>
-<p>函数主体在.dll文件里，函数接口在.lib（library，库）文件里</p>
-<p>4.关闭Workspace，到这步，DLL就算是创建好了，接下来我们试验一下能不能用。</p>
-<p>5.创建一个Win32控制台项目，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/4.png" alt="img"></p>
-<p>6.将之前那两个文件复制到\C_demo文件夹里，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/5.png" alt="img"></p>
-<p>7.新建一个源代码文件C_demo.c，并添加到Source Files里。写好代码后，点击Build，如图所示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/6.png" alt="img"></p>
-<p>源码在最后</p>
-<p>8.这时，\C_demo\Debug里面就有了我们要的可执行程序：</p>
-<p><img src="/2019/02/22/第一个DLL程序/7.png" alt="img"></p>
-<p>9.运行，发现错误提示：</p>
-<p><img src="/2019/02/22/第一个DLL程序/8.png" alt="img"></p>
-<p>我们再把.dll移到.exe同目录下，再次运行就成功了： </p>
-<p><img src="/2019/02/22/第一个DLL程序/9.png" alt="img"></p>
-<hr>
-<h3 id="GCC导出DLL示例"><a href="#GCC导出DLL示例" class="headerlink" title="GCC导出DLL示例"></a>GCC导出DLL示例</h3><p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -o dll.dll dll.c</span><br><span class="line">gcc -o main.exe main.c dll.dll</span><br></pre></td></tr></table></figure>
+<h3 id="GCC导出DLL示例"><a href="#GCC导出DLL示例" class="headerlink" title="GCC导出DLL示例"></a>GCC导出DLL示例</h3><p>代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* src_demo.c */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">char</span> * <span class="title">test</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, test());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* dll_demo.c */</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * str = <span class="string">"Dynamic Link Library Test Successful."</span>;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -o dll_demo.dll dll_demo.c</span><br><span class="line">gcc -o demo.exe src_demo.c dll_demo.dll</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p><img src="/2019/02/22/第一个DLL程序/10.png" alt="img"></p>
+<p><img src="/2019/02/22/第一个DLL程序/1.png" alt="img"></p>
 <hr>
-<h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><p>C_demo.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(lib, <span class="meta-string">"DLL_demo.lib"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">div</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a, b;</span><br><span class="line">    <span class="keyword">char</span> op, c;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input a formula and get the result. (enter q to quit)\n"</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter: "</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">scanf</span>(<span class="string">"%lf %c %lf"</span>, &amp;a, &amp;op, &amp;b) == <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">switch</span> (op)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'+'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf + %.2lf = %.2lf\n"</span>, a, b, add(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'-'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf - %.2lf = %.2lf\n"</span>, a, b, sub(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'*'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf * %.2lf = %.2lf\n"</span>, a, b, mul(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'/'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf / %.2lf = %.2lf\n"</span>, a, b, div(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span> : <span class="built_in">printf</span>(<span class="string">"Enter error!\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((c = getchar()) == <span class="string">'q'</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"Enter error!"</span>);</span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Bye~"</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    getchar();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>DLL_demo.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">double</span> <span class="title">div</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a / b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>main.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">double</span> <span class="title">divi</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>; <span class="comment">//div会和库函数名冲突</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a, b;</span><br><span class="line">    <span class="keyword">char</span> op, c;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input a formula and get the result. (enter q to quit)\n"</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter: "</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">scanf</span>(<span class="string">"%lf %c %lf"</span>, &amp;a, &amp;op, &amp;b) == <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">switch</span> (op)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'+'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf + %.2lf = %.2lf\n"</span>, a, b, add(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'-'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf - %.2lf = %.2lf\n"</span>, a, b, sub(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'*'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf * %.2lf = %.2lf\n"</span>, a, b, mul(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'/'</span>: <span class="built_in">printf</span>(<span class="string">"%.2lf / %.2lf = %.2lf\n"</span>, a, b, divi(a, b)); <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span> : <span class="built_in">printf</span>(<span class="string">"Enter error!\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((c = getchar()) == <span class="string">'q'</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"Enter error!"</span>);</span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Bye~"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>dll.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mul</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">divi</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a / b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上。</p>
 
           
         
@@ -383,7 +359,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 20:45:36" itemprop="dateModified" datetime="2019-08-20T20:45:36+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 17:35:16" itemprop="dateModified" datetime="2019-08-21T17:35:16+08:00">2019-08-21</time>
               </span>
             
           
@@ -430,7 +406,7 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
 <p><a href="https://www.randomservices.org/random/special/IrwinHall.html" target="_blank" rel="noopener">The Irwin-Hall Distribution</a></p>
 <hr>
 <p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
-<p>以上。</p>
+<hr>
 
           
         
@@ -507,7 +483,7 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 20:54:31" itemprop="dateModified" datetime="2019-08-20T20:54:31+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 17:36:06" itemprop="dateModified" datetime="2019-08-21T17:36:06+08:00">2019-08-21</time>
               </span>
             
           
@@ -553,7 +529,8 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
 <p>值得一提的是，递归基例我不知道是多少，一开始设置成1，结果是0.618034，对的。我又试了试0.5，结果还是0.618034，我有点摸不着头脑了。我再试了一下0.0，结果还是一样！有点方，稳住。我把输出的位数调大，调到了14位，因为double有效位数至少15位，再把迭代次数调小，这样就能明显地比较每个基例的收敛速度，于是我发现似乎在0.6左右时收敛最快……0.618！它的基例，正是它自己本身！这和它的连分数似乎有某种内在的联系，都是“1”……</p>
 <p>Σ(っ °Д °;)っ</p>
 <hr>
-<p> 想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a> 以上。</p>
+<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
+<hr>
 
           
         
@@ -630,7 +607,7 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 21:44:43" itemprop="dateModified" datetime="2019-08-20T21:44:43+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 17:39:59" itemprop="dateModified" datetime="2019-08-21T17:39:59+08:00">2019-08-21</time>
               </span>
             
           
@@ -719,9 +696,8 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">-10</span> : <span class="number">0.01</span> : <span class="number">10</span>;</span><br><span class="line">ya = sinc(t / <span class="built_in">pi</span>);</span><br><span class="line"><span class="built_in">plot</span>(t, ya);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"></span><br><span class="line">k = <span class="number">-10</span> : <span class="number">10</span>;</span><br><span class="line">yd = sinc(k / <span class="built_in">pi</span>);</span><br><span class="line">stem(k, yd);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'t / k'</span>);</span><br><span class="line">ylabel(<span class="string">'f(t) / f[k]'</span>);</span><br><span class="line">title(<span class="string">'sampling signal'</span>);</span><br></pre></td></tr></table></figure>
 <p>图形：</p>
 <p><img src="/2019/01/22/MATLAB信号处理（一）/7.png" alt="img"></p>
-<p> 在MATLAB中抽样信号是sinc()函数，定义为：$sinc(t) = \frac{sin(\pi t)}{\pi t}$，故系数要除以一个$\pi$。</p>
+<p>在MATLAB中抽样信号是sinc()函数，定义为：$sinc(t) = \frac{sin(\pi t)}{\pi t}$，故系数要除以一个$\pi$。</p>
 <hr>
-<p> 以上。</p>
 
           
         
@@ -798,7 +774,7 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 21:29:56" itemprop="dateModified" datetime="2019-08-20T21:29:56+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 17:39:18" itemprop="dateModified" datetime="2019-08-21T17:39:18+08:00">2019-08-21</time>
               </span>
             
           
@@ -838,7 +814,6 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
 <p><img src="/2019/01/21/Multisim电路仿真（二）/4.png" alt="img"></p>
 <p>场效应管有许多类型，其中绝缘栅型场效应管应用很广泛。它由金属、氧化物、半导体制成，所以又称MOSFET（Metal-Oxide-Semiconductor Field-Effect Transistor）。</p>
 <hr>
-<p>以上。</p>
 
           
         
@@ -915,7 +890,7 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 21:30:39" itemprop="dateModified" datetime="2019-08-20T21:30:39+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 17:39:07" itemprop="dateModified" datetime="2019-08-21T17:39:07+08:00">2019-08-21</time>
               </span>
             
           
@@ -966,7 +941,6 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
 <p><img src="/2019/01/19/Multisim电路仿真（一）/5.png" alt="img"></p>
 <p>改变导线颜色即改变对应波形颜色。可以看到，电容这一条支路相对于电阻确实相移了 -π/2 。</p>
 <hr>
-<p>以上。</p>
 
           
         
@@ -1043,7 +1017,7 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-20 00:57:27" itemprop="dateModified" datetime="2019-08-20T00:57:27+08:00">2019-08-20</time>
+                <time title="修改时间：2019-08-21 17:35:26" itemprop="dateModified" datetime="2019-08-21T17:35:26+08:00">2019-08-21</time>
               </span>
             
           
@@ -1098,7 +1072,7 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clock_t</span> start, end;</span><br><span class="line"></span><br><span class="line">start = clock();</span><br><span class="line"><span class="comment">// method_1(N);</span></span><br><span class="line"><span class="comment">// method_2(N);</span></span><br><span class="line"><span class="comment">// method_3(I);</span></span><br><span class="line">method_4(I);</span><br><span class="line">end = clock();</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"time: %.2lf s\n"</span>, (<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br></pre></td></tr></table></figure>
 <p>clock_t 类型和 clock() 函数在 time.h 头文件中，clock() 调用一次即记录此时的程序已运行时间，两次调用做差，即得中间过程的运行耗时。</p>
 <p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
-<p>以上。</p>
+<hr>
 
           
         
