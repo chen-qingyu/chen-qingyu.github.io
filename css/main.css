@@ -1525,6 +1525,7 @@ pre .javascript .function {
   max-width: 120px;
   height: auto;
   border: 1px solid #eee;
+  border-radius: 50%;
 }
 .site-author-name {
   margin: 0;
@@ -1549,6 +1550,9 @@ pre .javascript .function {
   margin-bottom: 10px;
   border-bottom-color: #555;
   font-size: 0.8125em;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
@@ -1559,7 +1563,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bbccb3;
+  background: #178aa4;
 }
 .feed-link,
 .chat {

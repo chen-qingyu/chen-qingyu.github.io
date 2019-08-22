@@ -11,9 +11,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=7.3.0">
   <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
 
 <link rel="stylesheet" href="/css/main.css?v=7.3.0">
@@ -45,7 +45,7 @@
     localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     search: {
       root: '/',
-      path: ''
+      path: 'search.xml'
     },
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -129,6 +129,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">活着就是折腾，生命就是创造</p>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -166,6 +168,17 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
     </ul>
 </nav>
 
@@ -181,6 +194,9 @@
             
 
     
+    
+      
+      
     
       
       
@@ -355,6 +371,9 @@
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="⭐">
   <p class="site-author-name" itemprop="name">⭐</p>
   <div class="site-description motion-element" itemprop="description">恭喜你发现了一个不为人知的小岛</div>
 </div>
@@ -376,7 +395,9 @@
         
       
       
-        <a href="https://github.com/chen-qingyu" title="GitHub &rarr; https://github.com/chen-qingyu" rel="noopener" target="_blank">GitHub</a>
+        
+      
+        <a href="https://github.com/chen-qingyu" title="GitHub &rarr; https://github.com/chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
     
       <span class="links-of-author-item">
@@ -385,7 +406,31 @@
         
       
       
-        <a href="https://zhuanlan.zhihu.com/codecat" title="知乎 &rarr; https://zhuanlan.zhihu.com/codecat" rel="noopener" target="_blank">知乎</a>
+        
+      
+        <a href="https://zhuanlan.zhihu.com/codecat" title="知乎 &rarr; https://zhuanlan.zhihu.com/codecat" rel="noopener" target="_blank"><i class="fa fa-fw fa-at"></i>知乎</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="http://sighttp.qq.com/msgrd?v=1&uin=236521827" title="QQ &rarr; http://sighttp.qq.com/msgrd?v=1&uin=236521827" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/images/weixin.jpg" title="微信公众号 &rarr; /images/weixin.jpg"><i class="fa fa-fw fa-wechat"></i>微信公众号</a>
       </span>
     
   </div>
@@ -394,6 +439,8 @@
 
         </div>
       </div>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536057&auto=0&height=66"></iframe>
 
     </div>
   </aside>
@@ -435,6 +482,10 @@
   </div>
 
   
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/jquery/index.js?v=3.4.1"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
