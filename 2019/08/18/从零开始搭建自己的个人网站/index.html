@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/08/18/从零开始搭建自己的个人网站/4.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/08/18/从零开始搭建自己的个人网站/5.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/08/18/从零开始搭建自己的个人网站/6.png">
-<meta property="og:updated_time" content="2019-08-21T13:46:19.419Z">
+<meta property="og:updated_time" content="2019-08-22T02:13:49.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建自己的个人网站">
 <meta name="twitter:description" content="拥有自己的个人网站一直是我的一个目标。 在网上看了很多方法之后我最终选择了GitHub Pages + Hexo这条技术路线，原因有两点：  完全免费，学生党没有多少钱。 比较方便，有现成的框架可用。  整个搭建过程大概半小时就可以搞定。 搭建完成后大概是这样子的：青羽的个人网站  1. 准备环境准备一个GitHub账号：GitHub 新建一个Repositories，Repository nam">
@@ -246,7 +246,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 21:46:19" itemprop="dateModified" datetime="2019-08-21T21:46:19+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-22 10:13:49" itemprop="dateModified" datetime="2019-08-22T10:13:49+08:00">2019-08-22</time>
               </span>
             
           
@@ -324,7 +324,7 @@
 <ol>
 <li>下载主题：<a href="https://github.com/theme-next/hexo-theme-next/releases" target="_blank" rel="noopener">Releases · theme-next/hexo-theme-next</a></li>
 <li>解压所下载的压缩包至站点的 themes 目录下，并将解压后的文件夹名称（hexo-theme-next-x.x.x）更改为 <code>next</code></li>
-<li>打开站点配置文件_config.yml，找到 <code>theme</code> 字段，并将其值更改为 <code>next</code> ；找到 <code>language</code> 字段，并将其值更改为 <code>zh-CN</code>（在themes\next\languages目录下可查看主题支持的语言）</li>
+<li>打开站点配置文件_config.yml，找到 <code>theme</code> 字段，并将其值更改为 <code>next</code> ；找到 <code>language</code> 字段，并将其值更改为 <code>zh-CN</code>（在themes/next/languages目录下可查看主题支持的语言）</li>
 <li>在切换主题之后， 我们最好使用 <code>hexo clean</code> 命令来清除 Hexo 的缓存</li>
 </ol>
 <p>在更换了主题之后界面美观了许多，终于可以舒舒服服地写文章啦~</p>
@@ -333,7 +333,7 @@
 <p><strong>2. 插入LaTeX公式</strong></p>
 <p>更换支持LaTeX公式的Markdown渲染器：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-<p>打开主题配置文件（themes\next_config.yml），找到 <code>math</code> 字段，修改为：</p>
+<p>打开主题配置文件（themes/next/_config.yml），找到 <code>math</code> 字段，修改为：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  per_page:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <p>至此，LaTeX公式插入问题解决！</p>
 <p><strong>3. 插入图片</strong></p>
