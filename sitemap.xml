@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chen-qingyu.github.io/about/index.html</loc>
+    
+    <lastmod>2019-08-24T09:47:19.952Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chen-qingyu.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-08-24T07:42:11.875Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chen-qingyu.github.io/2019/08/23/%E8%99%9A%E6%8B%9F%E4%B8%96%E7%95%8C/</loc>
     
     <lastmod>2019-08-23T16:35:13.283Z</lastmod>
@@ -124,20 +138,6 @@
     <loc>https://chen-qingyu.github.io/2019/05/08/Mathematica%E2%80%94%E2%80%94%E4%B8%87%E7%89%A9%E7%9A%86%E7%90%86/</loc>
     
     <lastmod>2019-08-23T15:56:34.884Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chen-qingyu.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-08-23T15:51:55.557Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chen-qingyu.github.io/about/index.html</loc>
-    
-    <lastmod>2019-08-23T06:31:22.290Z</lastmod>
     
   </url>
   
