@@ -57,19 +57,24 @@
   };
 </script>
 
-  <meta name="description" content="本系列的所有文章均来自这个网站：虚拟世界 如你所见，这个网站上面是关于复杂系统和计算机科学的一些很有趣的文章，然而这个网站已经废弃很久了，我当初是在网上搜索Wolfram的《A New Kind of Science》偶然找到的。他们新的主站集智俱乐部还没有收录旧网站里的文章，真怕旧网站哪天就挂了然后里面的文章都不见了，所以我打算备份一下。   来源：http://swarmagents.cn.1">
+  <meta name="description" content="这篇文章的灵感来源于释放比特自由 原文片段节选：  CA模拟股市可能更多的人关心的是Wolfram的新科学有什么用呢？这的确是一个很有争议的问题，因为你既可以说NKS非常有用，也可以说它什么都不能做。 我们都知道，简单程序可以模拟自然界的生长现象，例如雪花的形成、树的生长、动物表面上的花纹等等。运用细胞自动机还可以模拟自然界的一些复杂的非线性过程，例如复杂的流体、交通流等。然而，这些应用其实又回到">
 <meta name="keywords" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="虚拟世界">
-<meta property="og:url" content="https://chen-qingyu.github.io/2019/08/23/VirtualWorld/虚拟世界/index.html">
+<meta property="og:title" content="CA模拟股市">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/index.html">
 <meta property="og:site_name" content="青羽的博客">
-<meta property="og:description" content="本系列的所有文章均来自这个网站：虚拟世界 如你所见，这个网站上面是关于复杂系统和计算机科学的一些很有趣的文章，然而这个网站已经废弃很久了，我当初是在网上搜索Wolfram的《A New Kind of Science》偶然找到的。他们新的主站集智俱乐部还没有收录旧网站里的文章，真怕旧网站哪天就挂了然后里面的文章都不见了，所以我打算备份一下。   来源：http://swarmagents.cn.1">
+<meta property="og:description" content="这篇文章的灵感来源于释放比特自由 原文片段节选：  CA模拟股市可能更多的人关心的是Wolfram的新科学有什么用呢？这的确是一个很有争议的问题，因为你既可以说NKS非常有用，也可以说它什么都不能做。 我们都知道，简单程序可以模拟自然界的生长现象，例如雪花的形成、树的生长、动物表面上的花纹等等。运用细胞自动机还可以模拟自然界的一些复杂的非线性过程，例如复杂的流体、交通流等。然而，这些应用其实又回到">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-25T06:45:58.205Z">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/1.gif">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/2.gif">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/3.gif">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/4.gif">
+<meta property="og:updated_time" content="2019-08-25T15:42:25.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="虚拟世界">
-<meta name="twitter:description" content="本系列的所有文章均来自这个网站：虚拟世界 如你所见，这个网站上面是关于复杂系统和计算机科学的一些很有趣的文章，然而这个网站已经废弃很久了，我当初是在网上搜索Wolfram的《A New Kind of Science》偶然找到的。他们新的主站集智俱乐部还没有收录旧网站里的文章，真怕旧网站哪天就挂了然后里面的文章都不见了，所以我打算备份一下。   来源：http://swarmagents.cn.1">
-  <link rel="canonical" href="https://chen-qingyu.github.io/2019/08/23/VirtualWorld/虚拟世界/">
+<meta name="twitter:title" content="CA模拟股市">
+<meta name="twitter:description" content="这篇文章的灵感来源于释放比特自由 原文片段节选：  CA模拟股市可能更多的人关心的是Wolfram的新科学有什么用呢？这的确是一个很有争议的问题，因为你既可以说NKS非常有用，也可以说它什么都不能做。 我们都知道，简单程序可以模拟自然界的生长现象，例如雪花的形成、树的生长、动物表面上的花纹等等。运用细胞自动机还可以模拟自然界的一些复杂的非线性过程，例如复杂的流体、交通流等。然而，这些应用其实又回到">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/1.gif">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/">
 
 
 <script id="page.configurations">
@@ -78,7 +83,7 @@
   };
 </script>
 
-  <title>虚拟世界 | 青羽的博客</title>
+  <title>CA模拟股市 | 青羽的博客</title>
   
 
 
@@ -252,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/23/VirtualWorld/虚拟世界/">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/25/CA模拟股市/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈青羽">
@@ -266,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">虚拟世界
+          <h1 class="post-title" itemprop="name headline">CA模拟股市
 
               
             
@@ -286,21 +291,11 @@
                 
               
 
-              <time title="创建时间：2019-08-23 23:37:35" itemprop="dateCreated datePublished" datetime="2019-08-23T23:37:35+08:00">2019-08-23</time>
+              <time title="创建时间：2019-08-25 22:22:36 / 修改时间：23:42:25" itemprop="dateCreated datePublished" datetime="2019-08-25T22:22:36+08:00">2019-08-25</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-25 14:45:58" itemprop="dateModified" datetime="2019-08-25T14:45:58+08:00">2019-08-25</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -311,7 +306,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/VirtualWorld/" itemprop="url" rel="index"><span itemprop="name">VirtualWorld</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
 
                 
                 
@@ -339,21 +334,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本系列的所有文章均来自这个网站：<a href="http://swarmagents.cn.13442.m8849.cn/vm/index.htm" target="_blank" rel="noopener">虚拟世界</a></p>
-<p>如你所见，这个网站上面是关于复杂系统和计算机科学的一些很有趣的文章，然而这个网站已经废弃很久了，我当初是在网上搜索Wolfram的《A New Kind of Science》偶然找到的。他们新的主站<a href="https://swarma.org/" target="_blank" rel="noopener">集智俱乐部</a>还没有收录旧网站里的文章，真怕旧网站哪天就挂了然后里面的文章都不见了，所以我打算备份一下。</p>
-<hr>
+        <p>这篇文章的灵感来源于<a href="http://swarmagents.cn.13442.m8849.cn/vm/articles/freebits.htm" target="_blank" rel="noopener">释放比特自由</a></p>
+<p>原文片段节选：</p>
 <blockquote>
-<p>来源：<a href="http://swarmagents.cn.13442.m8849.cn/vm/index.htm" target="_blank" rel="noopener">http://swarmagents.cn.13442.m8849.cn/vm/index.htm</a><br>作者：集智俱乐部<br>日期：未知</p>
+<h3 id="CA模拟股市"><a href="#CA模拟股市" class="headerlink" title="CA模拟股市"></a>CA模拟股市</h3><p>可能更多的人关心的是Wolfram的新科学有什么用呢？这的确是一个很有争议的问题，因为你既可以说NKS非常有用，也可以说它什么都不能做。</p>
+<p>我们都知道，简单程序可以模拟自然界的生长现象，例如雪花的形成、树的生长、动物表面上的花纹等等。运用细胞自动机还可以模拟自然界的一些复杂的非线性过程，例如复杂的流体、交通流等。然而，这些应用其实又回到了一般计算机模拟的老路上，即针对具体问题，赋予每一个比特一定的意义，然后让系统去演化。</p>
+<p>然而，NKS强调的是忘掉模拟和比特的意义。这样一种哲学会给我们带来什么好处呢？下面这个简单的应用会给我们耳目一新的感觉。</p>
+<p>该应用研究是想用CA生成一个时间序列曲线，然后用这个曲线去拟合股票的价格波动，它是由Wolfram公司的研究员Jason做出的。</p>
+<p>考虑一个特定的细胞自动机，例如CA90（对1维的、邻居为两个的细胞自动机的编号，确定了一个编号就确定了它的一组规则），它形成的图形和一个时间序列曲线，如下图：</p>
+<p><img src="/2019/08/25/CA模拟股市/1.gif" alt><br><img src="/2019/08/25/CA模拟股市/2.gif" alt></p>
+<p>上面的是CA90的运行情况，下面的是它生成的时间序列曲线</p>
+<p>这个时间序列曲线的具体做法是，将每一步CA90生成的黑细胞方格作为1，白细胞方格作为-1，然后对所有方格求和，得到该时刻的总的数值s(t)，然后在下一时刻，同样求得这样一个总和数，把这个数加上s(t)，得到s(t+1)，这样反复不停的运用这一方法就能得到一个上图所示的时间序列曲线。</p>
+<p>进一步，Jason考虑由两个细胞自动机混合得到的时间序列。例如给定两个细胞自动机CA90和CA110，然后我们把它们进行一定比例的混合。例如混合比例是3:7。具体做法是，从任意一个随机初始条件开始演化3步CA90，然后再演化7步CA110，这样我们得到一个混合的细胞自动机，Jason叫它ICA，用同样的方法，可以画出这个ICA生成的时间序列曲线：</p>
+<p><img src="/2019/08/25/CA模拟股市/3.gif" alt></p>
+<p>下面，Jason就用这个生成的时间序列曲线去拟合真实的股票价格数据。具体方法可以是通过调节两种细胞自动机的混合比例，例如从3:7调到8:2，使得生成的序列能够和真实数据在均方误差的条件下拟合的很好，如下图：</p>
+<p><img src="/2019/08/25/CA模拟股市/4.gif" alt></p>
+<p>Jason试了很多种两两细胞自动机组合的情况，都能够得到较好的拟合曲线。然而，很奇怪的是，这个方法并没有对股市建立任何显式的模型。</p>
+<p>这个研究的意义在于，即使我们完全忘掉股市运行的内在规则，我们仍然可以找到拟合股票数据的方法。这反过来说明了复杂的行为并不一定需要复杂的微观机制。仍然是那个观点：从某种意义上说，行为的复杂性增加到一定程度就停止增长了。</p>
 </blockquote>
 <hr>
-<h3 id="计算机是什么？"><a href="#计算机是什么？" class="headerlink" title="计算机是什么？"></a>计算机是什么？</h3><p>大部分人认为它仅仅是一个信息处理的运算工具，然而现代的复杂性科学却证明，它是一个能够构造各种可能性宇宙的工具。这些可能的人造的(Artificial)宇宙就是我们所说的虚拟世界。</p>
-<h3 id="虚拟世界不是科幻"><a href="#虚拟世界不是科幻" class="headerlink" title="虚拟世界不是科幻"></a>虚拟世界不是科幻</h3><p>因为这里有很多实实在在的计算机仿真结果，这些计算机模拟的世界无疑推动了科学的发展。然而虚拟世界也不是一门成熟的科学，它更像是综合了包括复杂系统、人工生命、计算机科学等等很多现有的理论，一种崭新的视角来重新综合，并且纵向的延伸。</p>
-<h3 id="虚拟世界不是哲学"><a href="#虚拟世界不是哲学" class="headerlink" title="虚拟世界不是哲学"></a>虚拟世界不是哲学</h3><p>虽然它的确关系到很多哲学的问题。比如什么是存在，什么是自由意志，我们这个世界是不是虚拟的等等。然而，虚拟世界的目标不是仅仅从书面上描述性的讨论这些”玄学”，而是采用科学的方法，合理的想象来探讨这些未知。</p>
-<h3 id="虚拟世界（Virtual-World）不是虚拟现实（Virtual-Reality）"><a href="#虚拟世界（Virtual-World）不是虚拟现实（Virtual-Reality）" class="headerlink" title="虚拟世界（Virtual World）不是虚拟现实（Virtual Reality）"></a>虚拟世界（Virtual World）不是虚拟现实（Virtual Reality）</h3><p>后者是一个比较成熟的计算机三维建模、展现的技术。而虚拟世界则更是一种思想、一种方法，探讨如何建造各种可能性世界，以及这些意味着什么等等问题。</p>
-<h3 id="虚拟世界不仅要探索已知"><a href="#虚拟世界不仅要探索已知" class="headerlink" title="虚拟世界不仅要探索已知"></a>虚拟世界不仅要探索已知</h3><p>如果我们把虚拟世界单独的抽象出来作为一个完全崭新的对象来研究会发现我们的问题还有很多很多。比如虚拟世界中的生物是否活着？什么是虚拟世界中的自由意志？虚拟世界中会不会出现新一层的虚拟世界？各个层次之间的虚拟世界是否有什么深层的关系？</p>
-<h3 id="What-is-real？"><a href="#What-is-real？" class="headerlink" title="What is real？"></a>What is real？</h3><p>目前复杂性科学探索的最前沿的种种迹象已经表明，我们赖以生存的这个”真实”宇宙很有可能就是一台巨型的细胞自动机，而我们这些活生生的人仅仅是一些闪烁的霓虹灯方格所组合出来的漂亮的花纹图案。这一切意味着什么呢？</p>
-<h3 id="虚拟世界与怪圈"><a href="#虚拟世界与怪圈" class="headerlink" title="虚拟世界与怪圈"></a>虚拟世界与怪圈</h3><p>逻辑世界的极限就是悖论怪圈。那么虚拟世界这个采用计算机确定性因果逻辑的工具建造的”沙地上的图案”是否也会遇到某种类似的极限呢？各种各样的怪圈体现在虚拟世界中是一种什么样的形式呢？</p>
-<h3 id="虚拟世界与艺术"><a href="#虚拟世界与艺术" class="headerlink" title="虚拟世界与艺术"></a>虚拟世界与艺术</h3><p>什么是艺术？本质上讲，人们创造各种各样的可能性世界就是艺术。以前的艺术仅仅体现在二维的纸面上，然而技术的发展扩大了艺术的疆域。现在的电影艺术就是一种四维空间中的虚拟世界。也可以说广义的艺术本身就是创造各种各样可能的虚拟世界的活动。现在有了计算机，人们可以按照任意的规则创造全方位的人工的世界，这显然是一片更加广阔的艺术天空！</p>
+<p>我的想法：</p>
+<p>黑和白可以认为是两种力量：黑代表 混乱/暴力/邪恶/深邃/冷峻，白代表 秩序/和平/善良/天真/温暖。这两种力量在CA90的规则下演化。</p>
+<p>为什么要两种规则呢？要知道，股市其实是各方利益集团博弈后的一个综合结果，而股市的规则是顶层的那些组织制定的，组织是由人组成的，而人会变，组织的核心利益也会随之改变，股市规则也就随之改变了。</p>
+<p>CA90和CA110可以认为是两种顶层力量（规则制定者）的博弈，这种博弈会在一个较短的时间内保持平衡，当比例恰好符合现实中的博弈结果后，自然大体上也就符合真实的股市了。</p>
 <hr>
 
     </div>
@@ -365,8 +368,8 @@
     <footer class="post-footer">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/19/十二个Python小技巧/" rel="next" title="十二个Python小技巧">
-                <i class="fa fa-chevron-left"></i> 十二个Python小技巧
+              <a href="/2019/08/25/VirtualWorld/宿命/" rel="next" title="宿命">
+                <i class="fa fa-chevron-left"></i> 宿命
               </a>
             
           </div>
@@ -374,10 +377,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/24/VirtualWorld/方格宇宙/" rel="prev" title="方格宇宙">
-                方格宇宙 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -532,7 +531,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机是什么？"><span class="nav-text">计算机是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟世界不是科幻"><span class="nav-text">虚拟世界不是科幻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟世界不是哲学"><span class="nav-text">虚拟世界不是哲学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟世界（Virtual-World）不是虚拟现实（Virtual-Reality）"><span class="nav-text">虚拟世界（Virtual World）不是虚拟现实（Virtual Reality）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟世界不仅要探索已知"><span class="nav-text">虚拟世界不仅要探索已知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-real？"><span class="nav-text">What is real？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟世界与怪圈"><span class="nav-text">虚拟世界与怪圈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟世界与艺术"><span class="nav-text">虚拟世界与艺术</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CA模拟股市"><span class="nav-text">CA模拟股市</span></a></li></ol></div>
             
 
           </div>
