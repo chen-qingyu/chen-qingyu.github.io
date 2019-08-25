@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chen-qingyu.github.io/about/index.html</loc>
+    
+    <lastmod>2019-08-25T08:47:14.005Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chen-qingyu.github.io/2019/08/24/VirtualWorld/%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8E%E8%AE%A1%E7%AE%97%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2019-08-25T08:07:46.771Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://chen-qingyu.github.io/2019/08/23/VirtualWorld/%E8%99%9A%E6%8B%9F%E4%B8%96%E7%95%8C/</loc>
     
     <lastmod>2019-08-25T06:45:58.205Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chen-qingyu.github.io/about/index.html</loc>
-    
-    <lastmod>2019-08-24T10:00:13.020Z</lastmod>
     
   </url>
   
