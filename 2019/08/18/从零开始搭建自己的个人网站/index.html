@@ -71,7 +71,7 @@
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/08/18/从零开始搭建自己的个人网站/4.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/08/18/从零开始搭建自己的个人网站/5.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/08/18/从零开始搭建自己的个人网站/6.png">
-<meta property="og:updated_time" content="2019-08-23T16:04:38.161Z">
+<meta property="og:updated_time" content="2019-09-01T16:52:10.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建自己的个人网站">
 <meta name="twitter:description" content="拥有自己的个人网站一直是我的一个目标。 在网上看了很多方法之后我最终选择了GitHub Pages + Hexo这条技术路线，原因有两点：  完全免费，学生党没有多少钱。 比较方便，有现成的框架可用。  整个搭建过程大概半小时就可以搞定。 搭建完成后大概是这样子的：青羽的个人网站  1. 准备环境准备一个GitHub账号：GitHub 新建一个Repositories，Repository nam">
@@ -306,7 +306,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-24 00:04:38" itemprop="dateModified" datetime="2019-08-24T00:04:38+08:00">2019-08-24</time>
+                <time title="修改时间：2019-09-02 00:52:10" itemprop="dateModified" datetime="2019-09-02T00:52:10+08:00">2019-09-02</time>
               </span>
             
           
@@ -368,17 +368,17 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的GitHub注册邮箱"</span></span><br></pre></td></tr></table></figure>
 <p>默认不设置密码，直接回车就行。</p>
 <p><img src="/2019/08/18/从零开始搭建自己的个人网站/3.png" alt="img"></p>
-<p>用记事本打开生成的id_rsa.pub文件，<kbd>Crtl</kbd>+<kbd>A</kbd>，<kbd>Ctrl</kbd>+<kbd>C</kbd>复制全部内容。</p>
+<p>用文本编辑器打开生成的id_rsa.pub文件，<kbd>Crtl</kbd>+<kbd>A</kbd>，<kbd>Ctrl</kbd>+<kbd>C</kbd>复制全部内容。</p>
 <p>打开GitHub的SSH设置页面：<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a></p>
 <p>New SSH key，Title任取，Key粘贴刚刚复制的字符串，Add SHH key</p>
 <h3 id="3-配置Hexo"><a href="#3-配置Hexo" class="headerlink" title="3. 配置Hexo"></a>3. 配置Hexo</h3><p>Hexo是一个博客框架。接下来，开始安装Hexo。</p>
 <p>先新建一个空文件夹，名字最好不要带中文。打开控制台，cd到新建的空文件夹下，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>等待安装完成后，输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure>
-<p>这里的<code>&lt;folder&gt;</code>是用户自己取的一个站点目录名字。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+<p>这里的<code>blog</code>是用户自己取的一个站点目录名字。</p>
 <p>然后进入站点目录并安装依赖：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>到这一步，本地博客算是搭建好了，测试一下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>s是server的缩写，表示启动本地服务器。默认情况下，访问网址是：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
@@ -386,7 +386,7 @@
 <p><img src="/2019/08/18/从零开始搭建自己的个人网站/4.png" alt="img"></p>
 <h3 id="4-部署网站"><a href="#4-部署网站" class="headerlink" title="4. 部署网站"></a>4. 部署网站</h3><p>在站点目录下可以看到有如下文件：</p>
 <p><img src="/2019/08/18/从零开始搭建自己的个人网站/5.png" alt="img"></p>
-<p>其中_config.yml为站点配置文件，打开，找到 <code>url</code> 字段，修改为：</p>
+<p>其中_config.yml为站点配置文件，用文本编辑器打开，<kbd>Crtl</kbd>+<kbd>F</kbd>查找 <code>url</code> 字段，修改为：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="attr">https://你的GitHub用户名.github.io/</span></span><br></pre></td></tr></table></figure>
 <p>再翻到最后找到 <code>deploy</code> 字段，修改为：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/你的GitHub用户名/你的GitHub用户名.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
