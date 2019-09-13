@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="青羽的博客">
 <meta property="og:description" content="前言自己写一个属于自己的操作系统应该是每个程序员的梦想了吧。 今天，大三刚开始的我，在除了C语言之外没有上过任何计算机类的专业课情况下，开始着手自己写一个操作系统出来。 不是在Linux内核上删删改改，而是真正的从零开始写一个“麻雀虽小，五脏俱全”的操作系统出来。 目标不是只有一个命令行的操作系统（比如DOS），而是有图形界面，支持多任务的一个操作系统。 当然是用C语言写，但是C语言的很多库函数是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-13T09:02:55.607Z">
+<meta property="og:updated_time" content="2019-09-13T10:41:24.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始写一个操作系统">
 <meta name="twitter:description" content="前言自己写一个属于自己的操作系统应该是每个程序员的梦想了吧。 今天，大三刚开始的我，在除了C语言之外没有上过任何计算机类的专业课情况下，开始着手自己写一个操作系统出来。 不是在Linux内核上删删改改，而是真正的从零开始写一个“麻雀虽小，五脏俱全”的操作系统出来。 目标不是只有一个命令行的操作系统（比如DOS），而是有图形界面，支持多任务的一个操作系统。 当然是用C语言写，但是C语言的很多库函数是">
@@ -299,7 +299,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-13 17:02:55" itemprop="dateModified" datetime="2019-09-13T17:02:55+08:00">2019-09-13</time>
+                <time title="修改时间：2019-09-13 18:41:24" itemprop="dateModified" datetime="2019-09-13T18:41:24+08:00">2019-09-13</time>
               </span>
             
           
@@ -344,13 +344,7 @@
 <p>不是在Linux内核上删删改改，而是真正的从零开始写一个“麻雀虽小，五脏俱全”的操作系统出来。</p>
 <p>目标不是只有一个命令行的操作系统（比如DOS），而是有图形界面，支持多任务的一个操作系统。</p>
 <p>当然是用C语言写，但是C语言的很多库函数是建立在操作系统的API之上的（比如printf()函数），因此所有涉及操作系统的部分只能用汇编语言来写，而且还要把C语言和汇编语言无缝链接在一起。</p>
-<h3 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h3><p>选定FAT12格式。这个格式兼容性好，也不复杂。</p>
-<p>最开始要做的工作就是写启动区，也就是储存介质上的第一个扇区。</p>
-<p>IPL（initial program loader，启动程序加载器）。启动区只有区区512字节，所以一般都是把IPL放进启动区，开机从启动区通过IPL加载操作系统。</p>
-<h3 id="字符显示"><a href="#字符显示" class="headerlink" title="字符显示"></a>字符显示</h3><p>任何一个字符，比如‘A’，本质是一大堆像素的排列组合，因此可以转换成只有两个元素（0，1）的二维数组，要自己弄这个可不现实，因此需要开源字符库。</p>
-<p>顺带提一下，字符的阴影效果可以这样实现：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font(<span class="number">31</span>, <span class="number">31</span>, RGB(<span class="number">000000</span>), <span class="string">"Hello OS."</span>);</span><br><span class="line">font(<span class="number">30</span>, <span class="number">30</span>, RGB(FFFFFF), <span class="string">"Hello OS."</span>);</span><br></pre></td></tr></table></figure>
-<p>先画黑色的，再往原点移动x、y各一个单位，画白色的，这会覆盖之前的黑色。</p>
+<h3 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h3><p>老实说，我目前还看不太懂那些汇编，所以要先学汇编语言。买了一本王爽的《汇编语言（第三版）》，网上说这本书很适合学汇编。还要学一学操作系统的理论，这个就看慕课了。学完这两个，打好基础，再开始敲代码。</p>
 <hr>
 <p><em>待续</em></p>
 <hr>
@@ -531,7 +525,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap"><span class="nav-text">bootstrap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符显示"><span class="nav-text">字符显示</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap"><span class="nav-text">bootstrap</span></a></li></ol></div>
             
 
           </div>
