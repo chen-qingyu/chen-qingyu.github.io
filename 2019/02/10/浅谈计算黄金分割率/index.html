@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 = 1, t2 = 1;    for (int i = 0; i &amp;lt; I; ++i)    &amp;#123;        int next = t1 + t2">
+<meta name="keywords" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈计算黄金分割率">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 = 1, t2 = 1;    for (int i = 0; i &amp;lt; I; ++i)    &amp;#123;        int next = t1 + t2">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/2.png">
+<meta property="og:updated_time" content="2019-09-13T09:04:25.796Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈计算黄金分割率">
+<meta name="twitter:description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 = 1, t2 = 1;    for (int i = 0; i &amp;lt; I; ++i)    &amp;#123;        int next = t1 + t2">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/1.png">
+  <link rel="alternate" href="/atom.xml" title="青羽的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>浅谈计算黄金分割率 | 青羽的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">青羽的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">活着就是折腾，生命就是创造</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">29</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青羽">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">浅谈计算黄金分割率
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-10 09:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T09:00:00+08:00">2019-02-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-13 17:04:25" itemprop="dateModified" datetime="2019-09-13T17:04:25+08:00">2019-09-13</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+              <span title="本文字数">1.7k</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>利用程序计算黄金分割率有很多方法，这里我们举两个小例子。</p>
+<p>还是用之前计算圆周率的那个框架，Let’s go!</p>
+<hr>
+<h3 id="1-数学方法"><a href="#1-数学方法" class="headerlink" title="1. 数学方法"></a>1. 数学方法</h3><p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t1 = <span class="number">1</span>, t2 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> next = t1 + t2;</span><br><span class="line">        t1 = t2;</span><br><span class="line">        t2 = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, (<span class="keyword">double</span>)t1 / t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果（I = 25）：</p>
+<p><img src="/2019/02/10/浅谈计算黄金分割率/1.png" alt></p>
+<p>这里用的是斐波那契数列（Fibonacci sequence）来计算黄金分割率。</p>
+<script type="math/tex; mode=display">
+\begin{equation} \begin{array}{l}{t_{n}=1,1,2,3,5,8,13,21,34, \ldots} \\ {\frac{1}{1}=1.000, \frac{1}{2}=0.500, \frac{2}{3} \approx 0.667, \frac{3}{5}=0.600} \\ {\frac{5}{8}=0.625, \frac{8}{13} \approx 0.615, \frac{13}{21} \approx 0.619, \frac{21}{34} \approx 0.618}\end{array} \end{equation}</script><p>可以看到，随着项数增大，前一项与后一项的比值越来越接近黄金分割率，即 </p>
+<script type="math/tex; mode=display">
+\lim_{n \rightarrow \infty} \frac{t_{n-1}}{t_{n}}=\frac{\sqrt{5}-1}{2}</script><hr>
+<h3 id="2-数学方法"><a href="#2-数学方法" class="headerlink" title="2. 数学方法"></a>2. 数学方法</h3><p>这里要用到连分数（continued fraction）。</p>
+<p>第一次看到连分数时是阅读关于拉马努金（Srīṉivāsa Rāmāṉujan）的文章时看见的。此人天赋异禀，堪称鬼才，发现了许多画风奇特的数学公式，比如：</p>
+<script type="math/tex; mode=display">
+\sqrt{\frac{1+\sqrt{5}}{2}+2}-\frac{1+\sqrt{5}}{2}=\frac{\mathrm{e}^{-\frac{2 \pi}{5}}}{1+\frac{\mathrm{e}^{-2 \pi}}{1+\frac{\mathrm{e}^{-4 \pi}}{1+\frac{\mathrm{e}^{-6 \pi}}{1+\cdots}}}}</script><p>把黄金分割率 φ 、自然常数 e 和圆周率 π 联系在了一起。</p>
+<p>还有很多我就不一一展示了，总之那些公式看得我头皮发麻……</p>
+<p>连分数就像是一台数学显微镜，它能把放进去的数字的内部构造展现出来，让我们得以一窥精妙的造物之痕。现在，让我们把黄金分割率放进去…</p>
+<script type="math/tex; mode=display">
+\frac{\sqrt{5}-1}{2}=\frac{1}{1+\frac{1}{1+\frac{1}{1+...}}}</script><p>化为连分数后，整个式子只有数字1！</p>
+<p>All in one, beautiful !</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (I == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.618</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1.0</span> / (sub(I - <span class="number">1</span>) + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, sub(I));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果（I = 25）：</p>
+<p><img src="/2019/02/10/浅谈计算黄金分割率/2.png" alt></p>
+<p>我用的递归来计算这个式子。</p>
+<p>值得一提的是，递归基例我不知道是多少，一开始设置成1，结果是0.618034，对的。我又试了试0.5，结果还是0.618034，我有点摸不着头脑了。我再试了一下0.0，结果还是一样！有点方，稳住。我把输出的位数调大，调到了14位，因为double有效位数至少15位，再把迭代次数调小，这样就能明显地比较每个基例的收敛速度，于是我发现似乎在0.6左右时收敛最快……0.618！它的基例，正是它自己本身！这和它的连分数似乎有某种内在的联系，都是“1”……</p>
+<p>Σ(っ °Д °;)っ</p>
+<hr>
+<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
+<hr>
+
+    </div>
+
+    
+    
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>如果你觉得这篇文章不错的话可以帮我凑钱租个服务器</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="青羽 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="青羽 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/01/22/MATLAB信号处理（一）/" rel="next" title="MATLAB信号处理（一）">
+                <i class="fa fa-chevron-left"></i> MATLAB信号处理（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2019/02/21/浅谈计算自然常数/" rel="prev" title="浅谈计算自然常数">
+                浅谈计算自然常数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="青羽">
+  <p class="site-author-name" itemprop="name">青羽</p>
+  <div class="site-description motion-element" itemprop="description">恭喜你发现了一个不为人知的小岛</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chen-qingyu" title="GitHub &rarr; https://github.com/chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://zhuanlan.zhihu.com/codecat" title="知乎 &rarr; https://zhuanlan.zhihu.com/codecat" rel="noopener" target="_blank"><i class="fa fa-fw fa-at"></i>知乎</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/images/weixin.jpg" title="微信公众号 &rarr; /images/weixin.jpg"><i class="fa fa-fw fa-wechat"></i>微信公众号</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数学方法"><span class="nav-text">1. 数学方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数学方法"><span class="nav-text">2. 数学方法</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536057&auto=0&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈青羽</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">65k</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="footer.total_visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="footer.total_views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"width":150,"height":300,"position":"left"},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="这是我自己在长期的实践中总结的一套优化Windows系统的流程，按流程走一次就够了。适用于Windows 10。 首先，下载一个很小的工具包：Windows优化，然后按照下列步骤操作：  设置-&amp;gt;应用-&amp;gt;应用和功能-&amp;gt;卸载多余应用、功能 卸载预装应用-&amp;gt;Uninstall 设置-&amp;gt;系统-&amp;gt;电源和睡眠-&amp;gt;其他电源设置-&amp;gt;关闭盖子时不采取任何操作、关机设">
+<meta name="keywords" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows系统优化">
+<meta property="og:url" content="https://chen-qingyu.github.io/2018/11/13/Windows系统优化/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="这是我自己在长期的实践中总结的一套优化Windows系统的流程，按流程走一次就够了。适用于Windows 10。 首先，下载一个很小的工具包：Windows优化，然后按照下列步骤操作：  设置-&amp;gt;应用-&amp;gt;应用和功能-&amp;gt;卸载多余应用、功能 卸载预装应用-&amp;gt;Uninstall 设置-&amp;gt;系统-&amp;gt;电源和睡眠-&amp;gt;其他电源设置-&amp;gt;关闭盖子时不采取任何操作、关机设">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-28T20:53:52.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows系统优化">
+<meta name="twitter:description" content="这是我自己在长期的实践中总结的一套优化Windows系统的流程，按流程走一次就够了。适用于Windows 10。 首先，下载一个很小的工具包：Windows优化，然后按照下列步骤操作：  设置-&amp;gt;应用-&amp;gt;应用和功能-&amp;gt;卸载多余应用、功能 卸载预装应用-&amp;gt;Uninstall 设置-&amp;gt;系统-&amp;gt;电源和睡眠-&amp;gt;其他电源设置-&amp;gt;关闭盖子时不采取任何操作、关机设">
+  <link rel="alternate" href="/atom.xml" title="青羽的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2018/11/13/Windows系统优化/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Windows系统优化 | 青羽的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">青羽的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">活着就是折腾，生命就是创造</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">29</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2018/11/13/Windows系统优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青羽">
+      <meta itemprop="description" content="恭喜你发现了一个不为人知的小岛">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">Windows系统优化
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-13 14:34:03" itemprop="dateCreated datePublished" datetime="2018-11-13T14:34:03+08:00">2018-11-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-29 04:53:52" itemprop="dateModified" datetime="2019-09-29T04:53:52+08:00">2019-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+              <span title="本文字数">1.3k</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这是我自己在长期的实践中总结的一套优化Windows系统的流程，按流程走一次就够了。适用于Windows 10。</p>
+<p>首先，下载一个很小的工具包：<a href="/download/Windows优化.zip">Windows优化</a>，然后按照下列步骤操作：</p>
+<ol>
+<li>设置-&gt;应用-&gt;应用和功能-&gt;卸载多余应用、功能</li>
+<li>卸载预装应用-&gt;<a href="#Uninstall">Uninstall</a></li>
+<li>设置-&gt;系统-&gt;电源和睡眠-&gt;其他电源设置-&gt;关闭盖子时不采取任何操作、关机设置自定义优化</li>
+<li>回收站-&gt;属性-&gt;每个盘：直接删除，显示删除确认对话框</li>
+<li>快速访问-&gt;选项-&gt;Win+E打开此电脑、去掉隐私项</li>
+<li>删除此电脑那七个文件夹-&gt;/WindowsRegistry.reg</li>
+<li>设置-&gt;系统-&gt;关于-&gt;重命名这台电脑</li>
+<li>优化右键菜单-&gt;/RightMenuMgr/RightMenuMgr.exe</li>
+<li>Windows管理工具-&gt;磁盘清理-&gt;以管理员模式清理系统盘</li>
+<li><a href="http://www.ccleaner.com/ccleaner/download" target="_blank" rel="noopener">CCleaner</a>-&gt;快速清理、注册表清理</li>
+<li>卸载CCleaner</li>
+</ol>
+<hr>
+<p><span id="Uninstall">Uninstall</span></p>
+<p>管理员模式打开PowerShell，复制所需命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 应用商店：</span></span><br><span class="line">Get-AppxPackage *WindowsStore* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># OneNote：</span></span><br><span class="line">Get-AppxPackage *OneNote* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3D：</span></span><br><span class="line">Get-AppxPackage *3d* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># Camera相机：</span></span><br><span class="line">Get-AppxPackage *camera* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮件和日历：</span></span><br><span class="line">Get-AppxPackage *communi* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新闻订阅：</span></span><br><span class="line">Get-AppxPackage *bing* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># Groove音乐、电影与电视：</span></span><br><span class="line">Get-AppxPackage *zune* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 人脉：</span></span><br><span class="line">Get-AppxPackage *people* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 手机伴侣：</span></span><br><span class="line">Get-AppxPackage *phone* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 纸牌游戏：</span></span><br><span class="line">Get-AppxPackage *solit* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 录音机：</span></span><br><span class="line">Get-AppxPackage *soundrec* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># Xbox：</span></span><br><span class="line">Get-AppxPackage *xbox* | Remove-AppxPackage</span><br></pre></td></tr></table></figure>
+<p>解释一下原理：<code>Get-AppxPackage</code>是一条命令，后面接参数。<code>*</code>是通配符，能匹配任意字符串，因而<code>*WindowsStore*</code>表示含有<code>WindowsStore</code>的任意字符串，作为命令的参数。其他同理。由前一个命令得到的标准输出通过管道符<code>|</code>转换为标准输入传给<code>Remove-AppxPackage</code>这个命令进行卸载操作。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>如果你觉得这篇文章不错的话可以帮我凑钱租个服务器</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="青羽 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="青羽 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2019/01/12/浅谈计算圆周率/" rel="prev" title="浅谈计算圆周率">
+                浅谈计算圆周率 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="青羽">
+  <p class="site-author-name" itemprop="name">青羽</p>
+  <div class="site-description motion-element" itemprop="description">恭喜你发现了一个不为人知的小岛</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chen-qingyu" title="GitHub &rarr; https://github.com/chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://zhuanlan.zhihu.com/codecat" title="知乎 &rarr; https://zhuanlan.zhihu.com/codecat" rel="noopener" target="_blank"><i class="fa fa-fw fa-at"></i>知乎</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/images/weixin.jpg" title="微信公众号 &rarr; /images/weixin.jpg"><i class="fa fa-fw fa-wechat"></i>微信公众号</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536057&auto=0&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈青羽</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">65k</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="footer.total_visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="footer.total_views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"width":150,"height":300,"position":"left"},"mobile":{"show":true},"log":false});</script></body>
+</html>
