@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chen-qingyu.github.io/about/index.html</loc>
+    
+    <lastmod>2019-10-21T08:42:52.491Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chen-qingyu.github.io/2019/09/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA64%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2019-10-18T03:40:29.834Z</lastmod>
@@ -208,13 +215,6 @@
     <loc>https://chen-qingyu.github.io/about/something.html</loc>
     
     <lastmod>2019-09-08T09:37:49.128Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chen-qingyu.github.io/about/index.html</loc>
-    
-    <lastmod>2019-09-08T09:37:17.503Z</lastmod>
     
   </url>
   
