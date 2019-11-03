@@ -2,17 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>青羽的博客</title>
   
-  <subtitle>活着就是折腾，生命就是创造</subtitle>
+  <subtitle>恭喜你发现了一个不为人知的小岛</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chen-qingyu.github.io/"/>
   <updated>2019-11-03T03:24:52.827Z</updated>
   <id>https://chen-qingyu.github.io/</id>
-  
-  <author>
-    <name>青羽</name>
-    
-  </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
