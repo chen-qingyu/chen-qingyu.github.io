@@ -66,7 +66,7 @@
 <meta property="og:description" content="起这个标题起得有点大，对吧。 阶层，是个什么概念？活了这么些年，想必你我都清楚，阶层不是那么容易突破的。但是，它绝不是不可突破。 我为什么突然想到写这篇文章？缘由，是我看见我妈在手机上刷单，每天都花很多时间在上面，我说了好几次让她用电脑，因为用电脑比用手机效率高。今天我看她在那忙我又叫她用电脑，电脑基本操作学习资料我早已给她找好了，结果她说了一句在我意料之外却也是情理之中的话：“用电脑花时间，要现">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chen-qingyu.github.io/2019/11/22/突破阶层的桎梏/1.png">
-<meta property="og:updated_time" content="2019-11-22T10:10:23.183Z">
+<meta property="og:updated_time" content="2019-11-22T12:07:18.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="突破阶层的桎梏">
 <meta name="twitter:description" content="起这个标题起得有点大，对吧。 阶层，是个什么概念？活了这么些年，想必你我都清楚，阶层不是那么容易突破的。但是，它绝不是不可突破。 我为什么突然想到写这篇文章？缘由，是我看见我妈在手机上刷单，每天都花很多时间在上面，我说了好几次让她用电脑，因为用电脑比用手机效率高。今天我看她在那忙我又叫她用电脑，电脑基本操作学习资料我早已给她找好了，结果她说了一句在我意料之外却也是情理之中的话：“用电脑花时间，要现">
@@ -289,7 +289,7 @@
                 
               
 
-              <time title="创建时间：2019-11-22 16:18:04 / 修改时间：18:10:23" itemprop="dateCreated datePublished" datetime="2019-11-22T16:18:04+08:00">2019-11-22</time>
+              <time title="创建时间：2019-11-22 16:18:04 / 修改时间：20:07:18" itemprop="dateCreated datePublished" datetime="2019-11-22T16:18:04+08:00">2019-11-22</time>
             </span>
           
             
@@ -338,19 +338,20 @@
 <p>其实就这种问题说过很多次了，我今天算是想明白了。</p>
 <p>我想，这就是为什么大多数人一辈子平庸的原因。</p>
 <p>永远做底层劳动力，玩也不会玩，看着心急。</p>
+<p>与其低效率地忙，还不如直接休息、娱乐，还能享受人生。</p>
 <p>计算机就在那，环境都配好了，资料也找好了，就只需要学习一下，提高效率。她觉得学计算机基础操作麻烦，为什么就不觉得每天费那么多时间在手机上麻烦呢？这远不是挣不挣钱的问题，这折射出了一种<strong>基本的思维定势</strong>，定势，就定死了。</p>
 <p>我觉得，明明有使用计算机的条件，却不会用计算机去发现广袤的新世界，真的是人生的遗憾。</p>
 <p>我忽然就明白了鲁迅所说的：<strong>“哀其不幸，怒其不争”</strong>。其实在平常人看来，好像没什么不幸的：家庭还可以，儿子也考上大学了，哪里不幸了？可是在我看来，<strong>一个人停止了进步，就是对他/她自己最大的不幸</strong>。</p>
 <p>很多人说，年龄大了，思维就固定了。我呸！<strong>神经元具有终身可塑性</strong>！特别是中年过后，别人都原地踏步了，你多学一点点就能超过很多人，比青年时期的竞争小多了。哪怕每天学半小时的最基本的计算机知识、或者学厨艺、或者学英语、学任何你想学的都可以，每天就花那么半小时都能日积月累超出别人一大截。</p>
 <h3 id="承"><a href="#承" class="headerlink" title="承"></a>承</h3><p>我们用一个很简单的程序说明这个问题：</p>
 <ul>
-<li>一年365天，每天进步1%，一年之后累计进步多少呢？ $(1+0.01)^365$</li>
-<li>一年365天，每天退步1%，一年之后累计剩下多少呢？ $(1-0.01)^365$</li>
+<li>一年365天，每天进步1%，一年之后累计进步多少呢？ $(1+0.01)^{365}$</li>
+<li>一年365天，每天退步1%，一年之后累计剩下多少呢？ $(1-0.01)^{365}$</li>
 </ul>
-<p>源代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">days = <span class="number">365</span></span><br><span class="line">dayup = pow(<span class="number">1</span> + <span class="number">0.01</span>, days)</span><br><span class="line">daydown = pow(<span class="number">1</span> - <span class="number">0.01</span>, days)</span><br><span class="line">print(<span class="string">"每天进步百分之一，一年后进步&#123;:.2f&#125;。"</span>.format(dayup))</span><br><span class="line">print(<span class="string">"每天进步百分之一，一年后剩下&#123;:.2f&#125;。"</span>.format(daydown))</span><br><span class="line">print(<span class="string">"两者相差&#123;:.2f&#125;倍。"</span>.format(dayup / daydown))</span><br></pre></td></tr></table></figure></p>
+<p>源代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">days = <span class="number">365</span></span><br><span class="line">dayup = pow(<span class="number">1</span> + <span class="number">0.01</span>, days)</span><br><span class="line">daydown = pow(<span class="number">1</span> - <span class="number">0.01</span>, days)</span><br><span class="line">print(<span class="string">"每天进步百分之一，一年后进步&#123;:.2f&#125;。"</span>.format(dayup))</span><br><span class="line">print(<span class="string">"每天退步百分之一，一年后剩下&#123;:.2f&#125;。"</span>.format(daydown))</span><br><span class="line">print(<span class="string">"两者相差&#123;:.2f&#125;倍。"</span>.format(dayup / daydown))</span><br></pre></td></tr></table></figure></p>
 <p>运行结果：<br><img src="/2019/11/22/突破阶层的桎梏/1.png" alt></p>
 <p>看到了吗？相差一千多倍！这还只是百分之一，这还只是一年。</p>
-<p>现实生活中，相差倍数比这大得多得多。</p>
+<p>现实生活中，相差倍数比这大得多。</p>
 <h3 id="转"><a href="#转" class="headerlink" title="转"></a>转</h3><p>为什么？因为<strong>平庸之人只会在无意义的重复劳动和浅层次的消遣娱乐之间蹉跎</strong>，这两者都不会拓展你的人生。这就是为什么两个差不多的年轻人，几十年后<strong>一个于明镜高堂之上闲庭信步，一个于贫无立锥之地庸庸碌碌</strong>。</p>
 <p>我是在说普遍现象，不是特指谁，从普遍现象推导得出普遍适用的结论，并以此指导自己的人生。</p>
 <p>大家有一个共识，那就是 如果你有一个真的朋友，那他/她就应该指出你的缺点，批评你的错误，而不是看着你走下坡路。我觉得，一个好的子女也应该勇于指出父母的缺点和错误。更何况，除了你，还有谁会指出你父母的缺点？父母听不听是一回事儿，至少你应该不卑不亢地 语气稍加委婉地 说出来。</p>
