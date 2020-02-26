@@ -76,7 +76,8 @@
 <meta property="og:image" content="https://chen-qingyu.github.io/2020/02/25/初探八大排序算法/quick_100.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2020/02/25/初探八大排序算法/quick_1000.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2020/02/25/初探八大排序算法/radix.png">
-<meta property="og:updated_time" content="2020-02-26T12:57:43.536Z">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/02/25/初探八大排序算法/summary.jpg">
+<meta property="og:updated_time" content="2020-02-26T13:21:48.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探八大排序算法">
 <meta name="twitter:description" content="前言说是初探，其实我并不是想写一个入门的教程，因为网上关于排序算法的学习资料已经足够多了，我不想再增加无谓的冗余。 这篇文章主要是简单的梳理和总结，并对各个排序算法的时间复杂度做一个直观的认识，但不分析时间复杂度。 但是如果直接起名为“总结八大排序算法”的话未免看起来有点“排序算法学完了”的意思。之所以叫“初探”，是因为把这些排序算法梳理总结之后才算是刚刚入门吧。 排序算法为了对各个排序算法的时间">
@@ -312,7 +313,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-26 20:57:43" itemprop="dateModified" datetime="2020-02-26T20:57:43+08:00">2020-02-26</time>
+                <time title="修改时间：2020-02-26 21:21:48" itemprop="dateModified" datetime="2020-02-26T21:21:48+08:00">2020-02-26</time>
               </span>
             
           
@@ -408,7 +409,8 @@
 <li>表排序：表排序适用于待排序元素特别大的情况下，比如每个待排序元素都是一部电影，那么把元素移来移去显然就会耗费很多时间，这个时候就换种思路，不移动元素本身，而移动元素的“索引”，把“索引”排序好后依照“索引”来看元素就是有序的了。</li>
 <li>桶排序：桶排序其实就是低阶的基数排序。桶排序的原理就是给每个可能的待排序元素设置一个“桶”，然后扫描一遍，遇到的元素符合哪个“桶”就扔进去，最后把“桶”串起来就好了。</li>
 </ul>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>这篇文章看起来好长啊，不过如果把代码去掉还是挺短的，哈哈哈……</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>​最后，关于这八大排序算法的总结，可以用一张图来表示：<br><img src="/2020/02/25/初探八大排序算法/summary.jpg" alt></p>
+<p>这篇文章看起来好长啊，不过如果把代码去掉还是挺短的，哈哈哈……</p>
 <p>八大排序算法的全部代码我都上传到了GitHub上，请随意：<a href="https://github.com/chen-qingyu/Data-Structure/tree/master/Sorting%20Algorithm" target="_blank" rel="noopener">Sorting Algorithm</a></p>
 <p>以上。</p>
 <hr>
@@ -583,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序"><span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序"><span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序"><span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序"><span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基数排序"><span class="nav-text">基数排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另外两种排序"><span class="nav-text">另外两种排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾"><span class="nav-text">结尾</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序"><span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序"><span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序"><span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序"><span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基数排序"><span class="nav-text">基数排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另外两种排序"><span class="nav-text">另外两种排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
