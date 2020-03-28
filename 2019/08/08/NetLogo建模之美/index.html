@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,36 +58,43 @@
 </script>
 
   <meta name="description" content="NetLogo是什么？NetLogo是一个可以模拟自然现象和社会现象的建模环境。 NetLogo特别适合对复杂系统进行建模。 NetLogo编程语法非常简单，功能却非常强大。 NetLogo有丰富的文档、教程以及模型库。 NetLogo主页  1. 渗流模型（seepage model）假如有一片原始森林，某日突然着火了，火势将会如何蔓延？忽略动物、风向等因素，只考虑树木密度，那么火势的蔓延程度与">
-<meta name="keywords" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NetLogo建模之美">
-<meta property="og:url" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/index.html">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/index.html">
 <meta property="og:site_name" content="青羽的博客">
 <meta property="og:description" content="NetLogo是什么？NetLogo是一个可以模拟自然现象和社会现象的建模环境。 NetLogo特别适合对复杂系统进行建模。 NetLogo编程语法非常简单，功能却非常强大。 NetLogo有丰富的文档、教程以及模型库。 NetLogo主页  1. 渗流模型（seepage model）假如有一片原始森林，某日突然着火了，火势将会如何蔓延？忽略动物、风向等因素，只考虑树木密度，那么火势的蔓延程度与">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-1.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-2.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-3.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-4.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-5.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-6.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-7.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/2-1.gif">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/2-2.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/3-1.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/3-2.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/3-3.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/3-4.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/4-1.gif">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/5-1.gif">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/6.png">
-<meta property="og:updated_time" content="2019-09-13T09:03:40.735Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-2.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-3.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-4.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-5.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-6.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-7.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/2-1.gif">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/2-2.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-2.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-3.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-4.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/4-1.gif">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/5-1.gif">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/6.png">
+<meta property="article:published_time" content="2019-08-08T01:00:00.000Z">
+<meta property="article:modified_time" content="2019-09-13T09:03:40.735Z">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content=" Python">
+<meta property="article:tag" content=" Java(OOP)">
+<meta property="article:tag" content=" Scheme(FP)">
+<meta property="article:tag" content=" Linux">
+<meta property="article:tag" content=" Mathematica">
+<meta property="article:tag" content=" MATLAB">
+<meta property="article:tag" content=" Multisim">
+<meta property="article:tag" content=" NetLogo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NetLogo建模之美">
-<meta name="twitter:description" content="NetLogo是什么？NetLogo是一个可以模拟自然现象和社会现象的建模环境。 NetLogo特别适合对复杂系统进行建模。 NetLogo编程语法非常简单，功能却非常强大。 NetLogo有丰富的文档、教程以及模型库。 NetLogo主页  1. 渗流模型（seepage model）假如有一片原始森林，某日突然着火了，火势将会如何蔓延？忽略动物、风向等因素，只考虑树木密度，那么火势的蔓延程度与">
-<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/1-1.png">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-1.png">
   <link rel="alternate" href="/atom.xml" title="青羽的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/">
 
 
 <script id="page.configurations">
@@ -270,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/08/NetLogo建模之美/">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -343,7 +350,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
               
-              <span title="本文字数">5.5k</span>
+              <span title="本文字数">4.8k</span>
             </span>
           
 
@@ -370,62 +377,62 @@
 <li>go是循环执行的函数按钮，点一下就开始执行。（右下角的标志表示循环执行）</li>
 <li>右边黑漆漆的是观察窗口，由100x100个patch组成。</li>
 </ul>
-<p><img src="/2019/08/08/NetLogo建模之美/1-1.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-1.png" alt></p>
 <p>这是这个模型的代码部分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches with [(random 100) &lt; density] [</span><br><span class="line">    set pcolor green</span><br><span class="line">  ]</span><br><span class="line">  ask patches with [pxcor = min-pxcor] [</span><br><span class="line">    set pcolor red</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask patches with [pcolor = green] [</span><br><span class="line">    if (count neighbors4 with [pcolor = red] &gt; 0) [</span><br><span class="line">      set pcolor red</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches with [(random 100) &lt; density] [</span><br><span class="line">    set pcolor green</span><br><span class="line">  ]</span><br><span class="line">  ask patches with [pxcor &#x3D; min-pxcor] [</span><br><span class="line">    set pcolor red</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask patches with [pcolor &#x3D; green] [</span><br><span class="line">    if (count neighbors4 with [pcolor &#x3D; red] &gt; 0) [</span><br><span class="line">      set pcolor red</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <p>代码很简单就不细说了，相信有编程基础的人都能看懂。</p>
 <p>代码分为两部分：setup和go，正好对应界面部分的setup和go按钮。setup部分主要就是根据密度设置树木（黑色代表空地，绿色代表树木，红色代表着火的树木），并且把最左边一列变成着火的树木。go部分是一个执行周期，就是遍历每个树木，如果上下左右四个领域中存在着火的树木那么它自己也着火。规则很简单，但是结果却不简单。</p>
-<p><img src="/2019/08/08/NetLogo建模之美/1-2.png" alt></p>
-<p><img src="/2019/08/08/NetLogo建模之美/1-3.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-2.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-3.png" alt></p>
 <p>这里我选取了两个平均后的结果：density = 50% 和 density = 60%。</p>
 <p>可以看到，当density = 50%的时候火势并没有蔓延到最右边，而当density = 60%的时候火势就蔓延到了最右边。</p>
 <p>经过多次实验，可以发现60%是一个临界值，火势蔓延程度在density约等于60%的时候发生了突变。如果把density作为横坐标，树木被烧的比例为纵坐标，画出来大概就类似生物数量增长的S型曲线。</p>
 <p>模型库里面也有这个模型：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/1-4.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-4.png" alt></p>
 <p>程序几乎是一样的，只是界面不同。我们来看看当density分别等于57%、60%、63%的时候的情况：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/1-5.png" alt></p>
-<p><img src="/2019/08/08/NetLogo建模之美/1-6.png" alt></p>
-<p><img src="/2019/08/08/NetLogo建模之美/1-7.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-5.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-6.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/1-7.png" alt></p>
 <p>当density = 57%的时候大约有9%的树木被烧了，而当density = 63%的时候大约有90%的树木被烧。再次印证了临界值存在并且约等于0.6。</p>
 <p>这个模型还可以解释很多现象。比如我们知道在空气比较潮湿的情况下不要靠近暴露的电线，原理就可以用这个模型来解释：把水分子看作树木，导电的水分子看作着火的树木，干燥的空气看作空地，那么就很容易理解了。而且这个水分子密度大约在60%的时候，导电半径会急剧扩大。</p>
 <h3 id="2-沙堆模型（sandpile-model）"><a href="#2-沙堆模型（sandpile-model）" class="headerlink" title="2. 沙堆模型（sandpile model）"></a>2. 沙堆模型（sandpile model）</h3><p>沙堆模型也很简单，但是背后蕴含的秘密可不简单。</p>
 <p>沙堆模型具体我就不细说了，网上可查。直接上结果：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/2-1.gif" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/2-1.gif" alt></p>
 <p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">patches-own [value]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches [</span><br><span class="line">    set value 0</span><br><span class="line">    color-it</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask one-of patches [</span><br><span class="line">    set value (value + 1)</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    judge-cascading</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    color-it</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to color-it</span><br><span class="line">  if (value = 0) [</span><br><span class="line">    set pcolor black</span><br><span class="line">  ]</span><br><span class="line">  if (value = 1) [</span><br><span class="line">    set pcolor green</span><br><span class="line">  ]</span><br><span class="line">  if (value = 2) [</span><br><span class="line">    set pcolor yellow</span><br><span class="line">  ]</span><br><span class="line">  if (value = 3) [</span><br><span class="line">    set pcolor orange</span><br><span class="line">  ]</span><br><span class="line">  if (value = 4) [</span><br><span class="line">    set pcolor red</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to judge-cascading</span><br><span class="line">  if (value &gt; 4) [</span><br><span class="line">    set value (value - 4)</span><br><span class="line">    ask neighbors4 [</span><br><span class="line">      set value (value + 1)</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">patches-own [value]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches [</span><br><span class="line">    set value 0</span><br><span class="line">    color-it</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask one-of patches [</span><br><span class="line">    set value (value + 1)</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    judge-cascading</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    color-it</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to color-it</span><br><span class="line">  if (value &#x3D; 0) [</span><br><span class="line">    set pcolor black</span><br><span class="line">  ]</span><br><span class="line">  if (value &#x3D; 1) [</span><br><span class="line">    set pcolor green</span><br><span class="line">  ]</span><br><span class="line">  if (value &#x3D; 2) [</span><br><span class="line">    set pcolor yellow</span><br><span class="line">  ]</span><br><span class="line">  if (value &#x3D; 3) [</span><br><span class="line">    set pcolor orange</span><br><span class="line">  ]</span><br><span class="line">  if (value &#x3D; 4) [</span><br><span class="line">    set pcolor red</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to judge-cascading</span><br><span class="line">  if (value &gt; 4) [</span><br><span class="line">    set value (value - 4)</span><br><span class="line">    ask neighbors4 [</span><br><span class="line">      set value (value + 1)</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <p>可以看到，后期一粒沙子可以导致大范围的改变，就像雪崩一样。因此形象地把这种现象称之为“雪崩”。如果把“雪崩”次数当作横坐标，每次“雪崩”的尺度当作纵坐标，再把坐标轴取双对数，可以发现曲线趋近一条直线，说明这符合幂律分布。</p>
 <p>模型库里面也有这个模型。打开运行一段时间之后：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/2-2.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/2-2.png" alt></p>
 <p>可以看到，在简单的规则之下，系统可以自发地达到临界状态。并且“雪崩”的尺度与次数符合幂律分布；每次“雪崩”的时间长度与次数也符合幂律分布。</p>
 <p>地震，暴动等等皆可用这个模型来解释，因为本质都是能量的积累与释放。</p>
 <h3 id="3-生态模型（ecological-model）"><a href="#3-生态模型（ecological-model）" class="headerlink" title="3. 生态模型（ecological model）"></a>3. 生态模型（ecological model）</h3><p>说白了就是羊吃草。很简单的一个模型，直接上结果：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/3-1.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-1.png" alt></p>
 <p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">turtles-own [energy]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse ((random-float 1) &lt; 0.2) [</span><br><span class="line">      set pcolor green</span><br><span class="line">    ] [</span><br><span class="line">      set pcolor black</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  create-turtles 1 [</span><br><span class="line">    setxy random-xcor random-ycor</span><br><span class="line">    set heading (random 360)</span><br><span class="line">    set energy 100</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  addfood</span><br><span class="line">  ask turtles [</span><br><span class="line">    turtle-move</span><br><span class="line">    turtle-breed</span><br><span class="line">    turtle-die</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to addfood</span><br><span class="line">  let i 0</span><br><span class="line">  while [i &lt; 10] [</span><br><span class="line">    let grass-x random-pxcor</span><br><span class="line">    let grass-y random-pycor</span><br><span class="line">    ask patches with [pxcor = grass-x and pycor = grass-y] [</span><br><span class="line">      set pcolor green</span><br><span class="line">    ]</span><br><span class="line">    set i (i + 1)</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-move</span><br><span class="line">  if (pcolor = green) [</span><br><span class="line">    set pcolor black</span><br><span class="line">    set energy (energy + 10)</span><br><span class="line">  ]</span><br><span class="line">  forward 1</span><br><span class="line">  if ((random-float 1) &lt; 0.1) [</span><br><span class="line">    set heading (random 360)</span><br><span class="line">  ]</span><br><span class="line">  set energy (energy - 1)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-breed</span><br><span class="line">  if (energy &gt; 500) [</span><br><span class="line">    set energy (energy / 2)</span><br><span class="line">    hatch 1 [</span><br><span class="line">      forward 1</span><br><span class="line">      set energy 100</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-die</span><br><span class="line">  if (energy &lt;= 0) [</span><br><span class="line">    die</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">turtles-own [energy]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse ((random-float 1) &lt; 0.2) [</span><br><span class="line">      set pcolor green</span><br><span class="line">    ] [</span><br><span class="line">      set pcolor black</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  create-turtles 1 [</span><br><span class="line">    setxy random-xcor random-ycor</span><br><span class="line">    set heading (random 360)</span><br><span class="line">    set energy 100</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  addfood</span><br><span class="line">  ask turtles [</span><br><span class="line">    turtle-move</span><br><span class="line">    turtle-breed</span><br><span class="line">    turtle-die</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to addfood</span><br><span class="line">  let i 0</span><br><span class="line">  while [i &lt; 10] [</span><br><span class="line">    let grass-x random-pxcor</span><br><span class="line">    let grass-y random-pycor</span><br><span class="line">    ask patches with [pxcor &#x3D; grass-x and pycor &#x3D; grass-y] [</span><br><span class="line">      set pcolor green</span><br><span class="line">    ]</span><br><span class="line">    set i (i + 1)</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-move</span><br><span class="line">  if (pcolor &#x3D; green) [</span><br><span class="line">    set pcolor black</span><br><span class="line">    set energy (energy + 10)</span><br><span class="line">  ]</span><br><span class="line">  forward 1</span><br><span class="line">  if ((random-float 1) &lt; 0.1) [</span><br><span class="line">    set heading (random 360)</span><br><span class="line">  ]</span><br><span class="line">  set energy (energy - 1)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-breed</span><br><span class="line">  if (energy &gt; 500) [</span><br><span class="line">    set energy (energy &#x2F; 2)</span><br><span class="line">    hatch 1 [</span><br><span class="line">      forward 1</span><br><span class="line">      set energy 100</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to turtle-die</span><br><span class="line">  if (energy &lt;&#x3D; 0) [</span><br><span class="line">    die</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <p>重点是右边的population统计图表，绿色的曲线代表草的数量，黑色的曲线代表羊的数量。我设定的一开始只有一只羊，以0.2的概率随机分布草。其他参数都在代码里了我懒得说了:-P，然后结果就是草和羊的数量保持一种动态平衡。</p>
 <p>如果改变一些参数比如羊吃到草增加的能量或者草每个周期再生的数量等等，那么平衡曲线也会发生改变，甚至失衡。如果再加入一种动物比如狼，那么结果就会有趣得多，不过模型库里面已经有这个模型了：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/3-2.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-2.png" alt></p>
 <p>用默认参数运行一段时间之后：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/3-3.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-3.png" alt></p>
 <p>看左下角的图，为什么是这样的呢？因为羊少草就多狼就少（狼饿死了），狼少羊就多，羊多草就少且狼就多，草少且狼多羊就少，一直循环，生态稳定。</p>
 <p>如果改变一些参数，比如让狼吃到羊增加的能量变多和狼产崽变多，其他不变，那么……</p>
-<p><img src="/2019/08/08/NetLogo建模之美/3-4.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/3-4.png" alt></p>
 <p>狼灭绝了，羊和草愉快地保持着动态平衡……</p>
 <p>为什么会这样？看time大约等于400的那段时间，羊几乎快灭绝了，狼就饿死得差不多了，可有一小部分羊在狼没找到的地方幸存了下来直到狼饿死光光……</p>
 <h3 id="4-生命游戏（Game-of-Life）"><a href="#4-生命游戏（Game-of-Life）" class="headerlink" title="4. 生命游戏（Game of Life）"></a>4. 生命游戏（Game of Life）</h3><p>大名鼎鼎的生命游戏，不多说，上结果：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/4-1.gif" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/4-1.gif" alt></p>
 <p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">patches-own [living]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse ((random-float 1) &lt; 0.2) [</span><br><span class="line">      set pcolor black</span><br><span class="line">    ] [</span><br><span class="line">      set pcolor white</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask patches [</span><br><span class="line">    set living count neighbors with [pcolor = black]</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse (pcolor = black) [</span><br><span class="line">      if (living &gt; 3 or living &lt; 2) [</span><br><span class="line">        set pcolor white</span><br><span class="line">      ]</span><br><span class="line">    ] [</span><br><span class="line">      if (living = 3) [</span><br><span class="line">        set pcolor black</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">patches-own [living]</span><br><span class="line"></span><br><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse ((random-float 1) &lt; 0.2) [</span><br><span class="line">      set pcolor black</span><br><span class="line">    ] [</span><br><span class="line">      set pcolor white</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask patches [</span><br><span class="line">    set living count neighbors with [pcolor &#x3D; black]</span><br><span class="line">  ]</span><br><span class="line">  ask patches [</span><br><span class="line">    ifelse (pcolor &#x3D; black) [</span><br><span class="line">      if (living &gt; 3 or living &lt; 2) [</span><br><span class="line">        set pcolor white</span><br><span class="line">      ]</span><br><span class="line">    ] [</span><br><span class="line">      if (living &#x3D; 3) [</span><br><span class="line">        set pcolor black</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <p>生命游戏我用C语言写过，用Python写过，用MATLAB写过，现在看来，用NetLogo写这种是最简单的~</p>
 <h3 id="5-兰顿蚂蚁（Langton’s-ant）"><a href="#5-兰顿蚂蚁（Langton’s-ant）" class="headerlink" title="5. 兰顿蚂蚁（Langton’s ant）"></a>5. 兰顿蚂蚁（Langton’s ant）</h3><p>不那么大名鼎鼎的兰顿蚂蚁，也不多说，上结果：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/5-1.gif" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/5-1.gif" alt></p>
 <p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  create-turtles 1 [</span><br><span class="line">    set heading ((random 4) * 90)</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask turtles [</span><br><span class="line">    let degree 0</span><br><span class="line">    ifelse (pcolor = black) [</span><br><span class="line">      set degree (-90)</span><br><span class="line">      set pcolor white</span><br><span class="line">    ] [</span><br><span class="line">      set degree 90</span><br><span class="line">      set pcolor black</span><br><span class="line">    ]</span><br><span class="line">    right degree</span><br><span class="line">    forward 1</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">to setup</span><br><span class="line">  clear-all</span><br><span class="line">  reset-ticks</span><br><span class="line">  create-turtles 1 [</span><br><span class="line">    set heading ((random 4) * 90)</span><br><span class="line">  ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">to go</span><br><span class="line">  ask turtles [</span><br><span class="line">    let degree 0</span><br><span class="line">    ifelse (pcolor &#x3D; black) [</span><br><span class="line">      set degree (-90)</span><br><span class="line">      set pcolor white</span><br><span class="line">    ] [</span><br><span class="line">      set degree 90</span><br><span class="line">      set pcolor black</span><br><span class="line">    ]</span><br><span class="line">    right degree</span><br><span class="line">    forward 1</span><br><span class="line">  ]</span><br><span class="line">  tick</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上五个模型都很简单也很有趣，可作为入门练习，写完成就感满满~</p>
 <p>生命游戏和兰顿蚂蚁都属于很经典的元胞自动机，说到元胞自动机就不得不提到golly这个软件和Stephen Wolfram这个天才（虽然这两者没什么直接联系）。前者是专门运行元胞自动机的软件，很有趣；后者在国内比较出名可能是因为Wolfram是Mathematica这个软件的作者。Mathematica我在上两篇文章中写过，是一个神奇的软件。</p>
 <p>值得一提的是，NetLogo官方支持和Mathematica互联：</p>
-<p><img src="/2019/08/08/NetLogo建模之美/6.png" alt></p>
+<p><img src="/2019/08/08/NetLogo%E5%BB%BA%E6%A8%A1%E4%B9%8B%E7%BE%8E/6.png" alt></p>
 <p>话说复杂系统这个学科在国内太冷了，据我所知只有北师大的张江教授开设这个课程。</p>
 <ul>
 <li>生命游戏（Game of Life）</li>
@@ -457,7 +464,7 @@
     <footer class="post-footer">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/05/16/Mathematica绘制函数/" rel="next" title="Mathematica绘制函数">
+              <a href="/2019/05/16/Mathematica%E7%BB%98%E5%88%B6%E5%87%BD%E6%95%B0/" rel="next" title="Mathematica绘制函数">
                 <i class="fa fa-chevron-left"></i> Mathematica绘制函数
               </a>
             
@@ -466,7 +473,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/18/一小时搭建完自己的个人网站/" rel="prev" title="一小时搭建完自己的个人网站">
+              <a href="/2019/08/18/%E4%B8%80%E5%B0%8F%E6%97%B6%E6%90%AD%E5%BB%BA%E5%AE%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" rel="prev" title="一小时搭建完自己的个人网站">
                 一小时搭建完自己的个人网站 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -522,7 +529,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">文章</span>
@@ -534,7 +541,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -653,7 +660,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">105k</span>
+    <span title="站点总字数">93k</span>
 </div>
 
         

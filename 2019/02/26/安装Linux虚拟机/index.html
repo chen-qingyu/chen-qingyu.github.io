@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,32 +58,39 @@
 </script>
 
   <meta name="description" content="Linux发行版有很多，我们这里选择CentOS（以最新版 CentOS 7 为例），CentOS 属于 RedHat 系，服务器运行较稳定。 CentOS 下载地址：Download CentOS（下载 DVD ISO 文件） VirtualBox 下载地址：Download VirtualBox 都下载好之后，先把VirtualBox安装好，然后按照安装示例操作。 注意：别打开.iso文件，因">
-<meta name="keywords" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安装Linux虚拟机">
-<meta property="og:url" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/index.html">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/index.html">
 <meta property="og:site_name" content="青羽的博客">
 <meta property="og:description" content="Linux发行版有很多，我们这里选择CentOS（以最新版 CentOS 7 为例），CentOS 属于 RedHat 系，服务器运行较稳定。 CentOS 下载地址：Download CentOS（下载 DVD ISO 文件） VirtualBox 下载地址：Download VirtualBox 都下载好之后，先把VirtualBox安装好，然后按照安装示例操作。 注意：别打开.iso文件，因">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/1.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/2.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/3.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/4.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/5.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/6.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/7.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/8.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/9.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/10.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/11.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/12.png">
-<meta property="og:updated_time" content="2019-09-13T09:04:09.687Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/2.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/3.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/4.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/5.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/6.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/7.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/8.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/9.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/10.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/11.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/12.png">
+<meta property="article:published_time" content="2019-02-26T01:00:00.000Z">
+<meta property="article:modified_time" content="2019-09-13T09:04:09.687Z">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content=" Python">
+<meta property="article:tag" content=" Java(OOP)">
+<meta property="article:tag" content=" Scheme(FP)">
+<meta property="article:tag" content=" Linux">
+<meta property="article:tag" content=" Mathematica">
+<meta property="article:tag" content=" MATLAB">
+<meta property="article:tag" content=" Multisim">
+<meta property="article:tag" content=" NetLogo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装Linux虚拟机">
-<meta name="twitter:description" content="Linux发行版有很多，我们这里选择CentOS（以最新版 CentOS 7 为例），CentOS 属于 RedHat 系，服务器运行较稳定。 CentOS 下载地址：Download CentOS（下载 DVD ISO 文件） VirtualBox 下载地址：Download VirtualBox 都下载好之后，先把VirtualBox安装好，然后按照安装示例操作。 注意：别打开.iso文件，因">
-<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/1.png">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/1.png">
   <link rel="alternate" href="/atom.xml" title="青羽的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/">
 
 
 <script id="page.configurations">
@@ -266,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/26/安装Linux虚拟机/">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -339,7 +346,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
               
-              <span title="本文字数">816</span>
+              <span title="本文字数">790</span>
             </span>
           
 
@@ -359,26 +366,26 @@
 <p>注意：别打开.iso文件，因为.iso文件相当于一个光盘，虚拟机直接加载整个光盘。随意改动会破坏其完整性。</p>
 <hr>
 <p>多图预警</p>
-<p><img src="/2019/02/26/安装Linux虚拟机/1.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/2.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/3.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/4.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/5.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/6.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/7.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/8.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/1.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/2.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/3.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/4.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/5.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/6.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/7.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/8.png" alt></p>
 <p>如果长时间黑屏的话请检查电脑是否开启了虚拟化支持</p>
-<p><img src="/2019/02/26/安装Linux虚拟机/9.png" alt></p>
-<p><img src="/2019/02/26/安装Linux虚拟机/10.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/9.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/10.png" alt></p>
 <p>也可以选择最小化安装（默认）虽然没有图形界面，但很快，而且可以从头开始配置属于自己的Linux，很Geek！ </p>
-<p><img src="/2019/02/26/安装Linux虚拟机/11.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/11.png" alt></p>
 <hr>
 <p>另外，Ubuntu也是常用的一个Linux发行版。</p>
 <p>Ubuntu下载地址：<a href="http://releases.ubuntu.com/" target="_blank" rel="noopener">Download Ubuntu</a></p>
 <p>安装过程与CentOS大同小异，不再赘述。</p>
 <hr>
 <p>彩蛋：WindowsXP虚拟机</p>
-<p><img src="/2019/02/26/安装Linux虚拟机/12.png" alt></p>
+<p><img src="/2019/02/26/%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/12.png" alt></p>
 <p>Windows XP Professional with Service Pack 3 (x86) - CD VL (Chinese-Simplified)</p>
 <ul>
 <li>文件名：<code>zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-74070.iso</code></li>
@@ -399,7 +406,7 @@
     <footer class="post-footer">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/02/22/第一个DLL程序/" rel="next" title="第一个DLL程序">
+              <a href="/2019/02/22/%E7%AC%AC%E4%B8%80%E4%B8%AADLL%E7%A8%8B%E5%BA%8F/" rel="next" title="第一个DLL程序">
                 <i class="fa fa-chevron-left"></i> 第一个DLL程序
               </a>
             
@@ -408,7 +415,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/03/01/八个有趣的Linux命令/" rel="prev" title="八个有趣的Linux命令">
+              <a href="/2019/03/01/%E5%85%AB%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84Linux%E5%91%BD%E4%BB%A4/" rel="prev" title="八个有趣的Linux命令">
                 八个有趣的Linux命令 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -455,7 +462,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">文章</span>
@@ -467,7 +474,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -569,7 +576,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">105k</span>
+    <span title="站点总字数">93k</span>
 </div>
 
         

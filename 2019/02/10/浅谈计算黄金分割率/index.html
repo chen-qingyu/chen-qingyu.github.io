@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,23 +57,30 @@
   };
 </script>
 
-  <meta name="description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 = 1, t2 = 1;    for (int i = 0; i &amp;lt; I; ++i)    &amp;#123;        int next = t1 + t2">
-<meta name="keywords" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+  <meta name="description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 &#x3D; 1, t2 &#x3D; 1;    for (int i &#x3D; 0; i &lt; I; ++i)    &amp;#123;        int next &#x3D; t1 + t2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈计算黄金分割率">
-<meta property="og:url" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/index.html">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/index.html">
 <meta property="og:site_name" content="青羽的博客">
-<meta property="og:description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 = 1, t2 = 1;    for (int i = 0; i &amp;lt; I; ++i)    &amp;#123;        int next = t1 + t2">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/1.png">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/2.png">
-<meta property="og:updated_time" content="2019-09-13T09:04:25.796Z">
+<meta property="og:description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 &#x3D; 1, t2 &#x3D; 1;    for (int i &#x3D; 0; i &lt; I; ++i)    &amp;#123;        int next &#x3D; t1 + t2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/2.png">
+<meta property="article:published_time" content="2019-02-10T01:00:00.000Z">
+<meta property="article:modified_time" content="2019-09-13T09:04:25.796Z">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content=" Python">
+<meta property="article:tag" content=" Java(OOP)">
+<meta property="article:tag" content=" Scheme(FP)">
+<meta property="article:tag" content=" Linux">
+<meta property="article:tag" content=" Mathematica">
+<meta property="article:tag" content=" MATLAB">
+<meta property="article:tag" content=" Multisim">
+<meta property="article:tag" content=" NetLogo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈计算黄金分割率">
-<meta name="twitter:description" content="利用程序计算黄金分割率有很多方法，这里我们举两个小例子。 还是用之前计算圆周率的那个框架，Let’s go!  1. 数学方法源代码： 1234567891011void method_1(int I)&amp;#123;    int t1 = 1, t2 = 1;    for (int i = 0; i &amp;lt; I; ++i)    &amp;#123;        int next = t1 + t2">
-<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/1.png">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/1.png">
   <link rel="alternate" href="/atom.xml" title="青羽的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/">
 
 
 <script id="page.configurations">
@@ -256,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/10/浅谈计算黄金分割率/">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -329,7 +336,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
               
-              <span title="本文字数">1.7k</span>
+              <span title="本文字数">1.6k</span>
             </span>
           
 
@@ -348,7 +355,7 @@
 <h3 id="1-数学方法"><a href="#1-数学方法" class="headerlink" title="1. 数学方法"></a>1. 数学方法</h3><p>源代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_1</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t1 = <span class="number">1</span>, t2 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> next = t1 + t2;</span><br><span class="line">        t1 = t2;</span><br><span class="line">        t2 = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, (<span class="keyword">double</span>)t1 / t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/10/浅谈计算黄金分割率/1.png" alt></p>
+<p><img src="/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/1.png" alt></p>
 <p>这里用的是斐波那契数列（Fibonacci sequence）来计算黄金分割率。</p>
 <script type="math/tex; mode=display">
 \begin{equation} \begin{array}{l}{t_{n}=1,1,2,3,5,8,13,21,34, \ldots} \\ {\frac{1}{1}=1.000, \frac{1}{2}=0.500, \frac{2}{3} \approx 0.667, \frac{3}{5}=0.600} \\ {\frac{5}{8}=0.625, \frac{8}{13} \approx 0.615, \frac{13}{21} \approx 0.619, \frac{21}{34} \approx 0.618}\end{array} \end{equation}</script><p>可以看到，随着项数增大，前一项与后一项的比值越来越接近黄金分割率，即 </p>
@@ -366,7 +373,7 @@
 <p>源代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (I == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.618</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1.0</span> / (sub(I - <span class="number">1</span>) + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method_2</span><span class="params">(<span class="keyword">int</span> I)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"phi: %lf\n"</span>, sub(I));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果（I = 25）：</p>
-<p><img src="/2019/02/10/浅谈计算黄金分割率/2.png" alt></p>
+<p><img src="/2019/02/10/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87/2.png" alt></p>
 <p>我用的递归来计算这个式子。</p>
 <p>值得一提的是，递归基例我不知道是多少，一开始设置成1，结果是0.618034，对的。我又试了试0.5，结果还是0.618034，我有点摸不着头脑了。我再试了一下0.0，结果还是一样！有点方，稳住。我把输出的位数调大，调到了14位，因为double有效位数至少15位，再把迭代次数调小，这样就能明显地比较每个基例的收敛速度，于是我发现似乎在0.6左右时收敛最快……0.618！它的基例，正是它自己本身！这和它的连分数似乎有某种内在的联系，都是“1”……</p>
 <p>Σ(っ °Д °;)っ</p>
@@ -383,7 +390,7 @@
     <footer class="post-footer">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/01/22/MATLAB信号处理（一）/" rel="next" title="MATLAB信号处理（一）">
+              <a href="/2019/01/22/MATLAB%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="MATLAB信号处理（一）">
                 <i class="fa fa-chevron-left"></i> MATLAB信号处理（一）
               </a>
             
@@ -392,7 +399,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/02/21/浅谈计算自然常数/" rel="prev" title="浅谈计算自然常数">
+              <a href="/2019/02/21/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E8%87%AA%E7%84%B6%E5%B8%B8%E6%95%B0/" rel="prev" title="浅谈计算自然常数">
                 浅谈计算自然常数 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -448,7 +455,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">文章</span>
@@ -460,7 +467,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -579,7 +586,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">105k</span>
+    <span title="站点总字数">93k</span>
 </div>
 
         
