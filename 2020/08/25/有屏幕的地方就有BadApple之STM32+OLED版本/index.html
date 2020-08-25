@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 4.2.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="Bad Apple - STM32 OLED版本 您的浏览器不支持播放该视频  MCU: STM32F103OLED: 7-Pin SPI SSD1306 所有文件已上传至GitHub：Bad-Apple-STM32-OLED 整个工程文件如下： BadApple.mp4是原版高清视频VideoToBin.m是处理视频&#x2F;处理图片的MATLAB代码images.zip是视频抽帧后保存的图片压缩包Ba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有屏幕的地方就有Bad Apple之STM32+OLED版本">
+<meta property="og:url" content="https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="Bad Apple - STM32 OLED版本 您的浏览器不支持播放该视频  MCU: STM32F103OLED: 7-Pin SPI SSD1306 所有文件已上传至GitHub：Bad-Apple-STM32-OLED 整个工程文件如下： BadApple.mp4是原版高清视频VideoToBin.m是处理视频&#x2F;处理图片的MATLAB代码images.zip是视频抽帧后保存的图片压缩包Ba">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/1.png">
+<meta property="article:published_time" content="2020-08-25T10:49:19.000Z">
+<meta property="article:modified_time" content="2020-08-25T16:16:56.377Z">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content=" Python">
+<meta property="article:tag" content=" Java(OOP)">
+<meta property="article:tag" content=" Scheme(FP)">
+<meta property="article:tag" content=" Linux">
+<meta property="article:tag" content=" Mathematica">
+<meta property="article:tag" content=" MATLAB">
+<meta property="article:tag" content=" Multisim">
+<meta property="article:tag" content=" NetLogo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/1.png">
+  <link rel="alternate" href="/atom.xml" title="青羽的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>有屏幕的地方就有Bad Apple之STM32+OLED版本 | 青羽的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">青羽的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">恭喜你发现了一个不为人知的小岛</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">12</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">45</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">有屏幕的地方就有Bad Apple之STM32+OLED版本
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-08-25 18:49:19" itemprop="dateCreated datePublished" datetime="2020-08-25T18:49:19+08:00">2020-08-25</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-08-26 00:16:56" itemprop="dateModified" datetime="2020-08-26T00:16:56+08:00">2020-08-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+              <span title="本文字数">1.5k</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Bad Apple - STM32 OLED版本</p>
+<video src="./有屏幕的地方就有BadApple之STM32+OLED版本/video.mp4" controls="controls">您的浏览器不支持播放该视频</video>
+
+<p>MCU: STM32F103<br>OLED: 7-Pin SPI SSD1306</p>
+<p>所有文件已上传至GitHub：<a href="https://github.com/chen-qingyu/Bad-Apple-STM32-OLED" target="_blank" rel="noopener">Bad-Apple-STM32-OLED</a></p>
+<p>整个工程文件如下：<br><img src="/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/1.png" alt></p>
+<p>BadApple.mp4是原版高清视频<br>VideoToBin.m是处理视频/处理图片的MATLAB代码<br>images.zip是视频抽帧后保存的图片压缩包<br>BadApple.bin是处理图片后保存的bin文件<br>FATFS是将W25Q128格式化为FATFS的工程<br>USB是将bin文件写入W25Q128的工程<br>BadApple是让OLED显示动画的工程<br>killer.bat是删除多余的工程中间文件的批处理代码<br>readme.txt是说明文本</p>
+<p>使用步骤：</p>
+<ol>
+<li>用FATFS工程将W25Q128格式化为FATFS文件系统（如果W25Q128已经有FATFS了则跳过此步骤）</li>
+<li>用USB工程将bin文件从电脑导入W25Q128</li>
+<li>连接好电路，运行BadApple工程</li>
+</ol>
+<p>开发步骤：</p>
+<ol>
+<li>今年寒假因为项目相关原因，借了同学一个32板子，准备开学还的，没想到因为疫情原因，借了整整一个学期。为表示感谢，整点事情。搞一个OLED版的BadApple吧，先买一个OLED，然后找到一个Bad Apple宽屏版的原版高清视频（找了好久，终于找到了一个原版高清视频，结果抽帧之后发现图片比例不对，宽高比是4：3的话resize成128x64之后就看起来太胖了。前面的白做了……于是又重新找，又找了好久终于在B站找到了宽屏版的视频，然后要下载的话比较麻烦，最后是用Python的一个第三方库：you-get通过命令行来下载的。没想到第零步就花了这么多时间）</li>
+<li>用VideoToBin.m抽取每一帧保存为128x64的BMP格式图片（然后就可以把视频处理部分的代码注释了，以后再用就只需处理图片了，比如《Bad Apple - ASCII字符版本》，处理视频实在是有点耗时）</li>
+<li>用VideoToBin.m把图片转换成bin文件（核心就是二值化，这样每个像素占用空间从原来的 3通道 x 8bit = 24bit 降低到了 1通道 x 1bit = 1bit，于是约222MB的图片就能压缩成一个约9.25MB的文件，而W25Q128有16MB的容量，足够了。然后再把图片压缩成一个压缩包，毕竟两百多M传输太慢）</li>
+<li>用FATFS工程将W25Q128格式化为FATFS文件系统（如果W25Q128已经有FATFS了则跳过此步骤）</li>
+<li>用USB工程将bin文件从电脑导入W25Q128（USB协议真的好复杂啊……）</li>
+<li>（划掉）用FATFS工程计算bin文件的物理地址（原理是在W25QXX的读取函数内部嵌入一句发送地址的语句，然后用FATFS读取bin文件的第一个字节，将地址通过串口打印即可。文件地址一般是连续的，于是就可以直接用内部SPI通过绝对地址来读取数据，这样比通过FATFS来读取速度快很多）</li>
+<li>连接好电路，运行BadApple，大功告成~（咦？怎么是上下颠倒的？改代码，不行，OLED的GRAM很奇怪，不是线性顺序的。于是吭哧吭哧查资料查datasheet，在OLED初始化里设置COM扫描方向那里试了半天，终于弄好了。咦？怎么播放到最后一小段是乱码？视频/图片/bin文件都没有问题，难道是传输过程中出错了？不应该，USB有校验的。推测可能是9.25MB的文件对于FLASH来说太大了，FATFS把它分成了两部分储存，所以读连续地址就不管用了。改用FATFS的读取函数试试，终于对了……所以，前面的又白做了）</li>
+</ol>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/08/17/%E4%B8%96%E7%95%8C%E8%A7%82/" rel="next" title="世界观">
+                <i class="fa fa-chevron-left"></i> 世界观
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description motion-element" itemprop="description">活着就是折腾，生命就是创造</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/%20%7C%7C%20th">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chen-qingyu" title="GitHub &rarr; https://github.com/chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://zhuanlan.zhihu.com/codecat" title="知乎 &rarr; https://zhuanlan.zhihu.com/codecat" rel="noopener" target="_blank"><i class="fa fa-fw fa-at"></i>知乎</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes" title="QQ &rarr; http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=536057&auto=0&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈青羽</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">103k</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="footer.total_visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="footer.total_views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"width":150,"height":300,"position":"left"},"mobile":{"show":true},"log":false});</script></body>
+</html>

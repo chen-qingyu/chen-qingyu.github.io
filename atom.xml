@@ -6,10 +6,37 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chen-qingyu.github.io/"/>
-  <updated>2020-08-17T09:45:34.714Z</updated>
+  <updated>2020-08-25T16:16:56.377Z</updated>
   <id>https://chen-qingyu.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有屏幕的地方就有Bad Apple之STM32+OLED版本</title>
+    <link href="https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/"/>
+    <id>https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/</id>
+    <published>2020-08-25T10:49:19.000Z</published>
+    <updated>2020-08-25T16:16:56.377Z</updated>
+    
+    <content type="html"><![CDATA[<p>Bad Apple - STM32 OLED版本</p><video src="./有屏幕的地方就有BadApple之STM32+OLED版本/video.mp4" controls="controls">您的浏览器不支持播放该视频</video><p>MCU: STM32F103<br>OLED: 7-Pin SPI SSD1306</p><p>所有文件已上传至GitHub：<a href="https://github.com/chen-qingyu/Bad-Apple-STM32-OLED" target="_blank" rel="noopener">Bad-Apple-STM32-OLED</a></p><p>整个工程文件如下：<br><img src="/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/1.png" alt></p><p>BadApple.mp4是原版高清视频<br>VideoToBin.m是处理视频/处理图片的MATLAB代码<br>images.zip是视频抽帧后保存的图片压缩包<br>BadApple.bin是处理图片后保存的bin文件<br>FATFS是将W25Q128格式化为FATFS的工程<br>USB是将bin文件写入W25Q128的工程<br>BadApple是让OLED显示动画的工程<br>killer.bat是删除多余的工程中间文件的批处理代码<br>readme.txt是说明文本</p><p>使用步骤：</p><ol><li>用FATFS工程将W25Q128格式化为FATFS文件系统（如果W25Q128已经有FATFS了则跳过此步骤）</li><li>用USB工程将bin文件从电脑导入W25Q128</li><li>连接好电路，运行BadApple工程</li></ol><p>开发步骤：</p><ol><li>今年寒假因为项目相关原因，借了同学一个32板子，准备开学还的，没想到因为疫情原因，借了整整一个学期。为表示感谢，整点事情。搞一个OLED版的BadApple吧，先买一个OLED，然后找到一个Bad Apple宽屏版的原版高清视频（找了好久，终于找到了一个原版高清视频，结果抽帧之后发现图片比例不对，宽高比是4：3的话resize成128x64之后就看起来太胖了。前面的白做了……于是又重新找，又找了好久终于在B站找到了宽屏版的视频，然后要下载的话比较麻烦，最后是用Python的一个第三方库：you-get通过命令行来下载的。没想到第零步就花了这么多时间）</li><li>用VideoToBin.m抽取每一帧保存为128x64的BMP格式图片（然后就可以把视频处理部分的代码注释了，以后再用就只需处理图片了，比如《Bad Apple - ASCII字符版本》，处理视频实在是有点耗时）</li><li>用VideoToBin.m把图片转换成bin文件（核心就是二值化，这样每个像素占用空间从原来的 3通道 x 8bit = 24bit 降低到了 1通道 x 1bit = 1bit，于是约222MB的图片就能压缩成一个约9.25MB的文件，而W25Q128有16MB的容量，足够了。然后再把图片压缩成一个压缩包，毕竟两百多M传输太慢）</li><li>用FATFS工程将W25Q128格式化为FATFS文件系统（如果W25Q128已经有FATFS了则跳过此步骤）</li><li>用USB工程将bin文件从电脑导入W25Q128（USB协议真的好复杂啊……）</li><li>（划掉）用FATFS工程计算bin文件的物理地址（原理是在W25QXX的读取函数内部嵌入一句发送地址的语句，然后用FATFS读取bin文件的第一个字节，将地址通过串口打印即可。文件地址一般是连续的，于是就可以直接用内部SPI通过绝对地址来读取数据，这样比通过FATFS来读取速度快很多）</li><li>连接好电路，运行BadApple，大功告成~（咦？怎么是上下颠倒的？改代码，不行，OLED的GRAM很奇怪，不是线性顺序的。于是吭哧吭哧查资料查datasheet，在OLED初始化里设置COM扫描方向那里试了半天，终于弄好了。咦？怎么播放到最后一小段是乱码？视频/图片/bin文件都没有问题，难道是传输过程中出错了？不应该，USB有校验的。推测可能是9.25MB的文件对于FLASH来说太大了，FATFS把它分成了两部分储存，所以读连续地址就不管用了。改用FATFS的读取函数试试，终于对了……所以，前面的又白做了）</li></ol><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Bad Apple - STM32 OLED版本&lt;/p&gt;
+&lt;video src=&quot;./有屏幕的地方就有BadApple之STM32+OLED版本/video.mp4&quot; controls=&quot;controls&quot;&gt;您的浏览器不支持播放该视频&lt;/video&gt;
+
+&lt;p&gt;MCU: ST
+      
+    
+    </summary>
+    
+    
+      <category term="Others" scheme="https://chen-qingyu.github.io/categories/Others/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>世界观</title>
@@ -493,31 +520,6 @@
       
         &lt;p&gt;时光荏苒，白驹过隙，接触编程正好两年了。总结一下我用过的一些软件吧。&lt;/p&gt;
 &lt;h3 id=&quot;编程之路&quot;&gt;&lt;a href=&quot;#编程之路&quot; class=&quot;headerlink&quot; title=&quot;编程之路&quot;&gt;&lt;/a&gt;编程之路&lt;/h3&gt;&lt;h4 id=&quot;C&quot;&gt;&lt;a href=&quot;#C&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="Others" scheme="https://chen-qingyu.github.io/categories/Others/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CA模拟股市</title>
-    <link href="https://chen-qingyu.github.io/2019/08/25/CA%E6%A8%A1%E6%8B%9F%E8%82%A1%E5%B8%82/"/>
-    <id>https://chen-qingyu.github.io/2019/08/25/CA%E6%A8%A1%E6%8B%9F%E8%82%A1%E5%B8%82/</id>
-    <published>2019-08-25T14:22:36.000Z</published>
-    <updated>2019-12-01T11:00:35.233Z</updated>
-    
-    <content type="html"><![CDATA[<p>这篇文章的灵感来源于<a href="http://swarmagents.cn.13442.m8849.cn/vm/articles/freebits.htm" target="_blank" rel="noopener">释放比特自由</a></p><p>原文片段节选：</p><blockquote><h3 id="CA模拟股市"><a href="#CA模拟股市" class="headerlink" title="CA模拟股市"></a>CA模拟股市</h3><p>可能更多的人关心的是Wolfram的新科学有什么用呢？这的确是一个很有争议的问题，因为你既可以说NKS非常有用，也可以说它什么都不能做。</p><p>我们都知道，简单程序可以模拟自然界的生长现象，例如雪花的形成、树的生长、动物表面上的花纹等等。运用细胞自动机还可以模拟自然界的一些复杂的非线性过程，例如复杂的流体、交通流等。然而，这些应用其实又回到了一般计算机模拟的老路上，即针对具体问题，赋予每一个比特一定的意义，然后让系统去演化。</p><p>然而，NKS强调的是忘掉模拟和比特的意义。这样一种哲学会给我们带来什么好处呢？下面这个简单的应用会给我们耳目一新的感觉。</p><p>该应用研究是想用CA生成一个时间序列曲线，然后用这个曲线去拟合股票的价格波动，它是由Wolfram公司的研究员Jason做出的。</p><p>考虑一个特定的细胞自动机，例如CA90（对1维的、邻居为两个的细胞自动机的编号，确定了一个编号就确定了它的一组规则），它形成的图形和一个时间序列曲线，如下图：</p><p><img src="/2019/08/25/CA%E6%A8%A1%E6%8B%9F%E8%82%A1%E5%B8%82/1.gif" alt><br><img src="/2019/08/25/CA%E6%A8%A1%E6%8B%9F%E8%82%A1%E5%B8%82/2.gif" alt></p><p>上面的是CA90的运行情况，下面的是它生成的时间序列曲线</p><p>这个时间序列曲线的具体做法是，将每一步CA90生成的黑细胞方格作为1，白细胞方格作为-1，然后对所有方格求和，得到该时刻的总的数值s(t)，然后在下一时刻，同样求得这样一个总和数，把这个数加上s(t)，得到s(t+1)，这样反复不停的运用这一方法就能得到一个上图所示的时间序列曲线。</p><p>进一步，Jason考虑由两个细胞自动机混合得到的时间序列。例如给定两个细胞自动机CA90和CA110，然后我们把它们进行一定比例的混合。例如混合比例是3:7。具体做法是，从任意一个随机初始条件开始演化3步CA90，然后再演化7步CA110，这样我们得到一个混合的细胞自动机，Jason叫它ICA，用同样的方法，可以画出这个ICA生成的时间序列曲线：</p><p><img src="/2019/08/25/CA%E6%A8%A1%E6%8B%9F%E8%82%A1%E5%B8%82/3.gif" alt></p><p>下面，Jason就用这个生成的时间序列曲线去拟合真实的股票价格数据。具体方法可以是通过调节两种细胞自动机的混合比例，例如从3:7调到8:2，使得生成的序列能够和真实数据在均方误差的条件下拟合的很好，如下图：</p><p><img src="/2019/08/25/CA%E6%A8%A1%E6%8B%9F%E8%82%A1%E5%B8%82/4.gif" alt></p><p>Jason试了很多种两两细胞自动机组合的情况，都能够得到较好的拟合曲线。然而，很奇怪的是，这个方法并没有对股市建立任何显式的模型。</p><p>这个研究的意义在于，即使我们完全忘掉股市运行的内在规则，我们仍然可以找到拟合股票数据的方法。这反过来说明了复杂的行为并不一定需要复杂的微观机制。仍然是那个观点：从某种意义上说，行为的复杂性增加到一定程度就停止增长了。</p></blockquote><hr><p>我的想法：</p><p>黑和白可以认为是两种力量：黑代表 混乱/暴力/邪恶/深邃/冷峻，白代表 秩序/和平/善良/天真/温暖。这两种力量在CA90的规则下演化。</p><p>为什么要两种规则呢？要知道，股市其实是各方利益集团博弈后的一个综合结果，而股市的规则是顶层的那些组织制定的，组织是由人组成的，而人会变，组织的核心利益也会随之改变，股市规则也就随之改变了。</p><p>CA90和CA110可以认为是两种顶层力量（规则制定者）的博弈，这种博弈会在一个较短的时间内保持平衡，当比例恰好符合现实中的博弈结果后，自然大体上也就符合真实的股市了。</p><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这篇文章的灵感来源于&lt;a href=&quot;http://swarmagents.cn.13442.m8849.cn/vm/articles/freebits.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;释放比特自由&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;原文片段节选
       
     
     </summary>
