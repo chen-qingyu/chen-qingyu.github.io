@@ -66,7 +66,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chen-qingyu.github.io/2020/08/25/%E6%9C%89%E5%B1%8F%E5%B9%95%E7%9A%84%E5%9C%B0%E6%96%B9%E5%B0%B1%E6%9C%89BadApple%E4%B9%8BSTM32+OLED%E7%89%88%E6%9C%AC/1.png">
 <meta property="article:published_time" content="2020-08-25T10:49:19.000Z">
-<meta property="article:modified_time" content="2020-08-25T16:16:56.377Z">
+<meta property="article:modified_time" content="2020-08-25T16:51:04.632Z">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content=" Python">
 <meta property="article:tag" content=" Java(OOP)">
@@ -309,7 +309,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-26 00:16:56" itemprop="dateModified" datetime="2020-08-26T00:16:56+08:00">2020-08-26</time>
+                <time title="修改时间：2020-08-26 00:51:04" itemprop="dateModified" datetime="2020-08-26T00:51:04+08:00">2020-08-26</time>
               </span>
             
           
@@ -363,7 +363,7 @@
 </ol>
 <p>开发步骤：</p>
 <ol>
-<li>今年寒假因为项目相关原因，借了同学一个32板子，准备开学还的，没想到因为疫情原因，借了整整一个学期。为表示感谢，整点事情。搞一个OLED版的BadApple吧，先买一个OLED，然后找到一个Bad Apple宽屏版的原版高清视频（找了好久，终于找到了一个原版高清视频，结果抽帧之后发现图片比例不对，宽高比是4：3的话resize成128x64之后就看起来太胖了。前面的白做了……于是又重新找，又找了好久终于在B站找到了宽屏版的视频，然后要下载的话比较麻烦，最后是用Python的一个第三方库：you-get通过命令行来下载的。没想到第零步就花了这么多时间）</li>
+<li>今年寒假因为项目相关原因，借了同学一个32板子，准备开学还的，没想到因为疫情原因，借了整整一个学期。为表示感谢，整点事情。搞一个OLED版的BadApple吧，先买一个OLED模块，然后找到一个Bad Apple宽屏版的原版高清视频（找了好久，终于找到了一个原版高清视频，结果抽帧之后发现图片比例不对，宽高比是4：3的话resize成128x64之后就看起来太胖了。前面的白做了……于是又重新找，又找了好久终于在B站找到了宽屏版的视频，然后要下载的话比较麻烦，最后是用Python的一个第三方库：you-get通过命令行来下载的。没想到第零步就花了这么多时间）</li>
 <li>用VideoToBin.m抽取每一帧保存为128x64的BMP格式图片（然后就可以把视频处理部分的代码注释了，以后再用就只需处理图片了，比如《Bad Apple - ASCII字符版本》，处理视频实在是有点耗时）</li>
 <li>用VideoToBin.m把图片转换成bin文件（核心就是二值化，这样每个像素占用空间从原来的 3通道 x 8bit = 24bit 降低到了 1通道 x 1bit = 1bit，于是约222MB的图片就能压缩成一个约9.25MB的文件，而W25Q128有16MB的容量，足够了。然后再把图片压缩成一个压缩包，毕竟两百多M传输太慢）</li>
 <li>用FATFS工程将W25Q128格式化为FATFS文件系统（如果W25Q128已经有FATFS了则跳过此步骤）</li>
