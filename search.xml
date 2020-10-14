@@ -2137,7 +2137,7 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
 <p><a href="http://mathworld.wolfram.com/UniformSumDistribution.html" target="_blank" rel="noopener">Uniform Sum Distribution</a></p>
 <p><a href="https://www.randomservices.org/random/special/IrwinHall.html" target="_blank" rel="noopener">The Irwin-Hall Distribution</a></p>
 <hr>
-<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
+<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/C-Programs" target="_blank" rel="noopener">GitHub</a></p>
 <hr>
 ]]></content>
       <categories>
@@ -2176,7 +2176,7 @@ e=\sum_{i=0}^{\infty}{\frac{1}{i!}}</script><p>源代码：</p>
 <p>值得一提的是，递归基例我不知道是多少，一开始设置成1，结果是0.618034，对的。我又试了试0.5，结果还是0.618034，我有点摸不着头脑了。我再试了一下0.0，结果还是一样！有点方，稳住。我把输出的位数调大，调到了14位，因为double有效位数至少15位，再把迭代次数调小，这样就能明显地比较每个基例的收敛速度，于是我发现似乎在0.6左右时收敛最快……0.618！它的基例，正是它自己本身！这和它的连分数似乎有某种内在的联系，都是“1”……</p>
 <p>Σ(っ °Д °;)っ</p>
 <hr>
-<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
+<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/C-Programs" target="_blank" rel="noopener">GitHub</a></p>
 <hr>
 ]]></content>
       <categories>
@@ -2378,7 +2378,7 @@ Sa[k] = \frac{sin(k)}{k}</script><p>代码：</p>
 <p>对了，关于计时，其实很简单：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">clock_t</span> start, end;</span><br><span class="line"></span><br><span class="line">start = clock();</span><br><span class="line"><span class="comment">// method_1(N);</span></span><br><span class="line"><span class="comment">// method_2(N);</span></span><br><span class="line"><span class="comment">// method_3(I);</span></span><br><span class="line">method_4(I);</span><br><span class="line">end = clock();</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"time: %.2lf s\n"</span>, (<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br></pre></td></tr></table></figure>
 <p><code>clock_t</code> 类型和 <code>clock()</code> 函数在 <code>time.h</code> 头文件中，<code>clock()</code> 调用一次即记录此时的程序已运行时间，两次调用做差，即得中间过程的运行耗时。</p>
-<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/Calculation-pi-e-phi" target="_blank" rel="noopener">GitHub</a></p>
+<p>想查看完整的代码请访问我的 <a href="https://github.com/chen-qingyu/C-Programs" target="_blank" rel="noopener">GitHub</a></p>
 <hr>
 ]]></content>
       <categories>
