@@ -71,7 +71,7 @@
 <meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/5.png">
 <meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/6.png">
 <meta property="article:published_time" content="2020-10-19T19:58:19.000Z">
-<meta property="article:modified_time" content="2020-10-19T22:03:45.442Z">
+<meta property="article:modified_time" content="2020-10-19T22:23:10.174Z">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content=" Python">
 <meta property="article:tag" content=" Java(OOP)">
@@ -301,7 +301,7 @@
                 
               
 
-              <time title="创建时间：2020-10-20 03:58:19 / 修改时间：06:03:45" itemprop="dateCreated datePublished" datetime="2020-10-20T03:58:19+08:00">2020-10-20</time>
+              <time title="创建时间：2020-10-20 03:58:19 / 修改时间：06:23:10" itemprop="dateCreated datePublished" datetime="2020-10-20T03:58:19+08:00">2020-10-20</time>
             </span>
           
             
@@ -384,9 +384,10 @@
 <p>正在我焦头烂额之际，我重新把每个频率打印出来仔细查看了一遍，发现……高频群的频率并不是真的都比低频群的频率高啊！显而易见，这不符合标准的DTMF信号定义，但是这个信号编码的方式又确实是DTMF……只能说，我大意了。</p>
 <p>所以，其实只需要在return前面加几行就行了：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p = <span class="string">''</span></span><br><span class="line">p1 = manyif(high_freq, low_freq)</span><br><span class="line">p2 = manyif(low_freq, high_freq)</span><br><span class="line"><span class="keyword">if</span> p1 != <span class="string">''</span> <span class="keyword">or</span> p2 != <span class="string">''</span>:</span><br><span class="line">    p = p1 + p2</span><br><span class="line"><span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
-<h4 id="7-测试"><a href="#7-测试" class="headerlink" title="7. 测试"></a>7. 测试</h4><p>OK，测试一下，终于对了！（这代码值700噢）</p>
+<h4 id="7-测试"><a href="#7-测试" class="headerlink" title="7. 测试"></a>7. 测试</h4><p>OK，测试一下。</p>
+<p>啊啊啊终于对了！</p>
 <p><img src="/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/6.png" alt></p>
-<p>其实还可以再重构一下，让代码更优雅一些。</p>
+<p>其实还可以再重构一下，让代码更优雅一些。有时间再做吧。（这代码值700噢）</p>
 <hr>
 <h3 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h3><p>好！交货，拿钱！</p>
 <p>欸？交货四天之后才结账？欸？统一周五结账？欸？财务人员呢？</p>
