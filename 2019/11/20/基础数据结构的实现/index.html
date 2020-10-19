@@ -59,14 +59,14 @@
 
   <meta name="description" content="前言啊，终于写完了。 我是指，那9个.c文件以及3个.h文件。 其实，前几天就写完了，只是写完后发现似乎可以再优化一下，于是就在重构代码的路上一去不复返了…… 简单说一下，我用顺序储存结构（数组）和链式储存结构（链表）分别实现了线性表、栈以及队列的ADT，文件如下： 1234567891011121314151617├─LinearList│    ├─driver.c│    ├─LinearL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性表、栈以及队列的实现">
-<meta property="og:url" content="https://chen-qingyu.github.io/2019/11/20/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%88%E4%BB%A5%E5%8F%8A%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="基础数据结构的实现">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/11/20/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="青羽的博客">
 <meta property="og:description" content="前言啊，终于写完了。 我是指，那9个.c文件以及3个.h文件。 其实，前几天就写完了，只是写完后发现似乎可以再优化一下，于是就在重构代码的路上一去不复返了…… 简单说一下，我用顺序储存结构（数组）和链式储存结构（链表）分别实现了线性表、栈以及队列的ADT，文件如下： 1234567891011121314151617├─LinearList│    ├─driver.c│    ├─LinearL">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chen-qingyu.github.io/2019/11/20/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%88%E4%BB%A5%E5%8F%8A%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0/1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/11/20/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/1.png">
 <meta property="article:published_time" content="2019-11-19T18:38:21.000Z">
-<meta property="article:modified_time" content="2019-11-19T20:08:49.151Z">
+<meta property="article:modified_time" content="2020-10-19T13:25:55.341Z">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content=" Python">
 <meta property="article:tag" content=" Java(OOP)">
@@ -77,9 +77,9 @@
 <meta property="article:tag" content=" Multisim">
 <meta property="article:tag" content=" NetLogo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/11/20/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%88%E4%BB%A5%E5%8F%8A%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0/1.png">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/11/20/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/1.png">
   <link rel="alternate" href="/atom.xml" title="青羽的博客" type="application/atom+xml">
-  <link rel="canonical" href="https://chen-qingyu.github.io/2019/11/20/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%88%E4%BB%A5%E5%8F%8A%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0/">
+  <link rel="canonical" href="https://chen-qingyu.github.io/2019/11/20/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/">
 
 
 <script id="page.configurations">
@@ -88,7 +88,7 @@
   };
 </script>
 
-  <title>线性表、栈以及队列的实现 | 青羽的博客</title>
+  <title>基础数据结构的实现 | 青羽的博客</title>
   
 
 
@@ -194,7 +194,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">49</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">50</span></a>
 
   </li>
         
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/11/20/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%88%E4%BB%A5%E5%8F%8A%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0/">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/11/20/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -276,7 +276,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">线性表、栈以及队列的实现
+          <h1 class="post-title" itemprop="name headline">基础数据结构的实现
 
               
             
@@ -296,11 +296,21 @@
                 
               
 
-              <time title="创建时间：2019-11-20 02:38:21 / 修改时间：04:08:49" itemprop="dateCreated datePublished" datetime="2019-11-20T02:38:21+08:00">2019-11-20</time>
+              <time title="创建时间：2019-11-20 02:38:21" itemprop="dateCreated datePublished" datetime="2019-11-20T02:38:21+08:00">2019-11-20</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-19 21:25:55" itemprop="dateModified" datetime="2020-10-19T21:25:55+08:00">2020-10-19</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -357,17 +367,17 @@
 <li>其实结构体的定义应该放在头文件里的，但是为了让数组和链表都可以使用一个统一的头文件，我只能把它放在具体的实现里。</li>
 <li>这些是我写来练习的程序，因此并没有实现所有的链表操作，同时在函数内部有充分的提示信息。</li>
 <li>变量命名和函数命名很重要。C语言不具有面向对象的特性，因此这里函数采用大驼峰命名法，变量采用小驼峰命名法。别小看这一点，好的命名一看就懂，比如<code>GetLength()</code>表示获取长度，<code>LinkList()</code>表示连接链表，<code>new</code>表示待插入的新结点，<code>del</code>表示待删除的结点，<code>tail</code>表示尾结点等等。网上太多代码的命名都乱七八糟的。</li>
-<li>大家都知道，<code>malloc()</code>和<code>free()</code>一定要成对出现、一一对应。但是我看网上好多人都不知道<code>free()</code>和<code>p = NULL</code>也一定要成对存在，也就是说释放一个（全局）指针变量<code>p</code>指向的内存空间后要立刻把它指向<code>NULL</code>。为什么呢？因为释放前后，<code>p</code>所指向的内存空间是一样的。所以释放后<code>p</code>所指向的仍然是那块内存空间。可是释放后的那块内存空间已经不属于<code>p</code>了，该内存空间可能会被分配给其他函数使用。如果其他函数在那块内存空间存放了值，而你现在不小心再用<code>p</code>往里面写入了数据就会把那个值给覆盖了。所以当内存空间被释放后，要立刻把指针变量指向<code>NULL</code>。</li>
-<li>使用<code>malloc()</code>申请了内存空间之后一定要紧接着用<code>if (p == NULL)</code>判断申请成功没。好多人申请就申请了，都不检查一下，虽然一般不会出错，可是保持良好的编程习惯以后写程序不容易出Bug。</li>
+<li><code>malloc()</code>和<code>free()</code>一定要成对出现、一一对应；<code>free()</code>和<code>p = NULL</code>也一定要成对存在，也就是说释放一个（全局）指针变量<code>p</code>指向的内存空间后要立刻把它指向<code>NULL</code>。因为释放前后，<code>p</code>所指向的内存空间是一样的。所以释放后p所指向的仍然是那块内存空间。可是释放后的那块内存空间已经不属于<code>p</code>了，该内存空间可能会被分配给其他函数使用。如果其他函数在那块内存空间存放了值，而你现在不小心再用<code>p</code>往里面写入了数据就会把那个值给覆盖了。所以当内存空间被释放后，要立刻把指针变量指向<code>NULL</code>。</li>
+<li>使用<code>malloc()</code>申请了内存空间之后一定要紧接着用<code>if (p == NULL)</code>判断申请成功没。虽然一般不会出错，可是保持良好的编程习惯以后写程序不容易出Bug。</li>
 <li>肯定还有不足的地方，但是我不想再花时间改了。</li>
 </ol>
 <h3 id="驱动代码"><a href="#驱动代码" class="headerlink" title="驱动代码"></a>驱动代码</h3><p>最后是驱动代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"LinearList.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">list_t</span> list1 = CreateList(), list2 = CreateList();</span><br><span class="line">    <span class="keyword">item_t</span> a[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;, b[] = &#123;<span class="number">233</span>, <span class="number">666</span>, <span class="number">888</span>, <span class="number">999</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(a[<span class="number">0</span>]); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Insert(list1, i, a[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Insert an item to list 1: %d.\n"</span>, a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Failed to insert items.\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(b) / <span class="keyword">sizeof</span>(b[<span class="number">0</span>]); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Insert(list2, i, b[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Insert an item to list 2: %d.\n"</span>, b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Failed to insert items.\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">    LinkList(list1, list2);</span><br><span class="line">    Print(list1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> length = GetLength(list1);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Delete an item %s.\n"</span>, Delete(list1, <span class="number">0</span>) ? <span class="string">"successful"</span> : <span class="string">"failed"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The list is empty? %s.\n"</span>, IsEmpty(list1) ? <span class="string">"yes"</span> : <span class="string">"no"</span>);</span><br><span class="line"></span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p>测试的时候只需要<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc driver.c LinearList_Array.c &amp;&amp; ./a.exe</span><br></pre></td></tr></table></figure><br>或者<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc driver.c LinearList_Linked.c &amp;&amp; ./a.exe</span><br></pre></td></tr></table></figure><br>就可以了。</p>
-<p>运行结果如下：<br><img src="/2019/11/20/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%88%E4%BB%A5%E5%8F%8A%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0/1.png" alt></p>
+<p>运行结果如下：<br><img src="/2019/11/20/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/1.png" alt></p>
 <h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>栈和队列也是这样的，代码我都放到了GitHub上：<a href="https://github.com/chen-qingyu/Data-Structure" target="_blank" rel="noopener">Data-Structure</a>。</p>
-<p>呼……最近又开始忙了，不知道啥时候再更新。</p>
-<p>就写到这吧。</p>
+<hr>
+<p>后来又增加了BinarySearchTree，HashTable，MaxHeap以及WeightedGraph。都在GitHub里。</p>
 <hr>
 
     </div>
@@ -446,7 +456,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -573,7 +583,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">107k</span>
+    <span title="站点总字数">109k</span>
 </div>
 
         
