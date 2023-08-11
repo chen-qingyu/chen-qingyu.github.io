@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chen-qingyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="前言我这标题起得怎么这么像课程论文呢…… 啊，放心啦，这不是课程论文，这只是一个有趣（且值钱）的程序。 起因是这样的。我加了几个软件兼职群，前几天我发现其中有一个项目，是利用FFT识别信号啥的，报价700，性价比对于我来说我觉得挺高的了，看样子好像也不难，我就接了。  过程1. 理解题意题目要求是这样的：   然后有一个五百多KB的dat文件和一个频号对应表。就是说，要用傅里叶变换把dat文件里具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Python的DTMF信号识别">
+<meta property="og:url" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="前言我这标题起得怎么这么像课程论文呢…… 啊，放心啦，这不是课程论文，这只是一个有趣（且值钱）的程序。 起因是这样的。我加了几个软件兼职群，前几天我发现其中有一个项目，是利用FFT识别信号啥的，报价700，性价比对于我来说我觉得挺高的了，看样子好像也不难，我就接了。  过程1. 理解题意题目要求是这样的：   然后有一个五百多KB的dat文件和一个频号对应表。就是说，要用傅里叶变换把dat文件里具">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/1.jpg">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/2.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/3.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/4.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/5.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/6.png">
+<meta property="article:published_time" content="2020-10-19T19:58:19.000Z">
+<meta property="article:modified_time" content="2021-07-24T04:11:25.138Z">
+<meta property="article:tag" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/1.jpg">
+
+<link rel="canonical" href="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>基于Python的DTMF信号识别 | 青羽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">青羽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">恭喜你发现了一个不为人知的小岛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于Python的DTMF信号识别
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-20 03:58:19" itemprop="dateCreated datePublished" datetime="2020-10-20T03:58:19+08:00">2020-10-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-24 12:11:25" itemprop="dateModified" datetime="2021-07-24T12:11:25+08:00">2021-07-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我这标题起得怎么这么像课程论文呢……</p>
+<p>啊，放心啦，这不是课程论文，这只是一个有趣（且值钱）的程序。</p>
+<p>起因是这样的。我加了几个软件兼职群，前几天我发现其中有一个项目，是利用FFT识别信号啥的，报价700，性价比对于我来说我觉得挺高的了，看样子好像也不难，我就接了。</p>
+<hr>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><h4 id="1-理解题意"><a href="#1-理解题意" class="headerlink" title="1. 理解题意"></a>1. 理解题意</h4><p>题目要求是这样的：</p>
+<p><img src="/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/1.jpg"></p>
+<p><img src="/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/2.png"></p>
+<p>然后有一个五百多KB的dat文件和一个频号对应表。就是说，要用傅里叶变换把dat文件里具体有哪些号码给识别出来。</p>
+<p>看着还有点难度，看看PDF，噢，原来这是格拉斯哥大学工程系的一个Assignment……</p>
+<p>以前有个新闻是说南京有个大学生通过分析采访视频里面的拨号音知道了周鸿伟的手机号码，大概就是这么回事儿。</p>
+<h4 id="2-读取数据"><a href="#2-读取数据" class="headerlink" title="2. 读取数据"></a>2. 读取数据</h4><p>打开dat文件看一下，是这样的：</p>
+<p><img src="/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/3.png"></p>
+<p>大概有五万多行。吭哧吭哧搞出来了数据读取模块：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">read_data</span>(<span class="params">file</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27; 读取数据 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    data = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file, encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> fo:</span><br><span class="line">        <span class="comment"># 读取文件的每一行</span></span><br><span class="line">        lines = fo.readlines()</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">            <span class="comment"># 处理得到采样数据</span></span><br><span class="line">            data.append(<span class="built_in">int</span>(line.split()[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<p>OK，准备工作到此结束。</p>
+<h4 id="3-频谱图"><a href="#3-频谱图" class="headerlink" title="3. 频谱图"></a>3. 频谱图</h4><p>要识别信号，首先得看一下信号大概长啥样子。这肯定要用到numpy和matplotlib咯。</p>
+<p>学习了一下numpy的语法，参考了一下网上的代码吭哧吭哧搞出了频谱图：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">calc_fft</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27; 计算频谱 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 采样长度</span></span><br><span class="line">    length = <span class="built_in">len</span>(data)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据采样率和采样长度生成时间序列</span></span><br><span class="line">    t = np.linspace(<span class="number">0</span>, length/SAMPLE_RATE, length)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将采样数据转换成numpy的array格式</span></span><br><span class="line">    xt = np.array(data)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 利用np.fft.rfft()进行FFT计算</span></span><br><span class="line">    xf = np.fft.rfft(xt) / length</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据采样率和采样长度计算出每个下标对应的真正频率</span></span><br><span class="line">    freqs = np.linspace(<span class="number">0</span>, SAMPLE_RATE/<span class="number">2</span>, length//<span class="number">2</span>+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 取绝对值表示幅值</span></span><br><span class="line">    xfa = np.<span class="built_in">abs</span>(xf)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (freqs, xfa)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plot_diagram</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27; 绘制数据的时域和频域图像 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    length = <span class="built_in">len</span>(data)</span><br><span class="line">    t = np.linspace(<span class="number">0</span>, length/SAMPLE_RATE, length)</span><br><span class="line">    xt = np.array(data)</span><br><span class="line"></span><br><span class="line">    (freqs, xfa) = calc_fft(data)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 作图</span></span><br><span class="line">    plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    plt.title(<span class="string">&quot;Time Domain&quot;</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&quot;Time (s)&quot;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&quot;A&quot;</span>)</span><br><span class="line">    plt.plot(t, xt)</span><br><span class="line"></span><br><span class="line">    plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">    plt.title(<span class="string">&quot;Freq Domain&quot;</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&quot;freq (Hz)&quot;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">    plt.plot(freqs[<span class="number">1</span>:], xfa[<span class="number">1</span>:])  <span class="comment"># [1:]去掉f=0的直流信号</span></span><br><span class="line"></span><br><span class="line">    plt.subplots_adjust(hspace=<span class="number">0.4</span>)  <span class="comment"># 拉宽上下子图距离，不然会挡住字</span></span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>画出来是这个样子：</p>
+<p><img src="/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/4.png"></p>
+<p>嗯……还挺好看的？</p>
+<h4 id="4-检测频率"><a href="#4-检测频率" class="headerlink" title="4. 检测频率"></a>4. 检测频率</h4><p>要识别号码，首先得知道频率和号码之间的对应关系。查了查，这应该是一个DTMF，所谓的双音多频。</p>
+<p>这里他们的对应表并不是国际标准推荐的，但是基本原理一样（个鬼啊！后面就会有坑。我怀疑这是格大专门搞来坑人的）。</p>
+<p><img src="/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/5.png"></p>
+<p>然后参考了一下网上的代码吭哧吭哧搞出了频率：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算频谱</span></span><br><span class="line">(freqs, xfa) = calc_fft(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寻找高频和低频</span></span><br><span class="line">local = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> np.arange(<span class="number">1</span>, <span class="built_in">len</span>(xfa)-<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> xfa[i] &gt; xfa[i-<span class="number">1</span>] <span class="keyword">and</span> xfa[i] &gt; xfa[i+<span class="number">1</span>]:</span><br><span class="line">        local.append(xfa[i])</span><br><span class="line">local = <span class="built_in">sorted</span>(local)</span><br><span class="line">loc = np.where(xfa == local[-<span class="number">1</span>])</span><br><span class="line">high_freq = freqs[loc[<span class="number">0</span>][<span class="number">0</span>]]</span><br><span class="line">loc = np.where(xfa == local[-<span class="number">2</span>])</span><br><span class="line">low_freq = freqs[loc[<span class="number">0</span>][<span class="number">0</span>]]</span><br><span class="line"><span class="comment"># 查看具体频率，调试很有用</span></span><br><span class="line"><span class="comment"># print(&#x27;high_freq, low_freq = &#123;:.2f&#125;, &#123;:.2f&#125;&#x27;.format(high_freq, low_freq))</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-识别号码"><a href="#5-识别号码" class="headerlink" title="5. 识别号码"></a>5. 识别号码</h4><p>找到高低频之后，接下来只需要把频率送到一个函数里进行判断就行了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    209 336 477 633</span></span><br><span class="line"><span class="string">303 1   2   3   A</span></span><br><span class="line"><span class="string">230 4   5   6   B</span></span><br><span class="line"><span class="string">148 7   8   9   C</span></span><br><span class="line"><span class="string">59  *   0   #   D</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">FREQ_ROW = (<span class="number">303</span>, <span class="number">230</span>, <span class="number">148</span>, <span class="number">59</span>)</span><br><span class="line">FREQ_COL = (<span class="number">209</span>, <span class="number">336</span>, <span class="number">477</span>, <span class="number">633</span>)</span><br><span class="line"><span class="comment"># 频率号码对应表</span></span><br><span class="line">FREQ_TABLE = &#123;</span><br><span class="line">    (FREQ_ROW[<span class="number">0</span>], FREQ_COL[<span class="number">0</span>]): <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">0</span>], FREQ_COL[<span class="number">1</span>]): <span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">0</span>], FREQ_COL[<span class="number">2</span>]): <span class="string">&#x27;3&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">0</span>], FREQ_COL[<span class="number">3</span>]): <span class="string">&#x27;A&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    (FREQ_ROW[<span class="number">1</span>], FREQ_COL[<span class="number">0</span>]): <span class="string">&#x27;4&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">1</span>], FREQ_COL[<span class="number">1</span>]): <span class="string">&#x27;5&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">1</span>], FREQ_COL[<span class="number">2</span>]): <span class="string">&#x27;6&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">1</span>], FREQ_COL[<span class="number">3</span>]): <span class="string">&#x27;B&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    (FREQ_ROW[<span class="number">2</span>], FREQ_COL[<span class="number">0</span>]): <span class="string">&#x27;7&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">2</span>], FREQ_COL[<span class="number">1</span>]): <span class="string">&#x27;8&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">2</span>], FREQ_COL[<span class="number">2</span>]): <span class="string">&#x27;9&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">2</span>], FREQ_COL[<span class="number">3</span>]): <span class="string">&#x27;C&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    (FREQ_ROW[<span class="number">3</span>], FREQ_COL[<span class="number">0</span>]): <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">3</span>], FREQ_COL[<span class="number">1</span>]): <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">3</span>], FREQ_COL[<span class="number">2</span>]): <span class="string">&#x27;#&#x27;</span>,</span><br><span class="line">    (FREQ_ROW[<span class="number">3</span>], FREQ_COL[<span class="number">3</span>]): <span class="string">&#x27;D&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">judge_char</span>(<span class="params">high_freq, low_freq</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27; 判断字符 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    p = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    delta = <span class="number">10</span>  <span class="comment"># 频率识别允许误差半径</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(FREQ_ROW)):</span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(FREQ_COL)):</span><br><span class="line">            row_check = FREQ_ROW[row]-delta &lt; low_freq &lt; FREQ_ROW[row]+delta</span><br><span class="line">            col_check = FREQ_COL[col]-delta &lt; high_freq &lt; FREQ_COL[col]+delta</span><br><span class="line">            <span class="keyword">if</span> row_check <span class="keyword">and</span> col_check:</span><br><span class="line">                p = FREQ_TABLE[(FREQ_ROW[row], FREQ_COL[col])]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+
+<p>用了一个字典，看起来优雅一些。</p>
+<h4 id="6-分离单音"><a href="#6-分离单音" class="headerlink" title="6. 分离单音"></a>6. 分离单音</h4><p>慢着！这号码是有顺序的，即要识别出正确的拨号顺序，而这是时域的信息，所以，光是频域还不行，得时域和频域结合起来看。</p>
+<p>而从全局频谱图来看，时域信号显然不是等间隔的，所以没法等间隔提取单音。</p>
+<p>一开始我想是检测时域拨号上升沿，即把一次拨号当成一次触发，触发flag上升沿检测识别，持续一段时间，如此循环就能把时域给走一遍然后把每一次拨号都检测到。</p>
+<p>最后用了个比较复杂的方式写出来了。我没想到我有一天居然会用软件实现一个信号上升沿触发机制……</p>
+<p>燃鹅，误差很大，好多位都没有识别出来。识别出来的数字倒是对了。怎么看对不对呢？我用的笨办法，用magic number截取时域信号看频谱然后人工查表识别。</p>
+<p>我以为是上升沿检测的问题，毕竟在Python里面实现一个上升沿检测并且触发信号是“检测到号码”确实于我而言有点复杂，而一旦程序复杂就容易出错。</p>
+<p>后来换了一种思路，检测一段时间内的时域信号峰值的最大值，大于一个阈值就判定为拨号中，也写出来了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">detect_all</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27; 识别所有号码 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    length = <span class="built_in">len</span>(data)</span><br><span class="line">    result = []  <span class="comment"># 结果</span></span><br><span class="line">    digit = []  <span class="comment"># 待处理的一位拨号音频数据</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 最少连续取样间隔，保证间隔内至少有一个完整的最低频率信号周期</span></span><br><span class="line">    <span class="comment"># 通过采样率除以最低频率向上取整计算得出</span></span><br><span class="line">    <span class="comment"># 对于msc_matric_5.dat，间隔是17</span></span><br><span class="line">    interval = <span class="built_in">int</span>(np.ceil(SAMPLE_RATE / <span class="built_in">min</span>(<span class="built_in">min</span>(FREQ_ROW), <span class="built_in">min</span>(FREQ_COL))))</span><br><span class="line">    <span class="comment"># print(interval)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检测开启阈值，大于此阈值才识别信号</span></span><br><span class="line">    <span class="comment"># 通过 (平均值 + (最大值-平均值)*比例) 计算得出</span></span><br><span class="line">    <span class="comment"># 比例值不能太大也不能太小，这里取0.2</span></span><br><span class="line">    <span class="comment"># 对于msc_matric_5.dat，阈值是3261</span></span><br><span class="line">    threshold = <span class="built_in">int</span>(np.mean(data) + (np.<span class="built_in">max</span>(data) - np.mean(data))*<span class="number">0.2</span>)</span><br><span class="line">    <span class="comment"># print(threshold)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length - interval):</span><br><span class="line">        <span class="comment"># 用了个列表生成式，根据阈值和间隔判断是否是有效信号</span></span><br><span class="line">        <span class="keyword">if</span> np.<span class="built_in">max</span>([data[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(i, i + interval)]) &gt; threshold:</span><br><span class="line">            digit.append(data[i])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(digit) != <span class="number">0</span>:</span><br><span class="line">                p = detect_one(digit)</span><br><span class="line">                result.append(p)</span><br><span class="line">                digit = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">detect_one</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27; 识别一位号码 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘制每一位号码的时域和频域图像</span></span><br><span class="line">    <span class="comment"># plot_diagram(data)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算频谱</span></span><br><span class="line">    (freqs, xfa) = calc_fft(data)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 寻找高频和低频</span></span><br><span class="line">    local = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> np.arange(<span class="number">1</span>, <span class="built_in">len</span>(xfa)-<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> xfa[i] &gt; xfa[i-<span class="number">1</span>] <span class="keyword">and</span> xfa[i] &gt; xfa[i+<span class="number">1</span>]:</span><br><span class="line">            local.append(xfa[i])</span><br><span class="line">    local = <span class="built_in">sorted</span>(local)</span><br><span class="line">    loc = np.where(xfa == local[-<span class="number">1</span>])</span><br><span class="line">    high_freq = freqs[loc[<span class="number">0</span>][<span class="number">0</span>]]</span><br><span class="line">    loc = np.where(xfa == local[-<span class="number">2</span>])</span><br><span class="line">    low_freq = freqs[loc[<span class="number">0</span>][<span class="number">0</span>]]</span><br><span class="line">    <span class="comment"># 查看具体频率，调试很有用</span></span><br><span class="line">    <span class="comment"># print(&#x27;high_freq, low_freq = &#123;:.2f&#125;, &#123;:.2f&#125;&#x27;.format(high_freq, low_freq))</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断字符</span></span><br><span class="line">    p = judge_char(high_freq, low_freq)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+
+<p>但是还是不对！误差仍然很大，和之前的方法似乎差不多。</p>
+<p>正在我焦头烂额之际，我重新把每个频率打印出来仔细查看了一遍，发现……原来高频群的频率并不是真的都比低频群的频率高啊！显而易见，这不符合标准的DTMF信号定义，但是这个信号编码的方式又确实是DTMF……只能说，我大意了。</p>
+<p>所以，其实只需要在判断字符那里加几行就行了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断字符</span></span><br><span class="line">p = <span class="string">&#x27;&#x27;</span></span><br><span class="line">p1 = judge_char(high_freq, low_freq)</span><br><span class="line">p2 = judge_char(low_freq, high_freq)</span><br><span class="line"><span class="keyword">if</span> p1 != <span class="string">&#x27;&#x27;</span> <span class="keyword">or</span> p2 != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">    p = p1 + p2</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-测试"><a href="#7-测试" class="headerlink" title="7. 测试"></a>7. 测试</h4><p>OK，测试一下。</p>
+<p>啊啊啊终于对了！</p>
+<p><img src="/2020/10/20/%E5%9F%BA%E4%BA%8EPython%E7%9A%84DTMF%E4%BF%A1%E5%8F%B7%E8%AF%86%E5%88%AB/6.png"></p>
+<hr>
+<h3 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h3><p>好！交货，拿钱！</p>
+<p>客服抽成20%，所以我只能拿560。</p>
+<p>欸？财务人员呢？</p>
+<p>啊，最终还是拿到钱了哈哈哈~</p>
+<p>第一次做几百块的项目，钱不算多，但是对我来说算是一个新的起点吧。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/19/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B0%8F%E4%BE%8B%E5%AD%90/" rel="prev" title="函数式编程的几个小例子">
+      <i class="fa fa-chevron-left"></i> 函数式编程的几个小例子
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/08/%E7%90%86%E6%83%B3%E5%9E%8B%E7%9A%84%E6%89%8B%E6%9C%BA/" rel="next" title="理想型的手机">
+      理想型的手机 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%90%86%E8%A7%A3%E9%A2%98%E6%84%8F"><span class="nav-number">2.1.</span> <span class="nav-text">1. 理解题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">2.2.</span> <span class="nav-text">2. 读取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%A2%91%E8%B0%B1%E5%9B%BE"><span class="nav-number">2.3.</span> <span class="nav-text">3. 频谱图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%A3%80%E6%B5%8B%E9%A2%91%E7%8E%87"><span class="nav-number">2.4.</span> <span class="nav-text">4. 检测频率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%AF%86%E5%88%AB%E5%8F%B7%E7%A0%81"><span class="nav-number">2.5.</span> <span class="nav-text">5. 识别号码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E5%88%86%E7%A6%BB%E5%8D%95%E9%9F%B3"><span class="nav-number">2.6.</span> <span class="nav-text">6. 分离单音</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%B5%8B%E8%AF%95"><span class="nav-number">2.7.</span> <span class="nav-text">7. 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%BE%E5%A3%B0"><span class="nav-number">3.</span> <span class="nav-text">尾声</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">活着就是折腾，生命就是创造</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chen-qingyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

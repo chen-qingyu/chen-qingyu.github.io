@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chen-qingyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="开一个系列，这个系列主要讲用Multisim进行电路仿真实验。  首先，我简单介绍一下Multisim。 Multisim是一款功能强大的电路仿真软件。 介绍完毕。(￣▽￣)”  安装包建议去NI官网下载。 NI License Activator 1.2 提取码：5244  0. 准备工作这一长串是万用表、示波器以及电源、地线等等：  如果你没有看到这个的话，在View里把它点上就行了。 这里就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multisim电路仿真（一）">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="开一个系列，这个系列主要讲用Multisim进行电路仿真实验。  首先，我简单介绍一下Multisim。 Multisim是一款功能强大的电路仿真软件。 介绍完毕。(￣▽￣)”  安装包建议去NI官网下载。 NI License Activator 1.2 提取码：5244  0. 准备工作这一长串是万用表、示波器以及电源、地线等等：  如果你没有看到这个的话，在View里把它点上就行了。 这里就">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/1.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/2.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/3.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/4.png">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/5.png">
+<meta property="article:published_time" content="2019-01-19T01:00:00.000Z">
+<meta property="article:modified_time" content="2019-09-13T09:03:29.330Z">
+<meta property="article:tag" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/1.png">
+
+<link rel="canonical" href="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Multisim电路仿真（一） | 青羽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">青羽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">恭喜你发现了一个不为人知的小岛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Multisim电路仿真（一）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-19 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T09:00:00+08:00">2019-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-13 17:03:29" itemprop="dateModified" datetime="2019-09-13T17:03:29+08:00">2019-09-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Multisim/" itemprop="url" rel="index"><span itemprop="name">Multisim</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>开一个系列，这个系列主要讲用Multisim进行电路仿真实验。</p>
+<hr>
+<p>首先，我简单介绍一下Multisim。</p>
+<p>Multisim是一款功能强大的电路仿真软件。</p>
+<p>介绍完毕。(￣▽￣)”</p>
+<hr>
+<p>安装包建议去NI官网下载。</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_YuUe5tEpzFiAYDfyFZaKg">NI License Activator 1.2</a> 提取码：<code>5244</code></p>
+<hr>
+<h3 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0. 准备工作"></a>0. 准备工作</h3><p>这一长串是万用表、示波器以及电源、地线等等：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/1.png"></p>
+<p>如果你没有看到这个的话，在View里把它点上就行了。</p>
+<p>这里就只介绍待会儿要用的。第一个是万用表，第四个是双踪示波器，下面蓝色部分的第一个是交流电源，第二个是直流电源，第四个是地线。其他的就不再介绍了，毕竟搜索引擎是个好东西。</p>
+<p><kbd>Ctrl</kbd>+<kbd>W</kbd>或者右键菜单放置元件就会弹出元件数据库：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/2.png"></p>
+<p>这里元件真的挺多的……</p>
+<p>好了，下面我们做三个基本电路来熟悉一下Multisim。</p>
+<hr>
+<h3 id="1-电阻串联电路"><a href="#1-电阻串联电路" class="headerlink" title="1. 电阻串联电路"></a>1. 电阻串联电路</h3><p>我们验证一个很简单的现象：串联分压。</p>
+<p>两个万用表，两个理想电阻器，一个直流电源，一个地，搭建电路如图所示：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/3.png"></p>
+<p>可以看到，串联的两个电阻之比为1：2的电阻器分得的电压之比也为1：2。</p>
+<hr>
+<h3 id="2-电阻并联电路"><a href="#2-电阻并联电路" class="headerlink" title="2. 电阻并联电路"></a>2. 电阻并联电路</h3><p>我们再验证一个很简单的现象：并联分流。</p>
+<p>两个万用表，两个理想电阻器，一个直流电源，一个地，搭建电路如图所示：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/4.png"></p>
+<p>可以看到，并联的两个电阻之比为1：2的电阻器分得的电流之比为2：1。</p>
+<hr>
+<h3 id="3-电阻电容串联电路"><a href="#3-电阻电容串联电路" class="headerlink" title="3. 电阻电容串联电路"></a>3. 电阻电容串联电路</h3><p>这里我们看一看电容对电压相位的影响，这就要用到示波器了。</p>
+<p>一个双踪示波器，一个理想电阻器，一个理想电容器，一个交流电源，一个地，搭建电路如图所示：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/5.png"></p>
+<p>改变导线颜色即改变对应波形颜色。可以看到，电容这一条支路相对于电阻确实相移了 $-\pi&#x2F;2$ 。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/01/12/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" rel="prev" title="浅谈计算圆周率">
+      <i class="fa fa-chevron-left"></i> 浅谈计算圆周率
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/21/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="Multisim电路仿真（二）">
+      Multisim电路仿真（二） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">0. 准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%94%B5%E9%98%BB%E4%B8%B2%E8%81%94%E7%94%B5%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">1. 电阻串联电路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%94%B5%E9%98%BB%E5%B9%B6%E8%81%94%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">2. 电阻并联电路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%94%B5%E9%98%BB%E7%94%B5%E5%AE%B9%E4%B8%B2%E8%81%94%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">3. 电阻电容串联电路</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">活着就是折腾，生命就是创造</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chen-qingyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

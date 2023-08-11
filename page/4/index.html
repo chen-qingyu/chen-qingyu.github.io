@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chen-qingyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="活着就是折腾，生命就是创造">
+<meta property="og:type" content="website">
+<meta property="og:title" content="青羽的博客">
+<meta property="og:url" content="https://chen-qingyu.github.io/page/4/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="活着就是折腾，生命就是创造">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:tag" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chen-qingyu.github.io/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>青羽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">青羽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">恭喜你发现了一个不为人知的小岛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">Multisim电路仿真（一）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-19 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T09:00:00+08:00">2019-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-13 17:03:29" itemprop="dateModified" datetime="2019-09-13T17:03:29+08:00">2019-09-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Multisim/" itemprop="url" rel="index"><span itemprop="name">Multisim</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>开一个系列，这个系列主要讲用Multisim进行电路仿真实验。</p>
+<hr>
+<p>首先，我简单介绍一下Multisim。</p>
+<p>Multisim是一款功能强大的电路仿真软件。</p>
+<p>介绍完毕。(￣▽￣)”</p>
+<hr>
+<p>安装包建议去NI官网下载。</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_YuUe5tEpzFiAYDfyFZaKg">NI License Activator 1.2</a> 提取码：<code>5244</code></p>
+<hr>
+<h3 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0. 准备工作"></a>0. 准备工作</h3><p>这一长串是万用表、示波器以及电源、地线等等：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/1.png"></p>
+<p>如果你没有看到这个的话，在View里把它点上就行了。</p>
+<p>这里就只介绍待会儿要用的。第一个是万用表，第四个是双踪示波器，下面蓝色部分的第一个是交流电源，第二个是直流电源，第四个是地线。其他的就不再介绍了，毕竟搜索引擎是个好东西。</p>
+<p><kbd>Ctrl</kbd>+<kbd>W</kbd>或者右键菜单放置元件就会弹出元件数据库：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/2.png"></p>
+<p>这里元件真的挺多的……</p>
+<p>好了，下面我们做三个基本电路来熟悉一下Multisim。</p>
+<hr>
+<h3 id="1-电阻串联电路"><a href="#1-电阻串联电路" class="headerlink" title="1. 电阻串联电路"></a>1. 电阻串联电路</h3><p>我们验证一个很简单的现象：串联分压。</p>
+<p>两个万用表，两个理想电阻器，一个直流电源，一个地，搭建电路如图所示：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/3.png"></p>
+<p>可以看到，串联的两个电阻之比为1：2的电阻器分得的电压之比也为1：2。</p>
+<hr>
+<h3 id="2-电阻并联电路"><a href="#2-电阻并联电路" class="headerlink" title="2. 电阻并联电路"></a>2. 电阻并联电路</h3><p>我们再验证一个很简单的现象：并联分流。</p>
+<p>两个万用表，两个理想电阻器，一个直流电源，一个地，搭建电路如图所示：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/4.png"></p>
+<p>可以看到，并联的两个电阻之比为1：2的电阻器分得的电流之比为2：1。</p>
+<hr>
+<h3 id="3-电阻电容串联电路"><a href="#3-电阻电容串联电路" class="headerlink" title="3. 电阻电容串联电路"></a>3. 电阻电容串联电路</h3><p>这里我们看一看电容对电压相位的影响，这就要用到示波器了。</p>
+<p>一个双踪示波器，一个理想电阻器，一个理想电容器，一个交流电源，一个地，搭建电路如图所示：</p>
+<p><img src="/2019/01/19/Multisim%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%88%E4%B8%80%EF%BC%89/5.png"></p>
+<p>改变导线颜色即改变对应波形颜色。可以看到，电容这一条支路相对于电阻确实相移了 $-\pi&#x2F;2$ 。</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/01/12/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/01/12/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" class="post-title-link" itemprop="url">浅谈计算圆周率</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-12 09:00:00" itemprop="dateCreated datePublished" datetime="2019-01-12T09:00:00+08:00">2019-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-24 12:11:42" itemprop="dateModified" datetime="2021-07-24T12:11:42+08:00">2021-07-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>利用程序计算圆周率有很多方法，这里我们举四个小例子。</p>
+<hr>
+<h3 id="1-统计方法"><a href="#1-统计方法" class="headerlink" title="1. 统计方法"></a>1. 统计方法</h3><p>本质是随机撒点，也叫蒙特·卡罗法（Monte Carlo method）。</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">method_1</span><span class="params">(<span class="type">int</span> N)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> x, y, hits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        x = (<span class="type">double</span>)rand() / RAND_MAX;</span><br><span class="line">        y = (<span class="type">double</span>)rand() / RAND_MAX;</span><br><span class="line">        <span class="keyword">if</span> (x * x + y * y &lt; <span class="number">1.0</span>)</span><br><span class="line">            hits++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pi: %lf\n&quot;</span>, (hits / N) * <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果（N &#x3D; 4000 * 4000）：</p>
+<p><img src="/2019/01/12/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/1.png"></p>
+<p>这里的 time 是在 <code>main()</code> 函数中调用的计时功能，后面会介绍。</p>
+<p><code>N</code> 取这么小是因为这里只是一个demo，真正要计算圆周率的话不可能这么小的。</p>
+<hr>
+<h3 id="2-统计方法"><a href="#2-统计方法" class="headerlink" title="2. 统计方法"></a>2. 统计方法</h3><p>如果说蒙特卡罗法本质是随机撒点，那么这个本质就是均匀撒点。</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">method_2</span><span class="params">(<span class="type">int</span> N)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> x, y, hits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; <span class="built_in">sqrt</span>(N); x++)</span><br><span class="line">        <span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; <span class="built_in">sqrt</span>(N); y++)</span><br><span class="line">            <span class="keyword">if</span> (x * x + y * y &lt; N)</span><br><span class="line">                hits++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pi: %lf\n&quot;</span>, (hits / N) * <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果（N &#x3D; 4000 * 4000）：</p>
+<p><img src="/2019/01/12/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/2.png"></p>
+<p>虽然结果精确度和蒙特卡罗法差不多，但快了许多，因为蒙特卡罗法每次循环都要调用 <code>rand()</code> 函数来产生伪随机数（不引入特殊设备的话，计算机是无法产生真正的随机数的）。</p>
+<hr>
+<h3 id="3-数学方法"><a href="#3-数学方法" class="headerlink" title="3. 数学方法"></a>3. 数学方法</h3><p>数学是一个强有力的工具，利用级数展开的公式可以快速估算圆周率。</p>
+<p>$$<br>\frac{\pi}{4}&#x3D;\sum_{i&#x3D;0}^{\infty}\frac{(-1)^i}{2i+1}<br>$$</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">method_3</span><span class="params">(<span class="type">int</span> I)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> pi = <span class="number">0</span>, k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; I; i++, k = -k)</span><br><span class="line">        pi += k / (<span class="number">2</span> * i + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pi: %lf\n&quot;</span>, pi * <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果（I &#x3D; 25）:</p>
+<p><img src="/2019/01/12/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/3.png"></p>
+<p>因为数学方法和统计方法本质不一样，所以这里不再是循环次数 <code>N</code> 而是迭代次数 <code>I</code> （iteration）。</p>
+<hr>
+<h3 id="4-数学方法"><a href="#4-数学方法" class="headerlink" title="4. 数学方法"></a>4. 数学方法</h3><p>上面那个公式效果似乎不尽人意。当然我们可以增加迭代次数，但是否有收敛更快的公式呢？看看下面这个怎么样：</p>
+<p>$$<br>\frac{\pi}{2}&#x3D;\sum_{i&#x3D;0}^{\infty}\frac{i!}{(2i+1)!!}<br>$$</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">method_4</span><span class="params">(<span class="type">int</span> I)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> pi = <span class="number">1</span>, n = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; I; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        n *= (<span class="type">double</span>)i / (<span class="number">2</span> * i + <span class="number">1</span>);</span><br><span class="line">        pi += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pi: %lf\n&quot;</span>, pi * <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果（I &#x3D; 25）:</p>
+<p><img src="/2019/01/12/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/4.png"></p>
+<p>Nice！</p>
+<p>可以看到，仅仅25次迭代，就有如此高的精度，且耗费时间小于0.01秒，很不错呢。</p>
+<hr>
+<p>对了，关于计时，其实很简单：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">clock_t</span> start, end;</span><br><span class="line"></span><br><span class="line">start = clock();</span><br><span class="line"><span class="comment">// method_1(N);</span></span><br><span class="line"><span class="comment">// method_2(N);</span></span><br><span class="line"><span class="comment">// method_3(I);</span></span><br><span class="line">method_4(I);</span><br><span class="line">end = clock();</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;time: %.2lf s\n&quot;</span>, (<span class="type">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br></pre></td></tr></table></figure>
+
+<p><code>clock_t</code> 类型和 <code>clock()</code> 函数在 <code>time.h</code> 头文件中，<code>clock()</code> 调用一次即记录此时的程序已运行时间，两次调用做差，即得中间过程的运行耗时。</p>
+<p>想查看完整的代码请访问我的 <a target="_blank" rel="noopener" href="https://github.com/chen-qingyu/C-Programs">GitHub</a></p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2018/11/13/Windows%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/13/Windows%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">Windows系统优化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-13 14:34:03" itemprop="dateCreated datePublished" datetime="2018-11-13T14:34:03+08:00">2018-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-03 10:07:55" itemprop="dateModified" datetime="2019-11-03T10:07:55+08:00">2019-11-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这是我自己在实践中总结的一套优化Windows系统的流程，按流程走一次就够了。适用于Windows 10。</p>
+<p>首先，下载一个很小的工具包：<a href="/download/Windows%E4%BC%98%E5%8C%96.zip">Windows优化</a>，然后按照下列步骤操作：</p>
+<ol>
+<li>设置-&gt;应用-&gt;应用和功能-&gt;卸载多余应用、功能</li>
+<li>卸载预装应用-&gt;<a href="#Uninstall">Uninstall</a></li>
+<li>回收站-&gt;属性-&gt;每个盘：直接删除，显示删除确认对话框</li>
+<li>快速访问-&gt;选项-&gt;Win+E打开此电脑、去掉隐私项</li>
+<li>删除此电脑那七个文件夹-&gt;&#x2F;WindowsRegistry.reg</li>
+<li>设置-&gt;系统-&gt;关于-&gt;重命名这台电脑</li>
+<li>优化右键菜单-&gt;&#x2F;RightMenuMgr&#x2F;RightMenuMgr.exe</li>
+<li>Windows管理工具-&gt;磁盘清理-&gt;以管理员模式清理系统盘</li>
+<li>安装<a target="_blank" rel="noopener" href="http://www.ccleaner.com/ccleaner/download">CCleaner</a>-&gt;快速清理、注册表清理-&gt;卸载CCleaner</li>
+</ol>
+<p>另外：</p>
+<ul>
+<li>如果是笔记本电脑可以：设置-&gt;系统-&gt;电源和睡眠-&gt;其他电源设置-&gt;关闭盖子时不采取任何操作，防止一不小心合上盖子休眠导致一些进程被kill。</li>
+<li>建议：桌面在开机后和关机前都没有任何图标（“此电脑”用<kbd>Win</kbd>+<kbd>E</kbd>打开，“回收站”不用），原因无他，好看而已（前提是有一张好看的壁纸）。</li>
+</ul>
+<hr>
+<p><span id="Uninstall">Uninstall</span></p>
+<p>管理员模式打开PowerShell，复制所需命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 应用商店：</span></span><br><span class="line">Get-AppxPackage *WindowsStore* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># OneNote：</span></span><br><span class="line">Get-AppxPackage *OneNote* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3D：</span></span><br><span class="line">Get-AppxPackage *3d* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># Camera相机：</span></span><br><span class="line">Get-AppxPackage *camera* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮件和日历：</span></span><br><span class="line">Get-AppxPackage *communi* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新闻订阅：</span></span><br><span class="line">Get-AppxPackage *bing* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># Groove音乐、电影与电视：</span></span><br><span class="line">Get-AppxPackage *zune* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 人脉：</span></span><br><span class="line">Get-AppxPackage *people* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 手机伴侣：</span></span><br><span class="line">Get-AppxPackage *phone* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 纸牌游戏：</span></span><br><span class="line">Get-AppxPackage *solit* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 录音机：</span></span><br><span class="line">Get-AppxPackage *soundrec* | Remove-AppxPackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># Xbox：</span></span><br><span class="line">Get-AppxPackage *xbox* | Remove-AppxPackage</span><br></pre></td></tr></table></figure>
+
+<p>解释一下原理：<code>Get-AppxPackage</code>是一条命令，后面接参数。<code>*</code>是通配符，能匹配任意字符串，因而<code>*WindowsStore*</code>表示含有<code>WindowsStore</code>的任意字符串，作为命令的参数。其他同理。由前一个命令得到的标准输出通过管道符<code>|</code>转换为标准输入传给<code>Remove-AppxPackage</code>这个命令进行卸载操作。</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">活着就是折腾，生命就是创造</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chen-qingyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

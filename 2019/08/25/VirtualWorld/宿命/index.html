@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chen-qingyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="来源：http:&#x2F;&#x2F;swarmagents.cn.13442.m8849.cn&#x2F;vm&#x2F;articles&#x2F;foreordination.htm作者：星新一 著    李有宽 译   不知从什么时候起，这个星球上就有了机器人。这儿是机器人的一统天下。也许是由于大气压中含有某种有毒成分吧，在整个星球上找不到任何有生命的动植物，只有机器人在到处活动着。除此以外，就是一望无际的奇岩怪石，乌黑如墨的海洋人…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宿命">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/08/25/VirtualWorld/%E5%AE%BF%E5%91%BD/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="来源：http:&#x2F;&#x2F;swarmagents.cn.13442.m8849.cn&#x2F;vm&#x2F;articles&#x2F;foreordination.htm作者：星新一 著    李有宽 译   不知从什么时候起，这个星球上就有了机器人。这儿是机器人的一统天下。也许是由于大气压中含有某种有毒成分吧，在整个星球上找不到任何有生命的动植物，只有机器人在到处活动着。除此以外，就是一望无际的奇岩怪石，乌黑如墨的海洋人…">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-25T07:53:08.000Z">
+<meta property="article:modified_time" content="2019-12-01T10:59:36.272Z">
+<meta property="article:tag" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chen-qingyu.github.io/2019/08/25/VirtualWorld/%E5%AE%BF%E5%91%BD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>宿命 | 青羽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">青羽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">恭喜你发现了一个不为人知的小岛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/25/VirtualWorld/%E5%AE%BF%E5%91%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          宿命
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-25 15:53:08" itemprop="dateCreated datePublished" datetime="2019-08-25T15:53:08+08:00">2019-08-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 18:59:36" itemprop="dateModified" datetime="2019-12-01T18:59:36+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Virtual-World/" itemprop="url" rel="index"><span itemprop="name">Virtual World</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="http://swarmagents.cn.13442.m8849.cn/vm/articles/foreordination.htm">http://swarmagents.cn.13442.m8849.cn/vm/articles/foreordination.htm</a><br>作者：星新一 著    李有宽 译</p>
+</blockquote>
+<hr>
+<p>不知从什么时候起，这个星球上就有了机器人。这儿是机器人的一统天下。也许是由于大气压中含有某种有毒成分吧，在整个星球上找不到任何有生命的动植物，只有机器人在到处活动着。除此以外，就是一望无际的奇岩怪石，乌黑如墨的海洋人……</p>
+<p>这些机器人不知疲倦地努力工作着，挖掘出大量的矿石并加以冶炼，进行加工，制作出各种各样的零件，然后把这些零件装配成和自己一模一样的机器人，连镌刻在躯体表面的号码都完全相同。</p>
+<p>无论是大雨滂沦、水流成河的雨季，还是滴水成冰的严寒隆冬，机器人们从未休息过，始终是勤勤恳恳地埋头工作着。在不懈的努力之下，机器人的数目不断地增长着。</p>
+<p>有时候，机器人也会互相谈论起一个问题来。</p>
+<p>“我们为什么会存在于这种地方的呢？”</p>
+<p>“首先，在这片陆地上出现了最初的第一个，然后，那个家伙就像我们现在这样，开始进行增添伙伴的工作，于是就产生了我们大家。除此以外的事情就不知道了。”</p>
+<p>——最初的第一个，这是事实，并非神话。机器人的电子头脑极为填密精细，容不得半点含糊不清或加以美化的想法。</p>
+<p>机器人每制造出来一个新的伙伴，就把自己的全部记忆都输入对方的电子头脑之中。因此，无论是谁都知道这件事情。这样一来，最初的第一个究竟是谁这个问题就无法解决了。因为大家的知识是均衡平等的。有关最初第一个出现以前的记忆在电子头脑里没有留下一丝一毫的印象，完全是一片空白。这里的所有的历史都是从那个时候开始的。如果从那以后的事情来考虑的话。可以推测，当初的第一个不可能是从天而降的。但是这又没有什么根据，只不过是一种假设而已。并且，机器人们在某种本能的愿望的驱使下，不顾一切在热衷于增添伙伴的工作，并不过多地考虑这件事情。</p>
+<p>可是，一旦达到了某个数目以后，机器人们就停止了增添伙伴的工作。当然，决不会开始寻欢作乐，嬉戏游玩的。机器人们全力以赴，转入了制造宇宙飞船的工作。</p>
+<p>与似前相比，这是一项更为艰难困苦的工作。从地面上开采大量的矿石，加以破碎，并对矿石进行精炼，然后制造出各种极其复杂的零件。为了获得宇宙航行所必需的能源矿藏，机器人们不得不挖掘了一个非常深的矿井。曾经有过好几次因为井壁塌陷而前功尽弃，不得不从头开始挖掘。但善于吃苦耐劳的机器人们全然不顾从井壁里渗透出来的污水，毫不停息地日夜奋战在井下。兢兢业业地挖掘着宝贵的能源矿藏。</p>
+<p>有时候势不可档的狂风暴雨呼啸着卷地而来，有时候惊心动魄的落地响雷隆隆不息，有时候天崩地裂般的强烈地震此起彼伏。但勇敢的机器人齐心协力地向极其恶劣的自然条件作着艰苦的斗争，奋不顾身地建造着宇宙飞船。虽然不知失败了多少次，但仍然是毫不泄气，信心百倍：决不肯放弃这一计划。</p>
+<p>“为什么我们如此热衷于这项工作呢？”</p>
+<p>“这是由于某种义务感或者说是责任感在鞭策着我。这是一种无论如何也无法抑制的冲动。如果能够制作成功，乘坐着宇宙飞船到星星的海洋里去邀游的话，肯定会遇上许多有趣的事情的。难道你们不想到宇宙之中去吗？”</p>
+<p>“啊，当然想去啦！虽然说不出什么理由，但必须把飞向宇宙作为我们的最高目标。也许这可以称之为宿命或者命运吧。”</p>
+<p>经过长期的艰苦奋斗，宇宙飞船终于制造出来了。每个机器人都折腾得焦头烂额，缺手断脚，破烂不堪，已经再也找不到一个完好如初的机器人了。</p>
+<p>在这种情况下，大家只好推选了一个相比之下伤势最轻的机器人乘上了宇宙飞船。在全体机器人的注目送行之下，宇宙飞船出发了，尾部喷射着鲜亮的火焰腾空而起，向着茫茫太空直奔而去。</p>
+<p>一旦到了完全失重的太空之中以后，这个机器人的电子头脑中就发生了某种变化，一种新的想法油然而生。于是，机器人便准确无误地指引着宇宙飞船沿着一条航线前进，在不计其数的星球中选定了一个明确的目标。</p>
+<p>机器人驾驶着宇宙飞船，穿透死一般的寂静，在虚无缥缈、广袤无垠的太空中努力地向着那个唯一的目标前进，前进，不断地前进！十万火急，刻不容缓！也不知从什么地方来的一股巨大的力量，宇宙飞船的速度越来越快，已经达到了最大限度。</p>
+<p>最后，太空旅行结束的时候终于来到了。毫不犹豫，立刻着陆！可是，不知什么缘故，着陆缓冲装置突然发生了故障，宇宙飞船并未减速，呼啸着冲向大地。一声惊天动地的巨响，所有的一切都变成了大大小小的碎片，翻滚旋转着向四处飞散。</p>
+<p>远处响起了震耳欲聋的欢呼声，人们从四面八方如同潮水一般蜂涌而来。其中有一个声音格外响亮，那是一位拿着麦克风的男子在拼命地呼叫。</p>
+<p>“诸位，请安静一下，请安静一下！终于有一个勇敢的机器人凯旋归来啦！这是本世纪规模最大的竞赛！我们向每个星球上都派遣了一个机器人，并且按照不同的号码向大家发售了彩票，看哪一个机器人最早返回地球。这是一场史无前例的大：很抱歉，让大家翘首踏足、望眼欲穿地盼了好久，但现在这位勇士终于冲破重重艰难险阻，胜利返回了地球。如果您手中持有的彩票上的号码与这个机器人的号码相同的话，那就是万分幸运地中了头彩，立刻就能得到一笔数目极其惊人的巨款……”</p>
+<p>机器人已经粉身碎骨，再也无法用电子头脑进行思考了。如果电子头脑能够进行正常的工作的话，那么听到这番话以后……</p>
+<p>——即使一切都完好无损，并且能够听懂刚才的那些话，机器人也决不会产生任何感想的。因为所有这一切都是按照事先设计好的程序进行的，并没有发生丝毫差错。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/08/25/VirtualWorld/%E8%8F%A9%E6%8F%90%E5%8F%B8/" rel="prev" title="菩提司">
+      <i class="fa fa-chevron-left"></i> 菩提司
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/08/25/CA%E6%A8%A1%E6%8B%9F%E8%82%A1%E5%B8%82/" rel="next" title="CA模拟股市">
+      CA模拟股市 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">活着就是折腾，生命就是创造</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chen-qingyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chen-qingyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
