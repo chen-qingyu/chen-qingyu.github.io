@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chen-qingyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="十二个Python小技巧">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/08/19/%E5%8D%81%E4%BA%8C%E4%B8%AAPython%E5%B0%8F%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="1. 进制格式化输出代码： 1234print(&quot;bin:&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;,&amp;#123;:6b&amp;#125;&quot;.format(2, 4, 8, 16))print(&quot;oct:&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#125;,&amp;#123;:6o&amp;#1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chen-qingyu.github.io/2019/08/19/%E5%8D%81%E4%BA%8C%E4%B8%AAPython%E5%B0%8F%E6%8A%80%E5%B7%A7/1.png">
+<meta property="article:published_time" content="2019-08-19T01:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-24T04:12:02.677Z">
+<meta property="article:tag" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chen-qingyu.github.io/2019/08/19/%E5%8D%81%E4%BA%8C%E4%B8%AAPython%E5%B0%8F%E6%8A%80%E5%B7%A7/1.png">
+
+<link rel="canonical" href="https://chen-qingyu.github.io/2019/08/19/%E5%8D%81%E4%BA%8C%E4%B8%AAPython%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>十二个Python小技巧 | 青羽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">青羽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">恭喜你发现了一个不为人知的小岛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/08/19/%E5%8D%81%E4%BA%8C%E4%B8%AAPython%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          十二个Python小技巧
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-19 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-19T09:00:00+08:00">2019-08-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-24 12:12:02" itemprop="dateModified" datetime="2021-07-24T12:12:02+08:00">2021-07-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="1-进制格式化输出"><a href="#1-进制格式化输出" class="headerlink" title="1. 进制格式化输出"></a>1. 进制格式化输出</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;bin:&#123;:6b&#125;,&#123;:6b&#125;,&#123;:6b&#125;,&#123;:6b&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;oct:&#123;:6o&#125;,&#123;:6o&#125;,&#123;:6o&#125;,&#123;:6o&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;dec:&#123;:6d&#125;,&#123;:6d&#125;,&#123;:6d&#125;,&#123;:6d&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hex:&#123;:6x&#125;,&#123;:6x&#125;,&#123;:6x&#125;,&#123;:6x&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin:    10,   100,  1000, 10000</span><br><span class="line">oct:     2,     4,    10,    20</span><br><span class="line">dec:     2,     4,     8,    16</span><br><span class="line">hex:     2,     4,     8,    10</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-序列倒序"><a href="#2-序列倒序" class="headerlink" title="2. 序列倒序"></a>2. 序列倒序</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ch = <span class="string">&quot;I LOVE YOU&quot;</span></span><br><span class="line">ls = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">st = (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(ch[::-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(ls[::-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(st[::-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UOY EVOL I</span><br><span class="line">[3, 2, 1, 0]</span><br><span class="line">(3, 2, 1, 0)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-与-参数"><a href="#3-与-参数" class="headerlink" title="3. * 与 ** 参数"></a>3. * 与 ** 参数</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">testTuple</span>(<span class="params">*a</span>):</span><br><span class="line">    <span class="comment"># *a 代表一个元组类型</span></span><br><span class="line">    result = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">        result += i</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">testDict</span>(<span class="params">**b</span>):</span><br><span class="line">    <span class="comment"># **b 代表一个字典类型</span></span><br><span class="line">    result = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> b:</span><br><span class="line">        result += i</span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"><span class="built_in">print</span>(testTuple(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(testDict(m=<span class="number">1</span>, n=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1, 2, 3, 4)</span><br><span class="line">10</span><br><span class="line">&#123;&#x27;m&#x27;: 1, &#x27;n&#x27;: 2&#125;</span><br><span class="line">mn</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-this库"><a href="#4-this库" class="headerlink" title="4. this库"></a>4. this库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#x27;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#x27;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#x27;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#x27;s do more of those!</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-keyword库"><a href="#5-keyword库" class="headerlink" title="5. keyword库"></a>5. keyword库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line"><span class="built_in">print</span>(keyword.kwlist)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(keyword.kwlist))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;False&#x27;, &#x27;None&#x27;, &#x27;True&#x27;, &#x27;and&#x27;, &#x27;as&#x27;, &#x27;assert&#x27;, &#x27;async&#x27;, &#x27;await&#x27;, &#x27;break&#x27;, &#x27;class&#x27;, &#x27;continue&#x27;, &#x27;def&#x27;, &#x27;del&#x27;, &#x27;elif&#x27;, &#x27;else&#x27;, &#x27;except&#x27;, &#x27;finally&#x27;, &#x27;for&#x27;, &#x27;from&#x27;, &#x27;global&#x27;, &#x27;if&#x27;, &#x27;import&#x27;, &#x27;in&#x27;, &#x27;is&#x27;, &#x27;lambda&#x27;, &#x27;nonlocal&#x27;, &#x27;not&#x27;, &#x27;or&#x27;, &#x27;pass&#x27;, &#x27;raise&#x27;, &#x27;return&#x27;, &#x27;try&#x27;, &#x27;while&#x27;, &#x27;with&#x27;, &#x27;yield&#x27;]</span><br><span class="line">35</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-dis库"><a href="#6-dis库" class="headerlink" title="6. dis库"></a>6. dis库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dis</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">dis.dis(foo)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">55           0 LOAD_FAST                0 (a)</span><br><span class="line">             2 LOAD_FAST                1 (b)</span><br><span class="line">             4 BINARY_ADD</span><br><span class="line">             6 RETURN_VALUE</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-os库"><a href="#7-os库" class="headerlink" title="7. os库"></a>7. os库</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="built_in">print</span>(os.getcwd())</span><br><span class="line"><span class="built_in">print</span>(os.cpu_count())</span><br><span class="line"><span class="built_in">print</span>(os.getlogin())</span><br><span class="line"><span class="built_in">print</span>(os.urandom(<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(os.system(<span class="string">&quot;echo Hello World!&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">F:\Python</span><br><span class="line">8</span><br><span class="line">YU</span><br><span class="line">b&#x27;\xd1c_?&#123;2\xf9\xb7\x12G&#x27;</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-Unicode码"><a href="#8-Unicode码" class="headerlink" title="8. Unicode码"></a>8. Unicode码</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ch = <span class="string">&quot;0123456789\x00abcd\x00编程喵\x00(●&#x27;◡&#x27;●)&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">ord</span>, <span class="built_in">list</span>(ch))))</span><br><span class="line"><span class="comment"># Python3中map()返回的不再是list而是iterators</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 0, 97, 98, 99, 100, 0, 32534, 31243, 21941, 0, 40, 9679, 39, 9697, 39, 9679, 41]</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-皮卡丘"><a href="#9-皮卡丘" class="headerlink" title="9. 皮卡丘~"></a>9. 皮卡丘~</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">　　 へ　　　　　／|</span></span><br><span class="line"><span class="string">　　/＼7　　　 ∠＿/</span></span><br><span class="line"><span class="string">　 /　│　　 ／　／</span></span><br><span class="line"><span class="string">　│　Z ＿,＜　／　　 /`ヽ</span></span><br><span class="line"><span class="string">　│　　　　　ヽ　　 /　　〉</span></span><br><span class="line"><span class="string">　 Y　　　　　`　 /　　/</span></span><br><span class="line"><span class="string">　ｲ●　､　●　　⊂⊃〈　　/</span></span><br><span class="line"><span class="string">　()　 へ　　　　|　＼〈</span></span><br><span class="line"><span class="string">　　&gt;ｰ ､_　 ィ　 │ ／／</span></span><br><span class="line"><span class="string">　 / へ　　 /　ﾉ＜| ＼＼</span></span><br><span class="line"><span class="string">　 ヽ_ﾉ　　(_／　 │／／</span></span><br><span class="line"><span class="string">　　7　　　　　　　|／</span></span><br><span class="line"><span class="string">　　＞―r￣￣`ｰ―＿　</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>)</span><br><span class="line"><span class="comment"># &#x27; 或 &quot; 不能包含换行符</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">　　 へ　　　　　／|</span><br><span class="line">　　/＼7　　　 ∠＿/</span><br><span class="line">　 /　│　　 ／　／</span><br><span class="line">　│　Z ＿,＜　／　　 /`ヽ</span><br><span class="line">　│　　　　　ヽ　　 /　　〉</span><br><span class="line">　 Y　　　　　`　 /　　/</span><br><span class="line">　ｲ●　､　●　　⊂⊃〈　　/</span><br><span class="line">　()　 へ　　　　|　＼〈</span><br><span class="line">　　&gt;ｰ ､_　 ィ　 │ ／／</span><br><span class="line">　 / へ　　 /　ﾉ＜| ＼＼</span><br><span class="line">　 ヽ_ﾉ　　(_／　 │／／</span><br><span class="line">　　7　　　　　　　|／</span><br><span class="line">　　＞―r￣￣`ｰ―＿　</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-列表生成式"><a href="#10-列表生成式" class="headerlink" title="10. 列表生成式"></a>10. 列表生成式</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>([x * x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span>])</span><br><span class="line">d = &#123;<span class="string">&#x27;Adam&#x27;</span>: <span class="number">95</span>, <span class="string">&#x27;Lisa&#x27;</span>: <span class="number">89</span>, <span class="string">&#x27;Bill&#x27;</span>: <span class="number">60</span>&#125;</span><br><span class="line">table = [<span class="string">&quot;&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;&quot;</span> % (name, score) <span class="keyword">for</span> name, score <span class="keyword">in</span> d.items()]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;out.html&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> fo:</span><br><span class="line">    fo.write(<span class="string">&#x27;&lt;table border=&quot;1&quot;&gt;&lt;tr&gt;&lt;th&gt;name&lt;/th&gt;&lt;th&gt;score&lt;/th&gt;&lt;/tr&gt;&#x27;</span> + <span class="string">&quot;\n&quot;</span>.join(table) + <span class="string">&quot;&lt;/table&gt;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 9, 25, 49, 81]</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/19/%E5%8D%81%E4%BA%8C%E4%B8%AAPython%E5%B0%8F%E6%8A%80%E5%B7%A7/1.png"></p>
+<h3 id="11-switch"><a href="#11-switch" class="headerlink" title="11. switch"></a>11. switch</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> = <span class="built_in">input</span>(<span class="string">&quot;Please input a case: &quot;</span>)</span><br><span class="line">switch = &#123;<span class="string">&#x27;1&#x27;</span>: <span class="string">&#x27;case 1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>: <span class="string">&#x27;case 2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>: <span class="string">&#x27;case 3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(switch.get(<span class="keyword">case</span>,<span class="string">&#x27;Invalid input&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">1</span></span><br><span class="line">case <span class="number">1</span></span><br><span class="line"><span class="built_in">PS</span> F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">2</span></span><br><span class="line">case <span class="number">2</span></span><br><span class="line"><span class="built_in">PS</span> F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">3</span></span><br><span class="line">case <span class="number">3</span></span><br><span class="line"><span class="built_in">PS</span> F:\Python&gt; .\test.py</span><br><span class="line">Please input a case: <span class="number">4</span></span><br><span class="line">Invalid input</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-提取每一位数字"><a href="#12-提取每一位数字" class="headerlink" title="12. 提取每一位数字"></a>12. 提取每一位数字</h3><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">eval</span>, <span class="built_in">list</span>(<span class="built_in">str</span>(<span class="number">2333</span>)))))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2, 3, 3, 3]</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/08/18/%E4%B8%80%E5%B0%8F%E6%97%B6%E6%90%AD%E5%BB%BA%E5%AE%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" rel="prev" title="一小时搭建完自己的个人网站">
+      <i class="fa fa-chevron-left"></i> 一小时搭建完自己的个人网站
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/08/23/VirtualWorld/%E8%99%9A%E6%8B%9F%E4%B8%96%E7%95%8C/" rel="next" title="虚拟世界">
+      虚拟世界 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%BF%9B%E5%88%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA"><span class="nav-number">1.</span> <span class="nav-text">1. 进制格式化输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BA%8F%E5%88%97%E5%80%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">2. 序列倒序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%B8%8E-%E5%8F%82%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">3. * 与 ** 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-this%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">4. this库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-keyword%E5%BA%93"><span class="nav-number">5.</span> <span class="nav-text">5. keyword库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-dis%E5%BA%93"><span class="nav-number">6.</span> <span class="nav-text">6. dis库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-os%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">7. os库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Unicode%E7%A0%81"><span class="nav-number">8.</span> <span class="nav-text">8. Unicode码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E7%9A%AE%E5%8D%A1%E4%B8%98"><span class="nav-number">9.</span> <span class="nav-text">9. 皮卡丘~</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F"><span class="nav-number">10.</span> <span class="nav-text">10. 列表生成式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-switch"><span class="nav-number">11.</span> <span class="nav-text">11. switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E6%8F%90%E5%8F%96%E6%AF%8F%E4%B8%80%E4%BD%8D%E6%95%B0%E5%AD%97"><span class="nav-number">12.</span> <span class="nav-text">12. 提取每一位数字</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">活着就是折腾，生命就是创造</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

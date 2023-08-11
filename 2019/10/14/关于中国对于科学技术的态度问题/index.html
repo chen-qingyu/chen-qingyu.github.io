@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chen-qingyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="起因是在网上看到了这么一篇文章:千万不要一辈子靠技术生存 ，我承认，说的是事实。但我想就其中几点说说我的想法。 在看下文之前，我希望你先仔细地看完那篇文章，这样你才清楚我想表达什么。 如今有一种思想，认为要想在中国混得好，主要得靠人脉。这是事实，也是从来就如此的，但是，从来如此，便对么？ 要八面玲珑，要见风使舵。要学会人情往来，要知晓人情世故。小时候，我是不喜欢这样的，那时候天真，觉得世界可以很简">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于中国对于科学技术的态度问题">
+<meta property="og:url" content="https://chen-qingyu.github.io/2019/10/14/%E5%85%B3%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%AF%B9%E4%BA%8E%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF%E7%9A%84%E6%80%81%E5%BA%A6%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="青羽的博客">
+<meta property="og:description" content="起因是在网上看到了这么一篇文章:千万不要一辈子靠技术生存 ，我承认，说的是事实。但我想就其中几点说说我的想法。 在看下文之前，我希望你先仔细地看完那篇文章，这样你才清楚我想表达什么。 如今有一种思想，认为要想在中国混得好，主要得靠人脉。这是事实，也是从来就如此的，但是，从来如此，便对么？ 要八面玲珑，要见风使舵。要学会人情往来，要知晓人情世故。小时候，我是不喜欢这样的，那时候天真，觉得世界可以很简">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-14T13:16:24.000Z">
+<meta property="article:modified_time" content="2021-07-24T04:11:14.279Z">
+<meta property="article:tag" content="C, Python, Java(OOP), Scheme(FP), Linux, Mathematica, MATLAB, Multisim, NetLogo">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chen-qingyu.github.io/2019/10/14/%E5%85%B3%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%AF%B9%E4%BA%8E%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF%E7%9A%84%E6%80%81%E5%BA%A6%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>关于中国对于科学技术的态度问题 | 青羽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">青羽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">恭喜你发现了一个不为人知的小岛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chen-qingyu.github.io/2019/10/14/%E5%85%B3%E4%BA%8E%E4%B8%AD%E5%9B%BD%E5%AF%B9%E4%BA%8E%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF%E7%9A%84%E6%80%81%E5%BA%A6%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="活着就是折腾，生命就是创造">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青羽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于中国对于科学技术的态度问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-14 21:16:24" itemprop="dateCreated datePublished" datetime="2019-10-14T21:16:24+08:00">2019-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-24 12:11:14" itemprop="dateModified" datetime="2021-07-24T12:11:14+08:00">2021-07-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Comments/" itemprop="url" rel="index"><span itemprop="name">Comments</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>起因是在网上看到了这么一篇文章:<a target="_blank" rel="noopener" href="http://www.apkbus.com/blog-822717-80431.html">千万不要一辈子靠技术生存 </a>，我承认，说的是事实。但我想就其中几点说说我的想法。</p>
+<p>在看下文之前，我希望你先仔细地看完那篇文章，这样你才清楚我想表达什么。</p>
+<p>如今有一种思想，认为要想在中国混得好，主要得靠人脉。这是事实，也是从来就如此的，但是，<strong>从来如此，便对么？</strong></p>
+<p>要八面玲珑，要见风使舵。要学会人情往来，要知晓人情世故。小时候，我是不喜欢这样的，那时候天真，觉得世界可以很简单很美好。长大了些，发现世界上有很多“灰色”，社会的运作规律并不是我们理所当然以为的那样，渐渐地我也开始察言观色，开始见人说人话，见鬼说鬼话。现在，我越来越觉得，社会本不应该这么复杂，我们可以改变，我们只是不敢改变。</p>
+<blockquote>
+<p><em>一、在中国你千万不要以为学习技术就可以换来稳定的生活和高的薪水待遇，你更不要认为那些从事市场开发，跑腿的人，没有前途。</em></p>
+</blockquote>
+<p>为什么在中国就千万不要以为学习技术就可以换来稳定的生活和高的薪水待遇？</p>
+<p>因为中国目前是“关系社会”。哪怕是在象牙塔里，你可能也能窥得一二，更别说社会上了。</p>
+<p>为什么那篇文章的作者要在前面加上“在中国”三个字？</p>
+<p>因为那篇文章的作者也清楚，在真正尊重科学技术的国家里，学习技术就是可以换来稳定的生活和高的薪水待遇。</p>
+<blockquote>
+<p><em>二、在学习技术的时候千万不要认为如果做到技术最强，就可以成为100%受尊重的人。</em></p>
+</blockquote>
+<p>如果看过原文，你就会知道这句话的前提是这个人其他方面都正常，并不是说恃才傲物之类的。也就是说，一个各方面都算正常的人，在自己领域的技术上做到了最强，也不会成为100%受尊重的人。为什么？很简单，因为人们根本就不尊重科学技术，哪里还会尊重科学技术工作者？</p>
+<blockquote>
+<p><em>朋友们你知道吗?不管你技术有多强，你也不可能自由的腾出时间象别人那样研究一下LINUX源码，甚至写一个LINUX样的杰作来表现你的才能。需要做的就是按照要求写代码，写代码的含义就是都规定好，你按照规定写，你很快就会发现你昨天写的代码，跟今天写的代码有很多类似，等你写过一段时间的代码，你将领略：复制，拷贝，粘贴那样的技术对你来说是何等重要。(如果你没有做过1年以上的真正意义上的开发不要反驳我)。</em></p>
+</blockquote>
+<p>这段话不知道你们读着感觉怎样，我只说说我的感觉。我感觉到了一个原本热爱技术的人，在工作后发现原来领导们并不管他技术怎么样，领导们需要的只是一颗能完成既定任务的螺丝钉，而他一边为了KPI消耗着自己的热情，一边羡慕着Linus Torvalds所处的环境，久而久之，不得不接受了现实，然后转过身劝告下一代的新人：“放弃你的幻想吧，去做一颗螺丝钉”。</p>
+<blockquote>
+<p><em>三、你更不要认为，如果我技术够好，我就自己创业，自己有创业的资本，因为自己是搞技术的。<br>如果你那样认为，真的是大错特错了，你可以做个调查在非技术人群中，没有几个人知道C#与JAVA的，更谈不上来欣赏你的技术是好还是不好。一句话，技术仅仅是一个工具，善于运用这个工具为别人干活的人，却往往不太擅长用这个工具来为自己创业，因为这是两个概念，训练的技能也是完全不同的。<br>创业最开始的时候，你的人际关系，你处理人际关系的能力，你对社会潜规则的认识，还有你明白不明白别人的心，你会不会说让人喜欢的话，还有你对自己所提供的服务的策划和推销等等，也许有一万，一百万个值得我们重视的问题，但你会发现技术却很少有可能包含在这一万或一百万之内，如果你创业到了一个快成功的阶段，你会这样告诉自己：我干吗要亲自做技术，我聘一个人不就行了，这时候你才真正会理解技术的作用，和你以前做技术人员的作用。</em></p>
+</blockquote>
+<p>这篇文章也有我比较同意的部分，比如这第三点。</p>
+<p>但是，我能想象这样一个社会：那不是一个以人际关系为主导的社会，而是以科学技术为主导的社会。有技术就能创业，因为所有中间过程都由一个统一的公正的透明的中间机构来处理，科学技术工作者不再需要知晓那些乱七八糟的潜规则，做到真正的“按劳分配，各取所需”，这才是<strong>真正的社会主义</strong>。但毕竟我们中国正处于并将长期处于社会主义初级阶段，未来的路，还长。</p>
+<blockquote>
+<p><em>不管你是学习技术为了找工作还是创业，你都要对技术本身有个清醒的认识，在中国不会出现Bill Gates，因为，中国目前还不是十分的尊重技术人才，还仅仅的停留在把软件技术人才当作人才机器来用的尴尬境地。</em></p>
+</blockquote>
+<p>是的，正因为中国目前还不是十分的尊重技术人才，所以所有的技术人才必须先自己尊重自己！这是一切革命（是的，你没看错，就是<strong>革命</strong>，一场决定中国近未来科技发展速度的思想革命）工作的前提。</p>
+<p><strong>“尊重知识、尊重人才”</strong>是邓公提出来的。</p>
+<blockquote>
+<p>1977年5月24日，邓小平与中央两位同志谈话时指出：“我们要实现现代化，关键是科学技术要能上去。发展科学技术，不抓教育不行。靠空讲不能实现现代化，必须有知识，有人才。”，“一定要在党内造成一种空气：尊重知识，尊重人才。”这是对“文革”极“左”思潮泛滥时期盛行的“知识越多越反动”、“知识分子是臭老九”等谬论的有力批驳。它为当时教育、科技战线的拨乱反正指明了方向。从此，“尊重知识”、“尊重人才”以及重申“知识分子是工人阶级的一部分”成了新时期党的知识分子政策表述的代表性口号。</p>
+</blockquote>
+<p><strong>“科学技术是第一生产力”</strong>也是邓公提出来的。</p>
+<blockquote>
+<p>1988年9月，邓小平同志根据当代科学技术发展的趋势和现状，在全国科学大会上提出了“科学技术是第一生产力”的论断。邓小平同志的这一论断，体现了马克思主义的生产力理论和科学观。“科学技术是第一生产力”，既是现代科学技术发展的重要特点，也是科学技术发展必然结果。</p>
+</blockquote>
+<p><strong>科学技术工作者在这个革命中失去的只是锁链，我们获得的将是整个世界。</strong></p>
+<p><strong>全世界科学技术工作者，联合起来！</strong></p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/09/30/%E5%A6%82%E4%BD%95%E6%88%90%E9%95%BF/" rel="prev" title="如何成长">
+      <i class="fa fa-chevron-left"></i> 如何成长
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/24/%E5%85%B3%E4%BA%8E%E6%94%B9%E8%BF%9B%E5%A4%A7%E5%AD%A6%E6%95%99%E8%82%B2%E7%9A%84%E5%BB%BA%E8%AE%AE/" rel="next" title="关于改进大学教育的建议">
+      关于改进大学教育的建议 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">活着就是折腾，生命就是创造</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
