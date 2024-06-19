@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
-timezone: ''
+title: '青羽的博客'
+subtitle: '恭喜你发现了一个不为人知的小岛'
+description: '活着就是折腾，生命就是创造'
+keywords: 'C, C++, Rust, Python'
+author: '青羽'
+language: 'zh-CN'
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://chen-qingyu.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -101,4 +101,5 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repo: 'https://github.com/chen-qingyu/chen-qingyu.github.io.git'
