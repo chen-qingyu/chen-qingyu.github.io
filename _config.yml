@@ -101,5 +101,4 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
-  repo: 'https://github.com/chen-qingyu/chen-qingyu.github.io.git'
+  type: ''
