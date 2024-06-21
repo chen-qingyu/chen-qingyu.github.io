@@ -9,7 +9,6 @@ description: '活着就是折腾，生命就是创造'
 keywords: 'C, C++, Rust, Python'
 author: '青羽'
 language: 'zh-CN'
-timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
