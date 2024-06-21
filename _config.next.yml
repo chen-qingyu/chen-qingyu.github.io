@@ -166,6 +166,7 @@ social:
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
+  知乎: https://www.zhihu.com/people/liang-zi-yu-77 || fab fa-zhihu
 
 social_icons:
   enable: true
