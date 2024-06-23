@@ -1,10 +1,10 @@
 ---
 title: Mathematica绘制函数
-date: 2019-05-16 09:00:00
+date: 2019-05-16
 categories: Mathematica
 ---
 
-请欣赏一下Mathematica绘制的漂亮的函数图\~ヾ(^▽^)
+请欣赏一下 Mathematica 绘制的漂亮的函数图~ヾ(^▽^)
 
 ---
 
@@ -49,7 +49,7 @@ Plot[{x*Sin[1/x], x, -x}, {x, -0.1, 0.1}, PlotRange -> 0.1, AspectRatio -> 1, Fi
 ---
 
 ```mathematica
-t = Table[Plot[f[x], {x, -2*Pi, 2*Pi}, PlotRange -> 2*Pi, AspectRatio -> 1, ExclusionsStyle -> Dashed, PlotLabel -> f], {f, {Sin, Cos, Tan, Cot, Sec, Csc}}]; 
+t = Table[Plot[f[x], {x, -2*Pi, 2*Pi}, PlotRange -> 2*Pi, AspectRatio -> 1, ExclusionsStyle -> Dashed, PlotLabel -> f], {f, {Sin, Cos, Tan, Cot, Sec, Csc}}];
 GraphicsGrid[{t[[{1, 3, 5}]], t[[{2, 4, 6}]]}, ImageSize -> Large]
 ```
 
@@ -106,7 +106,7 @@ PolarPlot[Sin[6*t] + 0.1*RandomReal[], {t, 0, 2*Pi}, ColorFunction -> Hue, Axes 
 ---
 
 ```mathematica
-f = Sin[Range[0, 12*Pi, 0.1]]; 
+f = Sin[Range[0, 12*Pi, 0.1]];
 ListPolarPlot[{f, 0.8*f, 0.6*f, 0.4*f}, Joined -> True, Axes -> False, PlotStyle -> {Purple, Red, Orange, Yellow}]
 ```
 
@@ -190,6 +190,6 @@ MandelbrotSetPlot[]
 
 ![](Mathematica绘制函数/19.png)
 
-Mathematica内置了许多函数图，曼德勃罗集合图是其中之一。这被称为“上帝的指纹”。
+Mathematica 内置了许多函数图，曼德勃罗集合图是其中之一。这被称为“上帝的指纹”。
 
 ---
