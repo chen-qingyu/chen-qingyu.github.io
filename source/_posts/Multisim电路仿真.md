@@ -4,7 +4,7 @@ date: 2019-01-19
 categories: Multisim
 ---
 
-update 2024.06.23: 合并两篇关于 Multisim 的文章
+update 2024.06.23: 合并两篇关于 Multisim 的文章。
 
 ---
 
