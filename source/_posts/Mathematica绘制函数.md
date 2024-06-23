@@ -4,7 +4,7 @@ date: 2019-05-16
 categories: Mathematica
 ---
 
-请欣赏一下 Mathematica 绘制的漂亮的函数图~ヾ(^▽^)
+请欣赏一下 Mathematica 绘制的漂亮的函数图~ヾ(\^▽\^)
 
 ---
 
