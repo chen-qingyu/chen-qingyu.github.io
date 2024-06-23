@@ -2,7 +2,6 @@
 title: Multisim电路仿真
 date: 2019-01-19
 categories: Multisim
-mathjax: true
 ---
 
 update 2024.06.23: 合并两篇关于 Multisim 的文章
