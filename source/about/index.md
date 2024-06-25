@@ -76,23 +76,37 @@ QQ：[236521827](http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes)
 
 # Creed
 
-1. Access to computers —— and anything that might teach you something about the way the world works —— should be unlimited and total. Always yield to the Hands-On Imperative!
+> Access to computers —— and anything that might teach you something about the way the world works —— should be unlimited and totaAlways yield to the Hands-On Imperative!
+>
+> All information should be free.
+>
+> Mistrust Authority —— Promote Decentralization.
+>
+> Hackers should be judged by their hacking, not bogus criteria such as degrees, age, race, or position.
+>
+> You can create art and beauty on a computer.
+>
+> Computers can change your life for the better.
+>
+> —— [Hacker ethic](https://en.wikipedia.org/wiki/Hacker_ethic)
 
-2. All information should be free.
+---
 
-3. Mistrust Authority —— Promote Decentralization.
-
-4. Hackers should be judged by their hacking, not bogus criteria such as degrees, age, race, or position.
-
-5. You can create art and beauty on a computer.
-
-6. Computers can change your life for the better.
+> Is there such a thing as a deathless happiness that can bring suffering and stress to a total end?
+>
+> If there is, can this happiness be found through human effort?
+>
+> If so, can it be found in a harmless and blameless way?
+>
+> These are the questions that, 2,600 years ago, led a young man in northern India to leave his family, go into the wilderness, and search for the answer within himself. Eventually he awakened to the fact that the answer to all three questions was Yes: Yes, there is a deathless happiness that brings suffering to a total end. Yes, it can be found through human effort. And Yes, that effort is harmless and without blame. In awakening to these facts, he became the Buddha: the Awakened One. Devoting the rest of his life to teaching others how to find the same happiness for themselves, he established an apprenticeship of practice and thought that has branched into the many forms of Buddhism we know today.
+>
+> —— [The Buddha’s Teachings](https://www.dhammatalks.org/books/BuddhasTeachings/Section0003.html)
 
 # Saying
 
 > 即使全世界都丧心病狂，即使所有人都想去抢银行，我也不会跟他们一样。
 >
-> ——朴树
+> —— 朴树
 
 <br>
 
@@ -104,7 +118,7 @@ QQ：[236521827](http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes)
 >
 > 于无所希望中得救
 >
-> ——鲁迅
+> —— 鲁迅
 
 <br>
 
@@ -114,7 +128,7 @@ QQ：[236521827](http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes)
 >
 > 一个必然会降临的节日。
 >
-> ——史铁生
+> —— 史铁生
 
 <br>
 
@@ -142,7 +156,7 @@ QQ：[236521827](http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes)
 >
 > 稍微有了期待
 >
-> ——秋田ひろむ
+> —— 秋田ひろむ
 
 ---
 
