@@ -84,11 +84,11 @@ QQ：[236521827](http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes)
 
 # Creed
 
-> Access to computers —— and anything that might teach you something about the way the world works —— should be unlimited and totaAlways yield to the Hands-On Imperative!
+> Access to computers — and anything which might teach you something about the way the world works — should be unlimited and total. Always yield to the Hands-On Imperative!
 >
 > All information should be free.
 >
-> Mistrust Authority —— Promote Decentralization.
+> Mistrust authority — promote decentralization.
 >
 > Hackers should be judged by their hacking, not bogus criteria such as degrees, age, race, or position.
 >
