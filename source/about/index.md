@@ -68,7 +68,7 @@ Linux 的 conf 要会配<br>
 
 折腾这些的初衷是想记录、想分享、想创造~~想赚钱~~。我的水平并不算高，倘若能交几个朋友那就满足了。
 
-另外，原先的分类 Virtual World 删除了，因为宝藏网站 [Internet Archive](https://archive.org/) 也做了[备份](https://web.archive.org/web/20211020163321/http://swarmagents.cn.13442.m8849.cn/vm/index.htm)。
+另外，删除了之前对 Virtual World 的备份，因为宝藏网站 [Internet Archive](https://archive.org/) 也做了[备份](https://web.archive.org/web/20211020163321/http://swarmagents.cn.13442.m8849.cn/vm/index.htm)。
 
 _（目前仍在整理并重构博客文章，空闲时间并不多，进度可能稍慢）_
 
