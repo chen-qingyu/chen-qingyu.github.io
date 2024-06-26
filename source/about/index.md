@@ -70,8 +70,6 @@ Linux 的 conf 要会配<br>
 
 另外，删除了之前对 Virtual World 的备份，因为宝藏网站 [Internet Archive](https://archive.org/) 也做了[备份](https://web.archive.org/web/20211020163321/http://swarmagents.cn.13442.m8849.cn/vm/index.htm)。
 
-_（目前仍在整理并重构博客文章，空闲时间并不多，进度可能稍慢）_
-
 # Contact
 
 既然都翻到这里了，就可以给联系方式看。
