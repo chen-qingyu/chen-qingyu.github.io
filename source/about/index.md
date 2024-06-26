@@ -66,11 +66,11 @@ Linux 的 conf 要会配<br>
 
 # Contact
 
-既然都翻到这里了，就可以给联系方式看。
+既然都翻到这里了，就可以给联系方式。
 
-QQ：[236521827](http://wpa.qq.com/msgrd?v=3&uin=236521827&site=qq&menu=yes)
+QQ：236521827
 
-个人微信号：Reincarnation_1001
+微信号：Reincarnation_1001
 
 目前住在四川成都，职业是软件工程师，主要写 C++，业余写 Rust。
 
