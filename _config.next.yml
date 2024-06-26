@@ -104,7 +104,6 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  订阅: /atom.xml || fa fa-rss
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -160,10 +159,12 @@ site_state: true
 social:
   GitHub: https://github.com/chen-qingyu || fab fa-github
   知乎: https://www.zhihu.com/people/liang-zi-yu-77 || fab fa-zhihu
+  E-Mail: mailto:chen_qingyu@qq.com || fa fa-envelope
+  订阅: /atom.xml || fa fa-rss
 
 social_icons:
   enable: true
-  icons_only: false
+  icons_only: true
   transition: false
 
 # Blog rolls
