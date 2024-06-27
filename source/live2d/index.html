@@ -1,0 +1,23 @@
+<body>
+  收集一些好看的 Live2D 的模型，后期考虑支持多个模型和互动，甚至还可以加上AI。
+  想要有 Akemi Homura 和 Lain 的模型。 现在只是一个Demo。
+  <div id="status">
+    Loading model... (因为启用了 PJAX，初次访问可能需要刷新)
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-render@0.0.5/bundle.js"></script>
+<script>
+  document.title = "米奇妙妙屋 " + document.title;
+
+  Live2dRender.initializeLive2D({
+    BackgroundRGBA: [0.0, 0.0, 0.0, 0.0],
+    ResourcesPath: "./fense.model3.json",
+    CanvasSize: { height: 500, width: 400 },
+    ShowToolBox: false,
+    LoadFromCache: true,
+  });
+</script>
+<script>
+  let status = document.getElementById("status");
+  status.textContent = "Enjoy~";
+</script>
