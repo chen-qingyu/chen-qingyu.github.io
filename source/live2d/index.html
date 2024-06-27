@@ -1,7 +1,14 @@
 <body>
-  收集一些好看的 Live2D 的模型，后期考虑支持多个模型和互动，甚至还可以加上AI。
-  想要有 Akemi Homura 和 Lain 的模型。 现在只是一个Demo。 测试版问题较多，仅限
-  PC 端可用。
+  收集一些好看的 Live2D 的模型。
+  <br />
+  后期考虑支持多个模型（Akemi Homura 、 Lain）和互动，甚至还可以加上AI。
+  现在只是一个Demo。
+  <br />
+  测试版问题较多，目前仅 PC 端可正常显示。
+  <br />
+  模型：阿芙洛狄忒（Aphrodite）
+  <br />
+  作者：灵境Sanctuary
   <div id="status">
     Loading model... (因为启用了 PJAX，初次访问请等待几秒钟然后刷新)
   </div>
@@ -13,12 +20,10 @@
   Live2dRender.initializeLive2D({
     BackgroundRGBA: [0.0, 0.0, 0.0, 0.0],
     ResourcesPath: "./fense.model3.json",
-    CanvasSize: { height: 500, width: 400 },
+    CanvasSize: { height: 800, width: 800 },
     ShowToolBox: false,
     LoadFromCache: true,
+  }).then(() => {
+    document.getElementById("status").textContent = "Enjoy~";
   });
-</script>
-<script>
-  let status = document.getElementById("status");
-  status.textContent = "Enjoy~";
 </script>
