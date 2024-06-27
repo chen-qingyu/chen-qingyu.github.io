@@ -104,6 +104,7 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
+  实验: /live2d/ || fa fa-face-grin-wink
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
