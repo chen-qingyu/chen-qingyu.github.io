@@ -1,3 +1,4 @@
-    zh-CN:
-      reward:
-        comment: ' '
+zh-CN:
+  reward:
+    donate: '赞助'
+    comment: ' '
