@@ -2,3 +2,18 @@ zh-CN:
   reward:
     donate: '赞助'
     comment: ' '
+  cheers:
+    um: '好'
+    ok: '好'
+    nice: '好'
+    good: '好'
+    great: '好'
+    excellent: '好'
+  keep_on: '都是精华。'
+  state:
+    posts: 文章
+  counter:
+    archive_posts:
+      zero: 暂无文章。
+      one: 共计 1 篇文章。
+      other: "共计 %d 篇文章。"
