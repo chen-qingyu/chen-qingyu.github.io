@@ -4,10 +4,6 @@ date: 2019-02-22
 categories: C
 ---
 
-update 2024.06.23: 将 C 调用 C DLL 换成 Python 调用 C DLL 更有说服力。
-
----
-
 ## 介绍
 
 在 Windows 下，DLL（Dynamic Link Library，动态链接库）是一个被编译过的二进制程序，但与 .exe 文件不同，.dll 文件不能独立运行，必须由其他程序调用。

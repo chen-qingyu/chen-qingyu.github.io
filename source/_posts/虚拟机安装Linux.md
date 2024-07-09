@@ -4,10 +4,6 @@ date: 2019-02-26
 categories: Linux
 ---
 
-update 2024.06.24: 增加彩蛋 Redox。
-
----
-
 ## 前言
 
 Linux 发行版有很多，我们这里选择 CentOS Linux（以目前最新版 CentOS Linux 7 为例）。
