@@ -4,49 +4,31 @@ title: 关于
 
 # Me
 
+<font color="#FF9800">
+皈依三宝，奉持五戒<br>
+念四圣谛，行八正道<br>
+此身可灭，此愿不灭<br>
+</font>
+
+---
+
 <font color="#0000FF">
 爱科幻<br>
 爱动漫<br>
-爱一切有趣之事物。<br>
+爱一切有趣之事物<br>
 </font>
 
 <font color="#FF00FF">
 爱技术<br>
 爱编程<br>
-爱随心所欲地折腾。<br>
+爱随心所欲地折腾<br>
 </font>
 
 <font color="#FF0000">
 爱国<br>
 爱党<br>
-爱人民。<br>
+爱人民<br>
 </font>
-
----
-
-上知冒泡快排图灵机，下知谐振阻抗三极管<br>
-前有深度学习识图像，后有阻容网络来滤波<br>
-左手机械键盘敲代码，右手恒温焊枪搞电路<br>
-
-时间空间复杂度，链表队列二叉树<br>
-堆栈溢出随手调，实时系统不可少<br>
-转过电机点过灯，写过红外按过键<br>
-玩过蜂鸣听过响，最后栽在机械上<br>
-
-Windows 的 API 要会调<br>
-Linux 的 conf 要会配<br>
-再来一个 MacOS 搞设计<br>
-没钱就上虚拟机<br>
-
-微波射频物联网，前端后端嵌入式<br>
-未来无论怎么走，注意不要秃了头<br>
-
-明数据结构，懂操作系统<br>
-晓数电模电，知人工智能<br>
-正所谓，<br>
-栈溢出工程师是也<br>
-
-（ ↑ 大二心血来潮随手写的打油诗，目前只做到了大概一半……）
 
 # History
 
@@ -80,6 +62,32 @@ QQ：236521827
 
 # Creed
 
+> 点亮自己的灯火
+>
+> 做自己的一盏灯
+>
+> 觉醒吧
+>
+> 行持正法
+>
+> 专注你的内心
+>
+> 向自己皈依
+>
+> 勿依赖他人
+>
+> 一切皆无常
+>
+> 将自己安住其中
+>
+> 精进修行
+>
+> 永不认输
+>
+> —— 释迦牟尼佛最后的训诫
+
+---
+
 > Access to computers — and anything which might teach you something about the way the world works — should be unlimited and total. Always yield to the Hands-On Imperative!
 >
 > All information should be free.
@@ -93,18 +101,6 @@ QQ：236521827
 > Computers can change your life for the better.
 >
 > —— [Hacker ethic](https://en.wikipedia.org/wiki/Hacker_ethic)
-
----
-
-> Is there such a thing as a deathless happiness that can bring suffering and stress to a total end?
->
-> If there is, can this happiness be found through human effort?
->
-> If so, can it be found in a harmless and blameless way?
->
-> These are the questions that, 2,600 years ago, led a young man in northern India to leave his family, go into the wilderness, and search for the answer within himself. Eventually he awakened to the fact that the answer to all three questions was Yes: Yes, there is a deathless happiness that brings suffering to a total end. Yes, it can be found through human effort. And Yes, that effort is harmless and without blame. In awakening to these facts, he became the Buddha: the Awakened One. Devoting the rest of his life to teaching others how to find the same happiness for themselves, he established an apprenticeship of practice and thought that has branched into the many forms of Buddhism we know today.
->
-> —— [The Buddha’s Teachings](https://www.dhammatalks.org/books/BuddhasTeachings/Section0003.html)
 
 # Saying
 
@@ -164,6 +160,8 @@ QQ：236521827
 
 ---
 
+<font color="#C3C3C3">
 _给时光以生命，给岁月以文明_
+</font>
 
 ---
