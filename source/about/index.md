@@ -46,8 +46,6 @@ title: 关于
 
 另外，删除了之前对 Virtual World 的备份，因为宝藏网站 [Internet Archive](https://archive.org/) 也做了[备份](https://web.archive.org/web/20211020163321/http://swarmagents.cn.13442.m8849.cn/vm/index.htm)。
 
-Live2D 模型：阿芙洛狄忒（Aphrodite），作者：灵境 Sanctuary 。
-
 文章偶尔会有更新，因为读者可能并不会关心更新记录，而只想看最终效果，把一串更新记录放在文章里容易影响观感，所以经过考虑之后将所有的更新记录统一放在[这里](changelog)。
 
 # Contact
