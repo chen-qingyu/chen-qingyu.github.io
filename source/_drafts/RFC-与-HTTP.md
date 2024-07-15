@@ -9,6 +9,14 @@ date: 2024-07-15
 
 现行的互联网标准是 HTTP/1.1(RFC 9112) / HTTP/2.0 (RFC 9113)
 
+HTTP/0.9 的请求标头是 GET /page.html ，并没有版本信息，后来 1.0 标准化之后才在后面添加的版本信息，所以形成了 GET /page.html HTTP/1.1 这样的顺序。但是响应是 HTTP/1.1 404 Not Found 这样的，版本信息又在前面，简直逼死强迫症……
+
+Accept 和 Content-Type 不对称，Accept 应该叫 Accept-Type，和 Accept-Language 等格式也一致。逼死强迫症+2
+
+[ETag](https://www.rfc-editor.org/rfc/rfc9110#field.etag) 表示 entity-tag 应该叫 Entity-Tag 表示实体资源，逼死强迫症+3
+
+参考：
+
 9114 HTTP/3 M. Bishop [ June 2022 ] (HTML, TEXT, PDF, XML) (Status: PROPOSED STANDARD) (Stream: IETF, Area: wit, WG: quic) (DOI: 10.17487/RFC9114)
 9113 HTTP/2 M. Thomson, C. Benfield [ June 2022 ] (HTML, TEXT, PDF, XML) (Obsoletes RFC7540, RFC8740) (Status: PROPOSED STANDARD) (Stream: IETF, Area: wit, WG: httpbis) (DOI: 10.17487/RFC9113)
 9112 HTTP/1.1 R. Fielding, M. Nottingham, J. Reschke [ June 2022 ] (HTML, TEXT, PDF, XML) (Obsoletes RFC7230) (Also STD0099) (Status: INTERNET STANDARD) (Stream: IETF, Area: wit, WG: httpbis) (DOI: 10.17487/RFC9112)
