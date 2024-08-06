@@ -126,11 +126,12 @@ N[Sqrt[2]^Sqrt[2]^Sqrt[2]^Sqrt[2]^Sqrt[2]^Sqrt[2]^Sqrt[2]^Sqrt[2]^Sqrt[2]]
 
 ![](Mathematica——万物皆理/8.png)
 
-不太令人满意，幂塔写多了又难看，来定义一个函数吧：
+不太令人满意，幂塔写多了又难看，定义一个函数来计算吧：
 
 ```mathematica
 tetration[1] = Sqrt[2];
 tetration[n_] := Sqrt[2]^tetration[n - 1];
+N[tetration[100]]
 ```
 
 这样我们就能算任意幂塔的具体数值了。
