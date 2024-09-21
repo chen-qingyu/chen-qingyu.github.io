@@ -6,15 +6,20 @@ tags:
 
 🚧 个人博客施工中…… 🚧
 
-| TODO                                | Progress        |
-| ----------------------------------- | --------------- |
-| 恢复个人博客                        | 已完成          |
-| 重构整理所有文章                    | 30%             |
-| 重构分类                            | 未开始          |
-| 启用标签                            | 未开始          |
-| Google Fonts                        | 等待 issue 反馈 |
-| relative path referencing of images | 等待 issue 反馈 |
-| unique avatar                       | 已完成          |
-| traverse hexo plugins               | 未开始          |
+| TODO                                 | Progress        |
+| ------------------------------------ | --------------- |
+| 恢复个人博客                         | 已完成          |
+| 重构整理所有文章                     | 30%             |
+| 重构分类                             | 明年开始        |
+| 启用标签                             | 明年开始        |
+| Google Fonts                         | 等待 issue 反馈 |
+| relative path referencing of images  | 等待 issue 反馈 |
+| unique avatar                        | 已完成          |
+| traverse hexo plugins                | 明年开始        |
+| 更改 GitHub 用户名，更新所有引用^\*^ | 明年开始        |
 
-（为爱发电，空闲时间并不多，进度稍慢）
+^\*^: 这个博客的网址也会改变，如果哪天这个博客 404 了，应该可以在我的知乎上找到最新地址
+
+为爱发电，空闲时间并不多，进度稍慢。
+
+（事情攒得多，时间过得快，状态又经常不好，真希望无忧无虑自由自在啊……）
