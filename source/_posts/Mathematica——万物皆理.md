@@ -138,7 +138,7 @@ N[tetration[100]]
 
 ![](Mathematica——万物皆理/9.png)
 
-嗯……是 2，不过总觉得少了点什么……少了点什么呢？对！少了画图！
+嗯……是 2，不过总觉得少了点什么……少了点什么呢？对！求极限！但是爆栈了……那么画个图吧！
 
 ```mathematica
 ListPlot[Table[tetration[n], {n, 100}], PlotRange -> All]
