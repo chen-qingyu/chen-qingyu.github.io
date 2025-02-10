@@ -27,12 +27,12 @@ $$
 $$
 
 ```mathematica
- D[3*x^2, x]
+D[3*x^2, x]
 ```
 
 ![](Mathematica——万物皆理/2.png)
 
-Good，算出来了，不过重点不是这个。注意到输入的表达式很易于阅读，是的，输入代码后快捷键格式化一下（格式化是为了好看，不管格式化与否都能运行，都是代码）就自动转为这种 Mathematica 里面的标准格式了，可以复制、粘贴、修改、运行等等，有点像 LaTex。
+Good，算出来了，不过重点不是这个。注意到输入的表达式很易于阅读，是的，输入代码后快捷键格式化一下（格式化是为了好看，不管格式化与否都能运行，都是代码）就自动转为这种 Mathematica 里面的标准格式了，可以复制、粘贴、修改、运行等等，有点像 $\LaTeX$ 。
 
 再来一个积分：
 
@@ -88,7 +88,7 @@ E^(I*Pi)
 Table[Plot[f[x], {x, -Pi, Pi}], {f, {Sin, Cos, Tan, Cot, Sec, Csc}}]
 ```
 
-这句意思是说生成一个表，表的内容是画的图，图的内容是 f[x]，其中 f 是后面的表。
+这句意思是说生成一个表，表的内容是画的图，图的内容是 `f[x]`，其中 `f` 是后面的表。
 
 ![](Mathematica——万物皆理/7.png)
 
@@ -97,26 +97,14 @@ Table[Plot[f[x], {x, -Pi, Pi}], {f, {Sin, Cos, Tan, Cot, Sec, Csc}}]
 有个东西叫做 Tetration，简单来说就是继加，乘，幂之后的第四种运算，大概长这样：
 
 $$
-x^{x^{x^{x...}}}
+x^{x^{x^{x^{...}}}}
 $$
 
-知乎上有篇文章讲得比较好，可以先看一下那篇文章：
-
-[由根号 2 的根号 2 的根号 2...次方次方引发的讨论](https://zhuanlan.zhihu.com/p/25150820)
+知乎上有篇文章讲得比较好，可以先看一下那篇文章：[由根号 2 的根号 2 的根号 2...次方次方引发的讨论](https://zhuanlan.zhihu.com/p/25150820)
 
 当无限个 $\sqrt2$ 套娃的时候，它是收敛于 2 的吗？
 
-用 Knuth's up-arrow notation 表示的话就是这样：
-
-$$
-\sqrt2 \uparrow \uparrow \omega
-$$
-
-用 Conway chained arrow notation 表示的话就是这样：
-
-$$
-\sqrt2 \rightarrow \omega \rightarrow 2
-$$
+用 Knuth's up-arrow notation 表示的话就是这样：$\sqrt2 \uparrow \uparrow \omega$
 
 来用程序验证一下：
 
@@ -138,7 +126,13 @@ N[tetration[100]]
 
 ![](Mathematica——万物皆理/9.png)
 
-嗯……是 2，不过总觉得少了点什么……少了点什么呢？对！求极限！但是爆栈了……那么画个图吧！
+嗯……是 2，不过总觉得少了点什么……少了点什么呢？
+
+对！求极限！
+
+但是爆栈了……
+
+那么画个图吧！
 
 ```mathematica
 ListPlot[Table[tetration[n], {n, 100}], PlotRange -> All]
@@ -170,7 +164,7 @@ Mathematica 的能力对我来说可以用震撼来形容。我是学 EE（Elect
 
 ---
 
-和 Mathematica 有关的，还有 Wolfram | Alpha、元胞自动机、《A New Kind of Science》等等……
+和 Mathematica 有关的，还有 [Wolfram | Alpha](https://www.wolframalpha.com)、[元胞自动机](https://zh.wikipedia.org/wiki/%E7%B4%B0%E8%83%9E%E8%87%AA%E5%8B%95%E6%A9%9F)、[《A New Kind of Science》](https://www.wolframscience.com/nks)等等……
 
 这些都和一个人有关：Stephen Wolfram
 
