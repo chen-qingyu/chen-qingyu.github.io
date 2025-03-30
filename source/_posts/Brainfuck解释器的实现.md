@@ -46,7 +46,7 @@ void interpret()
     for (int code_ptr = 0; code_ptr < code_size; code_ptr++)
     {
         switch (code[code_ptr])
-    {
+        {
             // Increase value at current data cell by one.
             case '+':
                 memory[memory_ptr]++;
