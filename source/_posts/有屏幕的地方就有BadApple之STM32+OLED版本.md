@@ -1,4 +1,4 @@
-﻿---
+---
 title: 有屏幕的地方就有Bad Apple之STM32+OLED版本
 date: 2020-08-25 18:49:19
 categories: 编程
