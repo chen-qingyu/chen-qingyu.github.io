@@ -1,7 +1,8 @@
 ---
 title: 'How GitHub Works: Hours are Bullshit'
 date: 2019-09-13 17:05:55
-categories: Others
+categories: 思想
+tags: [社会观察, 工作制度, 翻译]
 ---
 
 这是我偶然在网上看到的一篇文章，深以为然。原文如下，译文在后。

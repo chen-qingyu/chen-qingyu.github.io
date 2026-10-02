@@ -1,7 +1,8 @@
 ---
 title: 八个有趣的Linux命令
 date: 2019-03-01
-categories: Linux
+categories: 技术
+tags: [系统与运维, Linux]
 ---
 
 Linux 系统上有许多有趣的命令，这里以 Ubuntu 为例，看看效果。

@@ -1,7 +1,8 @@
 ---
 title: Windows系统优化
 date: 2018-11-13 14:34:03
-categories: Others
+categories: 技术
+tags: [系统与运维, Windows, 效率]
 ---
 
 这是我自己在实践中总结的一套优化 Windows 系统的流程，按流程走一次就够了。适用于 Windows 10。

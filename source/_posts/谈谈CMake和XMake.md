@@ -1,7 +1,8 @@
 ---
 title: 谈谈CMake和XMake
 date: 2025-11-09 22:46:35
-tags:
+categories: 技术
+tags: [构建与部署]
 ---
 
 作为一个 C++开发者，我一直觉得 CMake 总能用各种诡异的方式折磨你。

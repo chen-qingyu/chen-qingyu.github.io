@@ -1,7 +1,8 @@
 ---
 title: CA模拟股市
 date: 2019-08-25 22:22:36
-categories: Others
+categories: 技术
+tags: [科学计算]
 ---
 
 这篇文章的灵感来源于[释放比特自由](http://swarmagents.cn.13442.m8849.cn/vm/articles/freebits.htm)

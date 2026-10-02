@@ -1,7 +1,8 @@
 ---
 title: C语言任意类型数组排序
 date: 2021-01-31 21:22:26
-categories: C
+categories: 编程
+tags: [C]
 ---
 
 # 前言

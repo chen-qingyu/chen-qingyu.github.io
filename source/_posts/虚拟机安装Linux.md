@@ -1,7 +1,8 @@
 ---
 title: 虚拟机安装Linux
 date: 2019-02-26
-categories: Linux
+categories: 技术
+tags: [系统与运维, Linux]
 ---
 
 ## 前言

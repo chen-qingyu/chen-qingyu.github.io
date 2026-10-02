@@ -1,7 +1,8 @@
 ---
 title: MATLAB信号处理
 date: 2019-01-22
-categories: MATLAB
+categories: 技术
+tags: [科学计算]
 ---
 
 这篇文章主要展示一下 MATLAB 画信号。
