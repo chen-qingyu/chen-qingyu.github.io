@@ -1,7 +1,8 @@
 ---
 title: Multisim电路仿真
 date: 2019-01-19
-categories: Multisim
+categories: 技术
+tags: [科学计算]
 ---
 
 ## 基础电路

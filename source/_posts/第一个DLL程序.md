@@ -1,7 +1,8 @@
 ---
 title: 第一个DLL程序
 date: 2019-02-22
-categories: C
+categories: 编程
+tags: [C, Python, Windows]
 ---
 
 ## 介绍

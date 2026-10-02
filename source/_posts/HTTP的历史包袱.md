@@ -1,7 +1,7 @@
 ---
 title: HTTP 的历史包袱
 date: 2024-07-15 00:00:00
-tags:
+categories: 技术
 ---
 
 HTTP/3 通过基于 UDP 的 QUIC 传输。RFC 9114 于 2022 年发布，状态是 Proposed Standard。教科书里那句“HTTP 基于 TCP”，看来得补个脚注了：HTTP/1.1 通常跑在 TCP 上，HTTP/3 则跑在 QUIC 上；HTTP 本身不是 TCP 的别名。

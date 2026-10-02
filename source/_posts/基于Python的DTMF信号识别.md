@@ -1,7 +1,8 @@
 ---
 title: 基于Python的DTMF信号识别
 date: 2020-10-20 03:58:19
-categories: Python
+categories: 编程
+tags: [Python]
 ---
 
 # 前言

@@ -1,7 +1,8 @@
 ---
 title: Brainfuck解释器的实现
 date: 2021-04-25 10:57:28
-categories: C
+categories: 编程
+tags: [C]
 ---
 
 # 1. Brainfuck 简介

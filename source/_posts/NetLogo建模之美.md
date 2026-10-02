@@ -1,7 +1,8 @@
 ---
 title: NetLogo建模之美
 date: 2019-08-08
-categories: NetLogo
+categories: 技术
+tags: [科学计算]
 ---
 
 ## 简介

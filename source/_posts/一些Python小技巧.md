@@ -1,7 +1,8 @@
 ---
 title: 一些Python小技巧
 date: 2019-08-19
-categories: Python
+categories: 编程
+tags: [Python, 技巧]
 ---
 
 ## 1. 进制格式化输出

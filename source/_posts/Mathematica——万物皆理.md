@@ -1,7 +1,8 @@
 ---
 title: Mathematica——万物皆理
 date: 2019-05-08
-categories: Mathematica
+categories: 技术
+tags: [科学计算, 函数式编程, Mathematica]
 ---
 
 我怀着激动的心情写下这篇文章，行文风格可能比较飘 ~(￣ ▽ ￣)~\*
