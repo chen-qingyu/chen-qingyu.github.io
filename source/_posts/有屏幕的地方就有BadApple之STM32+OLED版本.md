@@ -7,7 +7,7 @@ tags: [底层与嵌入式]
 
 Bad Apple - STM32 OLED版本
 
-<video src="./有屏幕的地方就有BadApple之STM32+OLED版本/video.mp4" controls="controls">您的浏览器不支持播放该视频</video>
+<video src="./video.mp4" controls="controls">您的浏览器不支持播放该视频</video>
 
 MCU: STM32F103
 
